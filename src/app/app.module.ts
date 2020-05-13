@@ -11,6 +11,7 @@ import { InsCounterfeitComponent } from './ins-counterfeit/ins-counterfeit.compo
 import { InsTrafficComponent } from './ins-traffic/ins-traffic.component';
 import { InsPosComponent } from './ins-pos/ins-pos.component';
 import { InsReportComponent } from './ins-report/ins-report.component';
+import { InsStoredTrafficComponent } from './ins-stored-traffic/ins-stored-traffic.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InsReportComponent } from './ins-report/ins-report.component';
     InsCounterfeitComponent,
     InsTrafficComponent,
     InsPosComponent,
-    InsReportComponent
+    InsReportComponent,
+    InsStoredTrafficComponent
   ],
   imports: [
     BrowserModule,

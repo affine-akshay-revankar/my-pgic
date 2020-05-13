@@ -7,7 +7,7 @@
     margin-top:20px;
 }
 .detectbutton{
-    margin-top: 188px;
+    margin-top: 10px;
 }
 .selectedimage{
     height: 100px;
@@ -19,3 +19,12 @@
     border:1px solid black;
     margin:20px;
 }
+.opts-container {
+    height: calc(100vh - 167px);
+  }
+  @media screen and (min-width:768px){
+    .detectbutton{
+        margin-top: 188px;
+    }
+  }
+  

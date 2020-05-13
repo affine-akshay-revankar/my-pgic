@@ -7,7 +7,7 @@ import { InsTrafficComponent }   from './ins-traffic/ins-traffic.component';
 import { InsPosComponent }   from './ins-pos/ins-pos.component';
 import { InsCounterfeitComponent }   from './ins-counterfeit/ins-counterfeit.component';
 import { InsReportComponent } from './ins-report/ins-report.component';
-
+import { InsStoredTrafficComponent } from './ins-stored-traffic/ins-stored-traffic.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/intro', pathMatch: 'full' },
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'ins-pos', component: InsPosComponent },
   { path: 'ins-counterfeit', component: InsCounterfeitComponent },
   { path: 'ins-report', component: InsReportComponent },
-
+  { path: 'ins-stored_traffic', component: InsStoredTrafficComponent },
 ];
 
 @NgModule({
