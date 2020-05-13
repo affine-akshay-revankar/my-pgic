@@ -10,6 +10,7 @@ import { InstoreComponent } from './instore/instore.component';
 import { InsCounterfeitComponent } from './ins-counterfeit/ins-counterfeit.component';
 import { InsTrafficComponent } from './ins-traffic/ins-traffic.component';
 import { InsPosComponent } from './ins-pos/ins-pos.component';
+import { InsReportComponent } from './ins-report/ins-report.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { InsPosComponent } from './ins-pos/ins-pos.component';
     InstoreComponent,
     InsCounterfeitComponent,
     InsTrafficComponent,
-    InsPosComponent
+    InsPosComponent,
+    InsReportComponent
   ],
   imports: [
     BrowserModule,
