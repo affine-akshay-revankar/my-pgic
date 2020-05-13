@@ -1,13 +1,15 @@
 header {
   border-bottom: 1px solid #ccc;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+
   .header-text-parent {
-    height: 70px;
+    min-height: 70px;
     .header-text {
         color: #57afe4;
         font-weight: bold;
         font-size: 32px;
-        line-height: 70px;
+        padding: 10px 0 0;
     }
   }
-
 }
