@@ -1,13 +1,15 @@
 import "@angular/compiler";
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { AuthGuard, Globals } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighchartsChartModule,
   ],
   exports: [
 
