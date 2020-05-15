@@ -1,20 +1,22 @@
-<h3 class="text">IN STORE TRAFFIC SUMMARY</h3>
+
 <div class="container-fluid">
+    <h3>IN STORE TRAFFIC SUMMARY</h3>
+<hr>
     <div class="row">
         <div class="col-md-7">
             <div class="card video">
                 <h6 class="text">In Store Video Feed</h6>
+                <hr>
                 <div class="row">
                     <div class="col-md-6 ">
-                        <div class="card video2">
+                        <div class="video2">
                             Beauty & Grooming
-                              <div width="100%">
-                              <div [innerHtml]="yt_iframe_html"></div>
-                              </div>
+                              <div [innerHtml]="dm_iframe_html"></div>
+                              
                         </div>
                     </div>
-                    <div class="col-md-6 ">
-                        <div class="card video2">
+                    <div class="col-md-6">
+                        <div class="video2">
                             Frozen Food Section
                               <div [innerHtml]="dm_iframe_html"></div>
                         </div>
@@ -22,13 +24,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="card video2">
+                        <div class="video2">
                             Personal Health Care Section
                               <div [innerHtml]="dm_iframe_html"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card video2">
+                        <div class="video2">
                             Home Care Section
                               <div [innerHtml]="dm_iframe_html"></div>
                         </div>
@@ -40,6 +42,7 @@
             <div class="col-md-12 padding">
                 <div class="card trafficgraph">
                     <h6 class="text">Traffic Intensity By TIme</h6>
+                    <hr>
                     <div class="row">
                         <div class="table table-bordered table-responsive">
                             <table class="table">
@@ -64,9 +67,20 @@
                             </table>
                           </div>
                      </div>
-                    <!-- <div class="data"></div> -->
                 </div>
             </div>
+                     <div class="col-md-12">
+                        <div class="card trafficgraph">
+                            <h6 class="text">Traffic Intensity Across Store</h6>
+                            <hr>
+                            <div [chart]="chart"></div>
+                            
+                            <!-- <div class="data">
+                            </div> -->
+                        
+                    </div>
+                
+            
             
         </div>
     </div>

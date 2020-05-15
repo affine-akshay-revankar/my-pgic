@@ -12,37 +12,9 @@
                 <img class="card-img-top" id="myImg1" src="../../assets/logo.png" alt="tide" style="width:20%" (click)="selectimage()"> 
                 <img class="card-img-top" id="myImg2" src="../../assets/tide.jpg" alt="tide" style="width:20%" (click)="selectimage()">  -->
                 
-                
-                <div id="demo" class="carousel slide" data-ride="carousel">
-
-                    <!-- Indicators -->
-                    <ul class="carousel-indicators">
-                      <li data-target="#demo" data-slide-to="0" class="active "></li>
-                      <li data-target="#demo" data-slide-to="1"></li>
-                      <li data-target="#demo" data-slide-to="2"></li>
-                    </ul>
-                    
-                    <!-- The slideshow -->
-                    <div class="carousel-inner">
-                      <div class="carousel-item active" (click)="selectimage()">
-                        <img  src="../../assets/Tide/tide.jpg" class="myImg" alt="Los Angeles" width="100%" height="100">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="../../assets/Tide/tide2.jpg" class="myImg" id="myImg1" alt="Chicago" width="100%" height="100">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="../../assets/Tide/tide3.jpg" id="myImg2" alt="New York" class="myImg" width="100%" height="100">
-                      </div>
-                    </div>
-                    
-                    <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                      <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                      <span class="carousel-control-next-icon"></span>
-                    </a>
-                  </div>
+                <!-- <div *ngFor="let item of allImages">
+                 {{item.path}}
+                </div> -->
                 <div class="card-body">
                 </div>
                 <div><button class="btn btn-primary recepients" (click)=" upload()" [disabled]="(uploads == false) ? 'disabled': null">UPLOAD RECIEPTS</button></div>
