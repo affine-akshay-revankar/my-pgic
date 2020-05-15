@@ -30,8 +30,7 @@ export class InsReportComponent implements OnInit {
     {product:"T1",unit :"8",sale:"7"},
     {product:"T2",unit :"9",sale:"7"},
     {product:"T3",unit :"8",sale:"5"},
-    {product:"T4",unit :"6",sale:"7"}];
-    requests1=[
+    {product:"T4",unit :"6",sale:"7"},
     {product:"T5",unit :"8",sale:"7"},
     {product:"T6",unit :"8",sale:"4"},
     {product:"T7",unit :"8",sale:"7"},
