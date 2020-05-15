@@ -1,0 +1,39 @@
+.text{
+    text-align:center;
+}
+.video{
+    // height:411px;
+    margin-top:10px;
+}
+.trafficgraph{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.data{
+    border: 1px solid black;
+    height: 148px;
+    margin: 10px;
+}
+.padding{
+    padding:0px;
+}
+.video2{
+    border:1px solid black;
+    margin: 25px;
+    margin-top:40px;
+}
+.table-responsive{
+margin-left: 26px;
+margin-right: 26px;
+margin-bottom:0px;
+}
+.platformRating{
+    display:inline-block;
+}
+
+#platformRating select,
+#platformRating p {
+  display: inline;
+  vertical-align: top;
+  line-height: 28px;
+}

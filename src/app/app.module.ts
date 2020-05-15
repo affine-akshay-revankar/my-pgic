@@ -22,7 +22,8 @@ import { ChartModule } from 'angular-highcharts';
     FormsModule,
     ReactiveFormsModule,
     EmbedVideo.forRoot(),
-    ChartModule
+    ChartModule,
+    CommonModule
   ],
   exports: [
 

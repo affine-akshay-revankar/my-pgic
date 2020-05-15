@@ -53,7 +53,7 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let data of array">
+                                <tr *ngFor="let data of array1[0]">
                                   <td>{{data.Time}}</td>
                                   <td>{{data.Grooming}}</td>
                                   <td>{{data.Frozen}}</td>
@@ -67,41 +67,7 @@
                     <!-- <div class="data"></div> -->
                 </div>
             </div>
-            <div class="col-md-12 padding">
-                <div class="card trafficgraph">
-                    <h6 class="text">Traffic Intensity Across Store</h6>
-                    <!-- <div class="col-md-6">From</div> -->
-                    <div class="row">
-                       <div class="col-md-6" id="platformRating">
-                        <div style="float: left; margin-left: 10px;">
-                        <div id="platformRating">
-                          <p>From</p>
-                          <select id="cboPlatform" name="cboPlatform">
-                            <option>T1</option>
-                            <option>T2</option>
-                            <option>T3</option>
-                            <option>T4</option>
-                          </select>
-                        </div>
-                      </div>
-                       </div>
-                       <div class="col-md-6"> 
-                        <div style="float: left; margin-left: 10px;">
-                            <div id="platformRating">
-                              <p>To</p>
-                              <select id="cboPlatform" name="cboPlatform">
-                                <option>T1</option>
-                                <option>T2</option>
-                                <option>T3</option>
-                                <option>T4</option>
-                              </select>
-                            </div>
-                          </div>
-                       </div>
-                    </div>
-                    <!-- <div [chart]="chart"></div> -->
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>
