@@ -16,8 +16,8 @@ export class IntroComponent implements OnInit {
 
   }
 
-  navigateTo() {
-    this.router.navigate(['/instore']);
+  navigateTo(path) {
+    this.router.navigate([path]);
   }
 
 }
