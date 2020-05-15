@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AuthGuard, Globals } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmbedVideo } from 'ngx-embed-video';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EmbedVideo.forRoot(),
+    ChartModule
   ],
   exports: [
 

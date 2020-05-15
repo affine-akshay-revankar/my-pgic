@@ -1,21 +1,22 @@
 <h3 class="text">IN STORE TRAFFIC SUMMARY</h3>
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="card video">
                 <h6 class="text">In Store Video Feed</h6>
                 <div class="row">
                     <div class="col-md-6 ">
                         <div class="card video2">
                             Beauty & Grooming
-                            <hr>
+                              <div width="100%">
+                              <div [innerHtml]="yt_iframe_html"></div>
+                              </div>
                         </div>
                     </div>
                     <div class="col-md-6 ">
                         <div class="card video2">
                             Frozen Food Section
-                            <hr>
+                              <div [innerHtml]="dm_iframe_html"></div>
                         </div>
                     </div>
                 </div>
@@ -23,30 +24,47 @@
                     <div class="col-md-6">
                         <div class="card video2">
                             Personal Health Care Section
-                            <hr>
+                              <div [innerHtml]="dm_iframe_html"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card video2">
                             Home Care Section
-                            <hr>
+                              <div [innerHtml]="dm_iframe_html"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="col-md-12 padding">
                 <div class="card trafficgraph">
                     <h6 class="text">Traffic Intensity By TIme</h6>
                     <div class="row">
-                        <div class="col-md-4">Store Selection
-                        </div>
-                        <div class="col-md-4">From
-                        </div>
-                        <div class="col-md-4"> To</div>
+                        <div class="table table-bordered table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Time</th>
+                                  <th>Beuty & Grooming</th>
+                                  <th>Frozen Food</th>
+                                  <th>Health Care</th>
+                                  <th>Home care</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let data of array">
+                                  <td>{{data.Time}}</td>
+                                  <td>{{data.Grooming}}</td>
+                                  <td>{{data.Frozen}}</td>
+                                  <td>{{data.Health}}</td>
+                                  <td>{{data.Home}}</td>
+                                </tr>                               
+                              </tbody>
+                            </table>
+                          </div>
                      </div>
-                    <div class="data"></div>
+                    <!-- <div class="data"></div> -->
                 </div>
             </div>
             <div class="col-md-12 padding">
@@ -54,11 +72,34 @@
                     <h6 class="text">Traffic Intensity Across Store</h6>
                     <!-- <div class="col-md-6">From</div> -->
                     <div class="row">
-                       <div class="col-md-6">From
+                       <div class="col-md-6" id="platformRating">
+                        <div style="float: left; margin-left: 10px;">
+                        <div id="platformRating">
+                          <p>From</p>
+                          <select id="cboPlatform" name="cboPlatform">
+                            <option>T1</option>
+                            <option>T2</option>
+                            <option>T3</option>
+                            <option>T4</option>
+                          </select>
+                        </div>
+                      </div>
                        </div>
-                       <div class="col-md-6"> To</div>
+                       <div class="col-md-6"> 
+                        <div style="float: left; margin-left: 10px;">
+                            <div id="platformRating">
+                              <p>To</p>
+                              <select id="cboPlatform" name="cboPlatform">
+                                <option>T1</option>
+                                <option>T2</option>
+                                <option>T3</option>
+                                <option>T4</option>
+                              </select>
+                            </div>
+                          </div>
+                       </div>
                     </div>
-                    <div class="data"></div>
+                    <!-- <div [chart]="chart"></div> -->
                 </div>
             </div>
         </div>

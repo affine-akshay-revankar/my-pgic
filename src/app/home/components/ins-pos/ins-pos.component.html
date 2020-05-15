@@ -1,35 +1,163 @@
 <h3 class="text">IN STORE ANALYTICS >> ESTIMATING POS THROUGHPUT</h3>
+<div class="container-fluid">
+    <button class="btn btn-danger" (click)="uploadBtn()">UPLOAD</button>
+    <button class="btn btn-light reports" (click)="reportBtn()">REPORTS</button>
+</div>
+
 <div class="container">
-    <button class="btn btn-danger">UPLOAD</button>
-    <button class="btn btn-light reports" routerLink="/ins-report">REPORTS</button>
     <div class="row">
-        <div class="col-md-4 uploads">
+        <div class="col-md-3 uploads">
             <div class="card cardsize">
-                <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"> -->
+                <!-- <img class="card-img-top" id="myImg" src="../../assets/tide.jpg" alt="tide" style="width:20%" (click)="selectimage()">
+                <img class="card-img-top" id="myImg1" src="../../assets/logo.png" alt="tide" style="width:20%" (click)="selectimage()"> 
+                <img class="card-img-top" id="myImg2" src="../../assets/tide.jpg" alt="tide" style="width:20%" (click)="selectimage()">  -->
+                
+                
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                      <li data-target="#demo" data-slide-to="0" class="active "></li>
+                      <li data-target="#demo" data-slide-to="1"></li>
+                      <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                    
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" (click)="selectimage()">
+                        <img  src="../../assets/Tide/tide.jpg" class="myImg" alt="Los Angeles" width="100%" height="100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../../assets/Tide/tide2.jpg" class="myImg" id="myImg1" alt="Chicago" width="100%" height="100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../../assets/Tide/tide3.jpg" id="myImg2" alt="New York" class="myImg" width="100%" height="100">
+                      </div>
+                    </div>
+                    
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                    </a>
+                  </div>
                 <div class="card-body">
                 </div>
-                <div><button class="btn btn-primary recepients">UPLOAD RECIEPTS</button></div>
+                <div><button class="btn btn-primary recepients" (click)=" upload()" [disabled]="(uploads == false) ? 'disabled': null">UPLOAD RECIEPTS</button></div>
             </div>
         </div>
 
         <div class="col-md-3 offset-md-1 process">
-            <div class="card cardsize">
-                <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"> -->
-                <div class="card-body viewimage">view upload image
-                    <!-- <div class="test rounded-circle"></div> -->
-                </div>
-                <div><button class="btn btn-primary recepients">CLICK TO PROCESS</button></div>
-
-            </div>
-            <!-- <div class="col-md-3">
-              <button class="btn btn-danger col-md-3">CLICK TO PROCESS</button>
-              </div> -->
+            <div><button class="btn btn-primary recepients processbutton" (click)="process()"  [disabled]="(processing == false) ? 'disabled': null">CLICK TO PROCESS</button></div>
         </div>
         <div class="col-md-3 offset-md-1 preview">
             <div class="card previewbody">
-                <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"> -->
+                <img class="card-img-top" src="{{uploadedimage}}" alt="" style="width:100%">
                 <div class="card-body">
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reports -->
+
+<div class="container reportstart">
+    <div class="row selectmenu">
+        <div class="col-md-3">Select Time Period</div>
+        <div class="col-md-3">Select Level</div>
+        <div class="col-md-3">Select Geography</div>
+        <div class="col-md-3">Select Product</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">Total Revenue
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">Total Transaction
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">Avg. Customer Spend
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">XXXXX
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Second layout -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card trendchart">
+                <div class="card-body trend">
+                    <div class="card">
+                <div class="card-body">
+                    TREND CHART SHOWING REVENUE
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card customertrend">
+                <div class="card-body trend">
+                    <div class="card">
+                        <div class="card-body">
+                            AVG CUSTOMER TREND
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card product">
+                <div class="card-body trend">
+                    <div class="card">
+                        <div class="card-body">
+                            XXX
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="col-md-12 margin">
+            <div class="card products">
+                <div class="card-body">
+                    Top 10 Products - List a table with KPIs<br>
+                    Bottom 10 Products /Brands - Unit Sold
+                </div>
+            </div>
+            </div>
+            <div class="col-md-12 margin">
+                <div class="card products">
+                    <div class="card-body">
+                        Bottom 10 Products - List a table with KPIs
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card graph">
+                PRODUCT AFFINITY DIAGRAM
             </div>
         </div>
     </div>

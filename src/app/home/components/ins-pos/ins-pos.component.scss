@@ -7,6 +7,7 @@
 .cardsize{
     height: 350px;
     width:90%;
+    padding-top: 72px;
 }
 .viewimage{
     padding-top: 128px;
@@ -27,4 +28,56 @@
     height: 70px;
     background-color: yellow;
   }
+  @media screen and (min-width:768px){
+    .processbutton{
+        margin-top: 188px;
+    }
+  }
 
+
+  .text{
+    text-align:center;
+}
+.reports{
+    margin-left:10px;
+}
+.buttons{
+    margin-bottom: 20px;
+}
+.selectmenu{
+    margin-bottom: 20px;;
+}
+.card-body{
+    padding-top:50px;
+    padding-bottom: 5px;
+    padding-left:5px;
+}
+.card{
+    margin-bottom:10px;
+}
+.trendchart,.customertrend,.product{
+    height:320px;
+}
+.products{
+    height:200px;
+}
+.graph{
+    height:400px;
+}
+.trend{
+    margin-top: 85px;
+    padding-left: 43px;
+    padding-right: 43px;
+}
+.margin{
+    padding:0px;
+}
+.reportstart{
+    padding:20px;
+}
+.carousel-control-prev,.carousel-control-next{
+    background-color: red;
+}
+.carousel slide{
+    margin-top:25px;
+}
