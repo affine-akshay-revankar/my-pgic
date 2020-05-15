@@ -20,4 +20,8 @@ export class IntroComponent implements OnInit {
     this.router.navigate([path]);
   }
 
+  open(url){
+    window.open(url, '_blank');
+  }
+
 }
