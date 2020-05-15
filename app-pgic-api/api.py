@@ -9,6 +9,7 @@ import json
 from flask import Flask, request, jsonify
 import logging, os
 from results.traffic.Convert_CSV_to_Dictionary import csv_to_dictionary
+from results.pos_reports.WarehouseLogs import show_details
 from flask_cors import CORS
 import time
 
@@ -74,12 +75,14 @@ Reads the json file with the specified file name and filters the data for the sp
 '''
 @app.route('/api/getPosReportData', methods = ['GET'])
 def getPosReportData():
-  fromdatetime = request.args.get('from')
-  todatetime = request.args.get('to')
-  level = request.args.get('level')
-  geography = request.args.get('geography')
+  fromdate = request.args.get('from')
+  todate = request.args.get('to')
+  state = request.args.get('state')
+  city = request.args.get('city')
   product = request.args.get('product')
-  resp = {'fromdatetime': fromdatetime, 'todatetime':todatetime, 'level':level, 'geography':geography, 'product':product}
+  filepath = r'results/pos_reports/P&G Global Hackathin_Mockup_v5_1.xlsx'
+  resp = show_details(fromdate, todate, state, city, product, filepath)
+  # resp = {'fromdatetime': fromdatetime, 'todatetime':todatetime, 'level':level, 'geography':geography, 'product':product}
   return jsonify(resp)
 
 
