@@ -68,6 +68,12 @@ table {
     margin: 12px 12px 12px 0px;
     max-width: 24%;
   }
+  @media(max-width : 720px) {
+  .margin1{
+      margin: 0px 0px 0px 0px;
+      max-width: none;
+    }/* Styles */
+}
 .aa-field-label, .aa-field-value {
       font-size: 16px;
       margin: 7px 0;

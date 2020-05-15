@@ -20,10 +20,10 @@ export class InsReportComponent implements OnInit {
   levelList:any=[1,2,3,4];
   geographyList: any=["India","USA","APAC"];
   productList: any=["Tide","Head&Shoulders","SurfExcel"]
-  level: any;
-  product: any;
-  geography:any;
-  startDate: any;
+  level: any= "";
+  product: any ="";
+  geography:any="";
+  startDate: any="";
   endDate:any;
   totaltranscation: any =123;
   requests = [
