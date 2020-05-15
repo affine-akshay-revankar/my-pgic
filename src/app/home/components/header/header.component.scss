@@ -8,8 +8,8 @@ header {
     .header-text {
         color: #57afe4;
         font-weight: bold;
-        font-size: 32px;
-        padding: 10px 0 0;
+        font-size: 24px;
+        padding: 16px 0 0;
     }
   }
 
@@ -17,5 +17,9 @@ header {
     width: 61px;
     height: 62px;
     margin: 7px 0 0;
+  }
+
+  nav {
+    padding: 16px 0 0;
   }
 }
