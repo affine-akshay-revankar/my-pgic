@@ -1,15 +1,15 @@
 <div class="container">
-  <h5 class="text">CUNTERFEIT PRODUCT DETECTION</h5>
+  <h5 class="text">COUNTERFEIT PRODUCT DETECTION</h5>
   <hr>
   <div class="row">
     <div class="col-md-3">
       <div class="card select">
         <p class="header">Product</p>
         <hr>
-        <select class="form-control" name="businessType" (change)="selectproduct($event.target.value)" required>
+        <select class="form-control selecttag" name="businessType" (change)="selectproduct($event.target.value)" required>
           <option>Select</option>
-          <option value="Tide">Tide</option>
-          <option value="Head & Holder">Head & Holder</option>
+          <option *ngFor="let item of product">{{item.name}}</option>
+          <!-- <option value="Head & Holder">Head & Holder</option> -->
         </select>
       </div>
     </div>
@@ -69,11 +69,9 @@
         <p class="choosegallery">Counterfeit Estimation</p>
 
         <div class="row">
-          <div class="col-md-6"><label class="label">Product</label><input type="text" class="form-control text"></div>
-          <div class="col-md-6"><label class="label">Store</label><input type="text" class="form-control"></div>
           <div class="col-md-6"><label class="label">Counterfeit</label><input type="text" class="form-control text">
           </div>
-          <div class="col-md-6"><label class="label">Counterfeit</label> <input type="text" class="form-control"></div>
+          <div class="col-md-6"><label class="label">Counterfeit</label> <input type="text" class="form-control secondtext"></div>
         </div>
       </div>
     </div>

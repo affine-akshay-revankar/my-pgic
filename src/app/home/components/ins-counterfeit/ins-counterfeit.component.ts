@@ -14,15 +14,19 @@ export class InsCounterfeitComponent implements OnInit {
   path:boolean = false;
   success:boolean = false;
   chooseFile:boolean = true;
+  product=[
+    {id:1,name:"Tide"},
+    {id:1,name:"Head & Shoulders"},
+]
   array=[
     {id:1,path:"../../../../assets/Tide/tide1.jpg",name:"Tide"},
     {id:2,path:"../../../../assets/Tide/tide2.jpg",name:"Tide"},
     {id:3,path:"../../../../assets/Tide/tide3.png",name:"Tide"},
     {id:4,path:"../../../../assets/Tide/tide4.jpg",name:"Tide"},
     {id:5,path:"../../../../assets/Tide/tide5.png",name:"Tide"},
-    {id:6,path:"../../../../assets/Head & Sholder/H1.jpg",name:"Head & Holders"},
-    {id:7,path:"../../../../assets/Head & Sholder/H2.jpg",name:"Head & Holders"},
-    {id:8,path:"../../../../assets/Head & Sholder/H3.jpg",name:"Head & Holders"},
+    {id:6,path:"../../../../assets/Head & Sholder/H1.jpg",name:"Head & Shoulders"},
+    {id:7,path:"../../../../assets/Head & Sholder/H2.jpg",name:"Head & Shoulders"},
+    {id:8,path:"../../../../assets/Head & Sholder/H3.jpg",name:"Head & Shoulders"},
 ]
 filterdata =[];
   constructor() { }
@@ -31,19 +35,19 @@ filterdata =[];
   }
   selectproduct(product){
     console.log(product);
-    // this.filterdata= this.array.filter(function(obj) {
-    //   console.log(obj.name);
-    //   return obj.name === product;
-    // })
-    if(product === "Tide"){
     this.filterdata= this.array.filter(function(obj) {
-      return obj.name === "Tide";
+      console.log(obj.name);
+      return obj.name === product;
     })
-  }else if(product === "Head & Holder"){
-    this.filterdata= this.array.filter(function(obj) {
-      return obj.name === "Head & Holders";
-  })
-}
+//     if(product === "Tide"){
+//     this.filterdata= this.array.filter(function(obj) {
+//       return obj.name === "Tide";
+//     })
+//   }else if(product === "Head & Shoulders"){
+//     this.filterdata= this.array.filter(function(obj) {
+//       return obj.name === "Head & Shoulders";
+//   })
+// }
     console.log(this.filterdata)
   }
   selectimage(){
