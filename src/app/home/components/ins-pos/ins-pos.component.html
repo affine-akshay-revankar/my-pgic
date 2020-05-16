@@ -1,13 +1,16 @@
-<h3 class="text">IN STORE ANALYTICS >> ESTIMATING POS THROUGHPUT</h3>
+<div class="container">
+<h5 class="text">ESTIMATING POS THROUGHPUT</h5>
+<hr>
+</div>
 <div class="container-fluid">
     <button class="btn btn-danger" (click)="uploadBtn()">UPLOAD</button>
     <button class="btn btn-light reports" (click)="reportBtn()">REPORTS</button>
 </div>
 
-<div class="container">
+<div class="container " *ngIf="uploadbutton">
     <div class="row">
-        <div class="col-md-3 uploads">
-            <div class="card cardsize">
+        <!-- <div class="col-md-3 uploads">
+            <div class="card"> -->
                 <!-- <img class="card-img-top" id="myImg" src="../../assets/tide.jpg" alt="tide" style="width:20%" (click)="selectimage()">
                 <img class="card-img-top" id="myImg1" src="../../assets/logo.png" alt="tide" style="width:20%" (click)="selectimage()"> 
                 <img class="card-img-top" id="myImg2" src="../../assets/tide.jpg" alt="tide" style="width:20%" (click)="selectimage()">  -->
@@ -15,28 +18,129 @@
                 <!-- <div *ngFor="let item of allImages">
                  {{item.path}}
                 </div> -->
-                <div class="card-body">
-                </div>
-                <div><button class="btn btn-primary recepients" (click)=" upload()" [disabled]="(uploads == false) ? 'disabled': null">UPLOAD RECIEPTS</button></div>
-            </div>
-        </div>
 
-        <div class="col-md-3 offset-md-1 process">
-            <div><button class="btn btn-primary recepients processbutton" (click)="process()"  [disabled]="(processing == false) ? 'disabled': null">CLICK TO PROCESS</button></div>
-        </div>
-        <div class="col-md-3 offset-md-1 preview">
-            <div class="card previewbody">
-                <img class="card-img-top" src="{{uploadedimage}}" alt="" style="width:100%">
-                <div class="card-body">
+                <div class="col-md-4">
+                    <div class="card secondcard">
+                      <p class="header">Select Source Image</p>
+                      <hr>
+                      <p class="uploadtext">Upload an Image</p>
+                      <div class="card uploadcard">
+                        <div class="row">
+                          <div class="col-md-5">
+                        <button class="btn btn-primary recepients" (click)=" upload()"
+                          [disabled]="(uploads == false) ? 'disabled': null">UPLOAD</button>
+                          </div>
+                          <div class="col-md-5">
+                            <p *ngIf="chooseFile" class="path">No file selected</p>
+                            <p *ngIf="path" class="path">{{images | slice:24}}</p>
+                          </div>
+                          <div class="col-md-1">
+                            <i class="fa fa-check-circle check" *ngIf="success"></i>
+                          </div>
+                        </div>
+                        </div>
+              
+              
+                      <!-- <p class="choosegallery">Or choose from Gallery</p> -->
+                      <!-- <div class="col-md-12"> -->
+                      <div class="row">
+                        <div *ngFor="let item of array" class="col-md-4">
+                          <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" (click)="selectimage()">
+                        </div>
+                        <!-- </div> -->
+                        <div class="col-md-12" width="100%">
+                          <button class="btn btn-primary col-md-12 detect" (click)="process()"
+                            [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
+                        </div>
+                      </div>
+                      <!-- </div> -->
+                      <!-- <div class=" card-footer col-md-12 detectbutton" width="100%">
+              
+                            </div> -->
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                <div class="card source">
+                    <p class="header">Select Source Image</p>
+                    <hr>
+                    <img class="card-img-top" src="{{uploadedimage}}" alt="" style="width:100%">
+                    <div><button class="btn btn-primary processbutton col-md-12" (click)="process()"  [disabled]="(processing == false) ? 'disabled': null">CLICK TO PROCESS</button></div>
                 </div>
-            </div>
-        </div>
+                
+                  </div>
+            <!-- </div>
+        </div> -->
+
+        <div class="col-md-4"> 
+            <div class="card">
+                <p class="header">Processed Data</p>
+                <hr>
+                <label class="label">Detail</label>
+                <form>
+                    <div class="form-group col-md-12">
+                        <input type="text" class="form-control" required>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <input type="text" class="form-control" required>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <input type="text" class="form-control" required>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <input type="text" class="form-control" required>
+                      </div>
+                      <label class="label">Items</label>
+                      <div class="row">
+                          <div >
+                            <div class="form-group col-md-12 offset-md-1">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group col-md-12 offset-md-1">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group col-md-12 offset-md-1">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group col-md-12 offset-md-1">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group col-md-12 offset-md-1">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group col-md-12 offset-md-1">
+                                <input type="text" class="form-control" required>
+                              </div>
+                            </div>
+                              <div class="col-md-3">
+                              <div class="form-group">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <input type="text" class="form-control" required>
+                              </div>
+                              </div>
+                          
+                      </div>
+                </form>
+            </div>       
     </div>
 </div>
 
 <!-- Reports -->
 
-<div class="container reportstart">
+<div class="container reportstart" *ngIf="reportbutton">
     <div class="row selectmenu">
         <div class="col-md-3">Select Time Period</div>
         <div class="col-md-3">Select Level</div>

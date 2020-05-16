@@ -11,24 +11,40 @@ export class InsCounterfeitComponent implements OnInit {
   image:any;
   uploadedimage:any;
   processing:boolean = false;
+  path:boolean = false;
+  success:boolean = false;
+  chooseFile:boolean = true;
   array=[
-    {id:1,name:"tide"},
-    {id:2,name:"tide"},
-    {id:3,name:"tide"},
-    {id:4,name:"Head & Holders"},
-    {id:5,name:"Head & Holders"},
-    {id:6,name:"Head & Holders"},
+    {id:1,path:"../../../../assets/Tide/tide1.jpg",name:"Tide"},
+    {id:2,path:"../../../../assets/Tide/tide2.jpg",name:"Tide"},
+    {id:3,path:"../../../../assets/Tide/tide3.png",name:"Tide"},
+    {id:4,path:"../../../../assets/Tide/tide4.jpg",name:"Tide"},
+    {id:5,path:"../../../../assets/Tide/tide5.png",name:"Tide"},
+    {id:6,path:"../../../../assets/Head & Sholder/H1.jpg",name:"Head & Holders"},
+    {id:7,path:"../../../../assets/Head & Sholder/H2.jpg",name:"Head & Holders"},
+    {id:8,path:"../../../../assets/Head & Sholder/H3.jpg",name:"Head & Holders"},
 ]
+filterdata =[];
   constructor() { }
 
   ngOnInit(): void {
   }
-  selectproduct(event){
-    console.log(event);
-    this.array.filter(obj=>{
-      return obj.name === "tide";
+  selectproduct(product){
+    console.log(product);
+    // this.filterdata= this.array.filter(function(obj) {
+    //   console.log(obj.name);
+    //   return obj.name === product;
+    // })
+    if(product === "Tide"){
+    this.filterdata= this.array.filter(function(obj) {
+      return obj.name === "Tide";
     })
-    console.log(this.array)
+  }else if(product === "Head & Holder"){
+    this.filterdata= this.array.filter(function(obj) {
+      return obj.name === "Head & Holders";
+  })
+}
+    console.log(this.filterdata)
   }
   selectimage(){
     this.images = document.getElementById("myImg").getAttribute("src");
@@ -36,6 +52,8 @@ export class InsCounterfeitComponent implements OnInit {
    console.log(this.images)
     this.uploads = true;
     this.processing = false;
+    this.chooseFile = false;
+    this.path = true;
 
  }
  upload(){
@@ -46,6 +64,7 @@ export class InsCounterfeitComponent implements OnInit {
   console.log(this.image);
   console.log(event);
   this.processing = true;
+  this.success = true;
 }
 process(){
   this.uploadedimage = this.images;

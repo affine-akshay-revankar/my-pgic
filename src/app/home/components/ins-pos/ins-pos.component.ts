@@ -14,12 +14,19 @@ uploadedimage:any;
 processing:boolean = false;
 uploadbutton:boolean = true;
 reportbutton:boolean =false;
-array = [];
-// allImages=[
-//   {path:"../../assets/Tide/tide.jpg"},
-//   {path:"../../assets/Tide/tide1.jpg"},
-//   {path:"../../assets/Tide/tide2.jpg"}
-// ]
+  path:boolean = false;
+  success:boolean = false;
+  chooseFile:boolean = true;
+  array=[
+    {id:1,path:"../../../../assets/Tide/tide1.jpg",name:"Tide"},
+    {id:2,path:"../../../../assets/Tide/tide2.jpg",name:"Tide"},
+    {id:3,path:"../../../../assets/Tide/tide3.png",name:"Tide"},
+    {id:4,path:"../../../../assets/Tide/tide4.jpg",name:"Tide"},
+    {id:5,path:"../../../../assets/Tide/tide5.png",name:"Tide"},
+    {id:6,path:"../../../../assets/Head & Sholder/H1.jpg",name:"Head & Holders"},
+    {id:7,path:"../../../../assets/Head & Sholder/H2.jpg",name:"Head & Holders"},
+    {id:8,path:"../../../../assets/Head & Sholder/H3.jpg",name:"Head & Holders"},
+]
   constructor() { }
 
   ngOnInit(): void {
@@ -46,12 +53,14 @@ array = [];
     // console.log(img.images);
     var x = document.images.length;
     console.log(x);
-    for(let i=0;i<x;i++){
-     this.images = document.getElementsByClassName('myImg')[i].getAttribute('src');
-    }
+    // for(let i=0;i<x;i++){
+     this.images = document.getElementById('myImg').getAttribute('src');
+    // }
     console.log(this.images)
-     this.uploads = true;
-     this.processing = false;
+    this.uploads = true;
+    this.processing = false;
+    this.chooseFile = false;
+    this.path = true;
 
   }
   
@@ -64,7 +73,8 @@ array = [];
     console.log(this.image);
     console.log(event);
     this.processing = true;
-  }
+    this.success = true;
+    }
   process(){
     this.uploadedimage = this.images;
     console.log(this.uploadedimage);

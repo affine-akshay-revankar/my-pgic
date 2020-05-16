@@ -1,7 +1,12 @@
-.text{
-    text-align:center;
+.container{
+    margin-top:20px;
 }
+
 .reports{
+    margin-left:10px;
+}
+.label{
+    font-weight: bold;
     margin-left:10px;
 }
 .cardsize{
@@ -28,16 +33,49 @@
     height: 70px;
     background-color: yellow;
   }
-  @media screen and (min-width:768px){
-    .processbutton{
-        margin-top: 188px;
-    }
-  }
-
-
-  .text{
-    text-align:center;
+  .path{
+    margin-top:14px;
 }
+.check{
+    margin-top:14px;
+    font-size:24px;
+    color:lightgreen;
+}
+  .uploadcard{
+    margin-left: 10px;
+    margin-right: 10px;
+    
+    }
+    .header{
+    font-weight: bold;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-bottom: -2px;
+    padding-left: 5px;
+    }
+    .recepients {
+        margin: 10px;
+      }
+    //   .source{
+    //     height: 400px;
+    //       }
+      .img-thumbnail {
+        cursor: pointer;
+        width: 80px;
+        height: 128px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+      }
+//   @media screen and (min-width:768px){
+//     .processbutton{
+//         margin-top: 188px;
+//     }
+//   }
+
+
+//   .text{
+//     text-align:center;
+// }
 .reports{
     margin-left:10px;
 }
