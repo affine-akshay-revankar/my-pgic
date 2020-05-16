@@ -5,96 +5,247 @@
     </div>
 <div class="container-fluid">
     <div class="row selectmenu">
-        <div class="col-md-3">Select Time Period</div>
-        <div class="col-md-3">Select Level</div>
-        <div class="col-md-3">Select Geography</div>
-        <div class="col-md-3">Select Product</div>
+        <div class="col-md-3">
+          <label class="aa-field-label"> Time Period: <span > </span> </label>
+             <div class="row">
+               <div class="col-md-3">
+                 <label> From : </label>
+               </div>
+               <div class="col-md-7">
+                 <input type="month" class="form-control" id="startDate" [(ngModel)]="startDate" />
+               </div>
+             </div>
+
+             <div class="row">
+               <div class="col-md-3">
+                 <label> To :</label>
+               </div>
+               <div class="col-md-7">
+                 <input type="month" class="form-control" id="endDate" [(ngModel)]="endDate" />
+               </div>
+             </div>
+          <!-- <select name="time_period" [(ngModel)]="time_period"  #name="ngModel" class="form-control" (change) = "onChange($event.target.value)" >
+          <option value="">Select Time Period</option>
+          <option *ngFor="let tp of TimePeriodList"
+              value="{{tp}}">
+              {{tp}} </option>
+              </select> -->
+            </div>
+        <div class="col-md-2">
+            <label class="aa-field-label"> Country:</label>
+          <select class="form-control" id="level" [(ngModel)]="level"  >
+             <option value="">Select Country</option>
+             <option *ngFor='let lev of levelList' value="{{lev}}">
+              {{ lev }}
+             </option>
+           </select>
+        </div>
+        <div class="col-md-2">
+          <label class="aa-field-label"> State:  </label>
+        <select class="form-control" id="geography" [(ngModel)]="geography" >
+           <option value="">Select State</option>
+           <option *ngFor='let lev of geographyList' value="{{lev}}">
+            {{ lev }}
+           </option>
+         </select></div>
+        <div class="col-md-3">
+          <label class="aa-field-label"> Product:  </label>
+        <select class="form-control" id="product" [(ngModel)]="product" >
+           <option value="">Select Product</option>
+           <option *ngFor='let lev of productList' value="{{lev}}">
+            {{ lev }}
+           </option>
+         </select>
+        </div>
+          <div class="col-md-1">
+        <button class="btn btn-default affineblue"  (click)="getfilterData()">Apply</button>
+        </div>
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">Total Revenue
-                </div>
-            </div>
-        </div>
+        <div class="col-md-3 card margin1">
+          <div class="row card-body">
+              <div class="col-md-9">
+                  <div class= "title">Total Transaction</div>
+                  <span class = "disp_vals golden"> {{totaltranscation}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <span><i class="fa fa-money-check-alt fa-3x golden"></i></span>
+                  </div>
+                  </div>
+              </div>
 
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">Total Transaction
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">Avg. Customer Spend
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">XXXXX
-                </div>
-            </div>
-        </div>
+
+              <div class="col-md-3 card margin1">
+                <div class="row card-body">
+                    <div class="col-md-9">
+                        <div class= "title">Total Revenue</div>
+                        <span class = "disp_vals purple">  {{totaltranscation}}</span>
+                        </div>
+                        <div class="col-md-3">
+                          <i class="fa fa-chart-bar fa-3x purple"></i>
+                          <!-- <i class="fa fa-hand-holding"></i> -->
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 card margin1 ">
+                      <div class="row card-body">
+                          <div class="col-md-9">
+                              <div class= "title">Total Quantity Sold</div>
+                              <span class = "disp_vals green">  {{totaltranscation}}</span>
+                              </div>
+                              <div class="col-md-3">
+                                <i class="fas fa-industry fa-3x green"></i>
+                              </div>
+                              </div>
+                          </div>
+
+                          <div class="col-md-3 card margin1">
+                            <div class="row card-body">
+                                <div class="col-md-9">
+                                    <div class= "title">Avg. Customer Spend</div>
+                                    <span class = "disp_vals blue">  {{totaltranscation}}</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <i class="fas fa-wallet fa-3x blue"></i>
+                                    </div>
+                                    </div>
+                                </div>
+
     </div>
 <!-- Second layout -->
     <div class="row">
         <div class="col-md-4">
             <div class="card trendchart">
-                <div class="card-body trend">
-                    <div class="card">
-                <div class="card-body">
-                    TREND CHART SHOWING REVENUE
-                </div>
-            </div>
+
+                <div  id="revenuechart" class="chart">
+
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="card customertrend">
-                <div class="card-body trend">
-                    <div class="card">
-                        <div class="card-body">
-                            AVG CUSTOMER TREND
-                        </div>
-                    </div>
+                  <div  id="quantitychart" class="chart">
                 </div>
-            </div>
+                </div>
         </div>
         <div class="col-md-4">
             <div class="card product">
-                <div class="card-body trend">
-                    <div class="card">
-                        <div class="card-body">
-                            XXX
-                        </div>
-                    </div>
-                </div>
+              <div  id="productchart" class="chart">
+            </div>
+
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="col-md-12 margin">
-            <div class="card products">
-                <div class="card-body">
-                    Top 10 Products - List a table with KPIs<br>
-                    Bottom 10 Products /Brands - Unit Sold
+              <label class="aa-field-label">Top 4 Products</label>
+  <br>
+            <div class="card products row margin">
+
+                <div class="card-body col-md-6">
+                  <div class="pull-right"><span>By Quantity Sold </span></div>
+                  <table class="table table-bordered table-striped cus-table aa-table" >
+                  <thead class="thead-inverse">
+                      <tr>
+                        <th> PRODUCT </th>
+                        <th> UNIT </th>
+                        <th>  %Sale </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
+                          <tr class="row-{{ i }}" *ngIf="i<4">
+                              <td> {{ req.product }} </td>
+                              <td> {{req.unit}}</td>
+                              <td> {{req.sale}} </td>
+                          </tr>
+                          </ng-template>
+                    </tbody>
+                    </table>
+
+                </div>
+                <div class="card-body col-md-6">
+                  <div class="pull-right"><span>By Revenue </span></div>
+                    <table class="table table-bordered table-striped cus-table aa-table" >
+                  <thead class="thead-inverse">
+                      <tr>
+                        <th> PRODUCT </th>
+                        <th> UNIT </th>
+                        <th>  %Sale </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
+                          <tr class="row-{{ i }}"*ngIf=" i < 4" >
+                              <td> {{ req.product }} </td>
+                              <td> {{req.unit}}</td>
+                              <td> {{req.sale}} </td>
+                          </tr>
+                          </ng-template>
+                    </tbody>
+                    </table>
+
                 </div>
             </div>
             </div>
-            <div class="col-md-12 margin">
-                <div class="card products">
-                    <div class="card-body">
-                        Bottom 10 Products - List a table with KPIs
-                    </div>
-                </div>
-                </div>
+            <div class="col-md-12 margin ">
+                  <label class="aa-field-label">Bottom 4 Products</label>
+                      <br>
+              <div class="card products row margin">
+                  <div class="card-body col-md-6">
+                  <div class="pull-right"> <span>By Quantity Sold</span> </div>
+
+                      <table class="table table-bordered table-striped cus-table aa-table" >
+                    <thead class="thead-inverse">
+                        <tr>
+                          <th> PRODUCT </th>
+                          <th> UNIT </th>
+                          <th>  %Sale </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
+                            <tr class="row-{{ i }}" *ngIf=" i < 4">
+                                <td> {{ req.product }} </td>
+                                <td> {{req.unit}}</td>
+                                <td> {{req.sale}} </td>
+                            </tr>
+                            </ng-template>
+                      </tbody>
+                      </table>
+
+                  </div>
+                  <div class="card-body col-md-6">
+                   <div class="pull-right"><span>By Revenue </span></div>
+                      <table class="table table-bordered table-striped cus-table aa-table" >
+                    <thead class="thead-inverse">
+                        <tr>
+                          <th> PRODUCT </th>
+                          <th> UNIT </th>
+                          <th>  %Sale </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
+                            <tr class="row-{{ i }}" *ngIf=" i < 4">
+                                <td> {{ req.product }} </td>
+                                <td> {{req.unit}}</td>
+                                <td> {{req.sale}} </td>
+                            </tr>
+                            </ng-template>
+                      </tbody>
+                      </table>
+
+                  </div>
+              </div>
         </div>
-        <div class="col-md-8">
+        </div>
+        <div class="col-md-6">
             <div class="card graph">
                 PRODUCT AFFINITY DIAGRAM
             </div>
