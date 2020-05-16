@@ -26,7 +26,7 @@ import { ChartModule } from 'angular-highcharts';
     EmbedVideo.forRoot(),
     ChartModule,
     CommonModule,
-    HighchartsChartModule,
+    HighchartsChartModule
   ],
   exports: [
 
