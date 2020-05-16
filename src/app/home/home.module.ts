@@ -7,13 +7,14 @@ import { HomeComponent } from './home.component';
 
 import { HeaderComponent }   from './components/header/header.component';
 import { FooterComponent }   from './components/footer/footer.component';
-
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ChartModule
   ],
   declarations: [
     HomeComponent,

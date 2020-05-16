@@ -1,28 +1,80 @@
-<h3 class="text">CUNTERFEIT PRODUCT DETECTION</h3>
-<div class="col-md-6">
-    Product
-    <!-- <select class="form-control" name="businessType" required>
-        <option>Tide</option>
-        <option>Head & Holders</option>
-    </select> -->
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card">
-            <div class="selectedimage"><p>Upload Image</p></div>
-            <div class="gallery"><p>Or choose from Gallery</p></div>
-            </div>
-        </div>
-        <div class="col-md-2 offset-md-1 detectbutton">
-            <button class="btn btn-danger">DETECT COUNTERFEITS</button>
-        </div>
-        <div class="col-md-3 offset-md-1">
-            <div class="card">
-                Counterfeit Identification
-                <div class="selectedimage">Selected Image</div>
-            </div>
-        </div>
+<div class="container">
+  <h5 class="text">COUNTERFEIT PRODUCT DETECTION</h5>
+  <hr>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card select">
+        <p class="header">Product</p>
+        <hr>
+        <select class="form-control selecttag" name="businessType" (change)="selectproduct($event.target.value)" required>
+          <option>Select</option>
+          <option *ngFor="let item of product">{{item.name}}</option>
+          <!-- <option value="Head & Holder">Head & Holder</option> -->
+        </select>
+      </div>
     </div>
+    <div class="col-md-5">
+      <div class="card secondcard">
+        <p class="header">Select Source Image</p>
+        <hr>
+        <p class="uploadtext">Upload an Image</p>
+        <div class="card uploadcard">
+          <div class="row">
+            <div class="col-md-2">
+              <button class="btn btn-primary recepients" (click)=" upload()"
+                [disabled]="(uploads == false) ? 'disabled': null">UPLOAD</button>
+            </div>
+            <div class="col-md-6 offset-md-1">
+              <p *ngIf="chooseFile" class="path">No file choosen</p>
+              <p *ngIf="path" class="path">{{images | slice:25}}</p>
+            </div>
+            <div class="col-md-1 offset-md-1">
+              <i class="fa fa-check-circle check" *ngIf="success"></i>
+            </div>
+          </div>
+        </div>
+
+
+        <p class="choosegallery">Or choose from Gallery</p>
+        <!-- <div class="col-md-12"> -->
+        <div class="row">
+          <div *ngFor="let item of filterdata" class="col-md-4">
+            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" (click)="selectimage()">
+          </div>
+          <!-- </div> -->
+          <div class="col-md-12" width="100%">
+            <button class="btn btn-primary col-md-12 detect" (click)="process()"
+              [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
+          </div>
+        </div>
+        <!-- </div> -->
+        <!-- <div class=" card-footer col-md-12 detectbutton" width="100%">
+
+              </div> -->
+      </div>
+    </div>
+    <!-- <div class="col-md-2 offset-md-1 detectbutton">
+            <button class="btn btn-danger" (click)="process()"  [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
+        </div> -->
+    <div class="col-md-4">
+      <div class="card">
+        <p class="header">Counterfeit Identification</p>
+        <hr>
+        <p class="uploadtext">Selected/Uploaded</p>
+        <div class="selectedimages">
+          <img class="card-img-top selected" src="{{uploadedimage}}" alt="">
+
+        </div>
+
+        <p class="choosegallery">Counterfeit Estimation</p>
+
+        <div class="row">
+          <div class="col-md-6"><label class="label">Counterfeit</label><input type="text" class="form-control text">
+          </div>
+          <div class="col-md-6"><label class="label">Counterfeit</label> <input type="text" class="form-control secondtext"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="bottom"></div>

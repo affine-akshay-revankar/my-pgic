@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InsTrafficRoutingModule } from './ins-traffic-routing.module';
 import { InsTrafficComponent } from './ins-traffic.component';
+import { ChartModule } from 'angular-highcharts';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { InsTrafficComponent } from './ins-traffic.component';
   ],
   imports: [
     CommonModule,
-    InsTrafficRoutingModule
+    InsTrafficRoutingModule,
+    ChartModule
   ]
 })
 export class InsTrafficModule { }
