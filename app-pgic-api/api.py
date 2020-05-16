@@ -9,7 +9,7 @@ import json
 from flask import Flask, request, jsonify
 import logging, os
 from results.traffic.Convert_CSV_to_Dictionary import csv_to_dictionary
-from results.pos_reports.WarehouseLogs import show_details
+from results.pos_reports.WarehouseStorage import show_details
 from flask_cors import CORS
 import time
 

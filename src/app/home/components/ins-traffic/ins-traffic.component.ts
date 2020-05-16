@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmbedVideoService } from 'ngx-embed-video';
+// import { EmbedVideoService } from 'ngx-embed-video';
 import * as Highcharts from 'highcharts';
 import * as highchartsTreemap from 'highcharts/modules/treemap';
 //highchartsTreemap(Highcharts);
@@ -79,10 +79,7 @@ export class InsTrafficComponent implements OnInit {
   //   ]
   // });
 
-  constructor(private embedService: EmbedVideoService) { 
-    this.yt_iframe_html = this.embedService.embed(this.youtubeUrl);
-    this.vimeo_iframe_html = this.embedService.embed(this.vimeoUrl);
-    this.dm_iframe_html = this.embedService.embed(this.dailymotionUrl);
+  constructor() {
   }
 
   ngOnInit(): void {
