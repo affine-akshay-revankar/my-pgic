@@ -1,3 +1,4 @@
+$sky-blue : #24AEE4;
 .text{
     text-align:center;
 }
@@ -11,18 +12,19 @@
     margin-bottom: 20px;;
 }
 .card-body{
-    padding-top:50px;
+    padding-top:10px;
     padding-bottom: 5px;
-    padding-left:5px;
+    padding-left:10px;
 }
 .card{
     margin-bottom:10px;
+
 }
 .trendchart,.customertrend,.product{
     height:320px;
 }
 .products{
-    height:200px;
+    height:250px;
 }
 .graph{
     height:400px;
@@ -34,4 +36,75 @@
 }
 .margin{
     padding:0px;
+    border: none !important;
+}
+.affineblue{
+  background-color: $sky-blue;
+}
+.chart {
+  height: 270px;
+  width:300px
+}
+.tab-content > .active {
+    min-height: 150px;
+}
+table {
+    margin-top: 1px;
+    thead {
+        th {
+            font-size: 13px;
+            text-align: center;
+            paddding:1px !important;
+        }
+    }
+    tbody {
+        tr {
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+}
+.margin1{
+    margin: 12px 12px 12px 0px;
+    max-width: 24%;
+  }
+  @media(max-width : 720px) {
+  .margin1{
+      margin: 0px 0px 0px 0px;
+      max-width: none;
+    }/* Styles */
+}
+.aa-field-label, .aa-field-value {
+      font-size: 16px;
+      margin: 7px 0;
+    }
+    .aa-field-label {
+      font-weight: bold;
+    }
+.pull-right{
+  align-content: flex-end;
+  text-align: right;
+  font-weight: bold;
+  font-size: 12px;
+}
+.pull-right span{
+  background-color: #D3D3D3
+
+}
+
+.disp_vals{
+    font-size: 25px;
+    font-weight: 700;
+}
+.golden{
+  color: #D4AF37
+}
+.purple{
+  color: #9400D3
+}
+.green{
+  color: #006400
+}
+.blue{
+  color: #0000FF
 }
