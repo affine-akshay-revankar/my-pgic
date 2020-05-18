@@ -80,7 +80,7 @@ def getPosReportData():
   state = request.args.get('state')
   city = request.args.get('city')
   product = request.args.get('product')
-  filepath = r'results/pos_reports/P&G Global Hackathin_Mockup_v5_1.xlsx'
+  filepath = r'results/pos_reports/PG_Global_Hackathon_Mockup_v5_1.xlsx'
   resp = show_details(fromdate, todate, state, city, product, filepath)
   # resp = {'fromdatetime': fromdatetime, 'todatetime':todatetime, 'level':level, 'geography':geography, 'product':product}
   return jsonify(resp)
