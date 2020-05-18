@@ -17,6 +17,7 @@ def csv_to_dictionary(path_to_csv,cols = None):
     if cols is None:
         cols = data.columns.values
     for c in cols:
+        data[c].fillna("-", inplace = True)
         dictionary[c] = data[c].tolist()
     return dictionary
 

@@ -10,26 +10,26 @@
                     <div class="col-md-4">
                         <p class="subtext beuty">Beauty & Grooming</p>
                         <!-- <div class="video1"> -->
-                        <video class="video1" controls>
+                        <video class="video1" controls autoplay>
                             <source src="../../../../assets/Video/Checkout.mp4" type="video/mp4">
                         </video>
                         <!-- </div> -->
                     </div>
                     <div class="col-md-4 offset-md-2">
                         <p class="subtext2 beuty">Frozen Food Section</p>
-                        <video class="video2" controls>
+                        <video class="video2" controls autoplay>
                             <source src="../../../../assets/Video/FrozenFood.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="col-md-4 secondvideo ">
                         <p class="subtext offset-md-1 beuty">Personal Health</p>
-                        <video class="video3" controls>
+                        <video class="video3" controls autoplay>
                             <source src="../../../../assets/Video/cosmetics.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="col-md-4 offset-md-2 secondvideo">
                         <p class="subtext offset-md-1 beuty">Home Care Section</p>
-                        <video class="video4" controls>
+                        <video class="video4" controls autoplay>
                             <source src="../../../../assets/Video/personalhealthcare.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -61,7 +61,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let data of array1[0]">
+                                    <tr *ngFor="let data of videoData[0]">
                                         <td class="time">{{data.Time}}</td>
                                         <td class="grooming">{{data.Grooming}}</td>
                                         <td class="Frozen">{{data.Frozen}}</td>

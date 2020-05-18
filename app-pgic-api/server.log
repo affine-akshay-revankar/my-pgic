@@ -290,3 +290,45 @@ Traceback (most recent call last):
     app_rv = app(environ, start_response)
 TypeError: 'list' object is not callable
 The view function did not return a valid response. The return type must be a string, tuple, Response instance, or WSGI callable, but it was a list.
+Exception on /api/getTrafficSummary [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 42, in getTrafficSummary
+    resp = csv_to_dictionary('results/traffic/Combined.csv')
+  File "D:\P&G\GitHub\app-pgic\app-pgic-api\results\traffic\Convert_CSV_to_Dictionary.py", line 20, in csv_to_dictionary
+    dictionary[c] = data[c].fillna(NaN, inplace = True).tolist()
+NameError: name 'NaN' is not defined
+Exception on /api/getTrafficSummary [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 42, in getTrafficSummary
+    resp = csv_to_dictionary('results/traffic/Combined.csv')
+  File "D:\P&G\GitHub\app-pgic\app-pgic-api\results\traffic\Convert_CSV_to_Dictionary.py", line 20, in csv_to_dictionary
+    dictionary[c] = data[c].fillna("-", inplace = True).tolist()
+AttributeError: 'NoneType' object has no attribute 'tolist'

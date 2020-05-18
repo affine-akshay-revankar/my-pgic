@@ -267,21 +267,18 @@ export class ApiService {
     });
   }
 
-  // checkCounterfeit(data){
-  //   let params = new HttpParams();
-  //   params = params.append('filename', data.filename);
-  //   return this.httpClient.get(
-  //     `${this.baseURL}/api/checkCounterfeit`,
-  //     { params: params }
-  //   )
-  //   .toPromise()
-  //   .then(response => {
-  //     return response;
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
-  // }
+  getStoreTrafficData(){
+    return this.httpClient.get(
+      `${this.baseURL}/api/getTrafficSummary`
+    )
+    .toPromise()
+    .then(response => {
+      return response;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
   //
   // checkCounterfeit(data){
   //   let params = new HttpParams();
