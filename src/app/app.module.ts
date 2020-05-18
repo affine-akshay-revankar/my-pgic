@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { EmbedVideo } from 'ngx-embed-video';
 import { ChartModule } from 'angular-highcharts';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { ApiService } from './shared';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     AuthGuard,
     Globals,
     HttpClient,
-    FormsModule
+    FormsModule,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

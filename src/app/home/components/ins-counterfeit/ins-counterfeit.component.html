@@ -15,9 +15,9 @@
     </div>
     <div class="col-md-5">
       <div class="card secondcard">
-        <p class="header">Select Source Image</p>
+        <p class="header">Select A Source Image From Gallery</p>
         <hr>
-        <p class="uploadtext">Upload an Image</p>
+        <!-- <p class="uploadtext">Upload an Image</p>
         <div class="card uploadcard">
           <div class="row">
             <div class="col-md-2">
@@ -32,14 +32,14 @@
               <i class="fa fa-check-circle check" *ngIf="success"></i>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
-        <p class="choosegallery">Or choose from Gallery</p>
+        <!-- <p class="choosegallery">Choose from Gallery</p> -->
         <!-- <div class="col-md-12"> -->
         <div class="row">
-          <div *ngFor="let item of filterdata" class="col-md-4">
-            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" (click)="selectimage()">
+          <div *ngFor="let item of filterdata; let i = index;" class="col-md-4">
+            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
           </div>
           <!-- </div> -->
           <div class="col-md-12" width="100%">
@@ -62,16 +62,16 @@
         <hr>
         <p class="uploadtext">Selected/Uploaded</p>
         <div class="selectedimages">
-          <img class="card-img-top selected" src="{{uploadedimage}}" alt="">
+          <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="Responsive image">
 
         </div>
 
         <p class="choosegallery">Counterfeit Estimation</p>
 
         <div class="row">
-          <div class="col-md-6"><label class="label">Counterfeit</label><input type="text" class="form-control text">
+          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text" value="{{response.Category}}">
           </div>
-          <div class="col-md-6"><label class="label">Counterfeit</label> <input type="text" class="form-control secondtext"></div>
+          <div class="col-md-6"><label class="label">Probability</label> <input type="text" class="form-control secondtext" value="{{response.Probability}}"></div>
         </div>
       </div>
     </div>
