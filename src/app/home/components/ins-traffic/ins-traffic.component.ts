@@ -80,9 +80,18 @@ export class InsTrafficComponent implements OnInit {
   }
 
   renderUpdatedData(data){
-    let seconds = 0, intId, tsInd, ts, a, b, c, d;
+    let seconds = 0, intId, tsData, tsInd, tsLen, lts, ts, a, b, c, d;
+
+    tsData = data["Time Stamp"];
+    tsLen = tsData.length;
+    lts = tsData[tsLen - 1];
+
     intId = setInterval(() => {
-      tsInd = data["Time Stamp"].indexOf(++seconds);
+
+      tsInd = tsData.indexOf(++seconds);
+
+      console.log({tsInd: console.log(), seconds: seconds});
+
       if( tsInd !== -1 ) {
         a = data["Cosmetics"][tsInd];
         b = data["Frozen Food"][tsInd];
@@ -114,6 +123,9 @@ export class InsTrafficComponent implements OnInit {
           this.tableData.push({Time:`T${++tsInd}`,Grooming :a,Frozen:b,Health:c,Home:d});
         }
 
+      }
+      if ( seconds >= lts ) {
+        clearInterval(intId);
       }
     }, 1000);
   }
