@@ -1,36 +1,222 @@
-<h3 class="text">IN STORE ANALYTICS >> ESTIMATING POS THROUGHPUT</h3>
 <div class="container">
-    <button class="btn btn-danger">UPLOAD</button>
-    <button class="btn btn-light reports" routerLink="/ins-report">REPORTS</button>
-    <div class="row">
-        <div class="col-md-4 uploads">
-            <div class="card cardsize">
-                <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"> -->
-                <div class="card-body">
-                </div>
-                <div><button class="btn btn-primary recepients">UPLOAD RECIEPTS</button></div>
-            </div>
-        </div>
-
-        <div class="col-md-3 offset-md-1 process">
-            <div class="card cardsize">
-                <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"> -->
-                <div class="card-body viewimage">view upload image
-                    <!-- <div class="test rounded-circle"></div> -->
-                </div>
-                <div><button class="btn btn-primary recepients">CLICK TO PROCESS</button></div>
-
-            </div>
-            <!-- <div class="col-md-3">
-              <button class="btn btn-danger col-md-3">CLICK TO PROCESS</button>
-              </div> -->
-        </div>
-        <div class="col-md-3 offset-md-1 preview">
-            <div class="card previewbody">
-                <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"> -->
-                <div class="card-body">
-                </div>
-            </div>
-        </div>
-    </div>
+  <h5 class="text">ESTIMATING POS THROUGHPUT</h5>
+  <hr>
 </div>
+<div class="container-fluid">
+  <button class="btn btn-danger" (click)="uploadBtn()">UPLOAD</button>
+  <button class="btn btn-light reports" (click)="reportBtn()">REPORTS</button>
+</div>
+
+<div class="container" *ngIf="uploadbutton">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="card secondcard">
+        <p class="header">Select Source Image</p>
+        <hr>
+        <p class="uploadtext">Upload an Image</p>
+        <div class="card uploadcard">
+          <div class="row">
+            <div class="col-md-5">
+              <button class="btn btn-primary recepients" (click)=" upload()"
+              [disabled]="(uploads == false) ? 'disabled': null">UPLOAD</button>
+            </div>
+            <div class="col-md-5">
+              <p *ngIf="chooseFile" class="path">No file selected</p>
+              <p *ngIf="path" class="path">{{images | slice:24}}</p>
+            </div>
+            <div class="col-md-1">
+              <i class="fa fa-check-circle check" *ngIf="success"></i>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div *ngFor="let item of array" class="col-md-4">
+            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" (click)="selectimage()">
+          </div>
+          <div class="col-md-12" width="100%">
+            <button class="btn btn-primary col-md-12 detect" (click)="process()"
+            [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card source">
+        <p class="header">Select Source Image</p>
+        <hr>
+        <img class="card-img-top" src="{{uploadedimage}}" alt="" style="width:100%">
+        <div><button class="btn btn-primary processbutton col-md-12" (click)="process()"  [disabled]="(processing == false) ? 'disabled': null">CLICK TO PROCESS</button></div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <p class="header">Processed Data</p>
+        <hr>
+        <label class="label">Detail</label>
+        <form>
+          <div class="form-group col-md-12">
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="form-group col-md-12">
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="form-group col-md-12">
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="form-group col-md-12">
+            <input type="text" class="form-control" required>
+          </div>
+          <label class="label">Items</label>
+          <div class="row">
+            <div >
+              <div class="form-group col-md-12 offset-md-1">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group col-md-12 offset-md-1">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group col-md-12 offset-md-1">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group col-md-12 offset-md-1">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group col-md-12 offset-md-1">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group col-md-12 offset-md-1">
+                <input type="text" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" required>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Reports -->
+
+  <div class="container reportstart" *ngIf="reportbutton">
+    <div class="row selectmenu">
+      <div class="col-md-3">Select Time Period</div>
+      <div class="col-md-3">Select Level</div>
+      <div class="col-md-3">Select Geography</div>
+      <div class="col-md-3">Select Product</div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">Total Revenue
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">Total Transaction
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">Avg. Customer Spend
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">XXXXX
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Second layout -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card trendchart">
+          <div class="card-body trend">
+            <div class="card">
+              <div class="card-body">
+                TREND CHART SHOWING REVENUE
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card customertrend">
+          <div class="card-body trend">
+            <div class="card">
+              <div class="card-body">
+                AVG CUSTOMER TREND
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card product">
+          <div class="card-body trend">
+            <div class="card">
+              <div class="card-body">
+                XXX
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="col-md-12 margin">
+          <div class="card products">
+            <div class="card-body">
+              Top 10 Products - List a table with KPIs<br>
+              Bottom 10 Products /Brands - Unit Sold
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 margin">
+          <div class="card products">
+            <div class="card-body">
+              Bottom 10 Products - List a table with KPIs
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card graph">
+          PRODUCT AFFINITY DIAGRAM
+        </div>
+      </div>
+    </div>
+  </div>
