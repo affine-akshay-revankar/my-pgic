@@ -154,8 +154,18 @@ export class InsCounterfeitComponent implements OnInit {
     let lastDotIdx = this.selImgObj.path.lastIndexOf(".");
     let filename = this.selImgObj.path.substring(lastSlashIdx + 1, lastDotIdx);
     this.apiService.checkCounterfeit({filename: filename}).then(result => {
-      result.Probability = (result?.Probability * 100).toFixed(2);
-      this.response = result;
+      if( result && result["Category"] && result["Probability"] ) {
+        let prob = result["Probability"];
+        this.response = {
+          Category: result["Category"],
+          Probability: (prob * 100).toFixed(2)
+        }
+      } else {
+        this.response = {
+          Category: "",
+          Probability: ""
+        }
+      }
     });
     this.uploadedimage = this.selImgObj.path;
 

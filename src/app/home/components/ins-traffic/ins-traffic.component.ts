@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-// import { EmbedVideoService } from 'ngx-embed-video';
 import * as Highcharts from 'highcharts';
-import * as highchartsTreemap from 'highcharts/modules/treemap';
-//highchartsTreemap(Highcharts);
-// Tree(Highcharts);
-import { Chart } from 'angular-highcharts';
+declare var require: any;
+let Boost = require('highcharts/modules/boost');
+let noData = require('highcharts/modules/no-data-to-display');
+let More = require('highcharts/highcharts-more');
+
+Boost(Highcharts);
+noData(Highcharts);
+More(Highcharts);
+noData(Highcharts);
+
+// import { Chart } from 'angular-highcharts';
+
 @Component({
   selector: 'app-ins-traffic',
   templateUrl: './ins-traffic.component.html',
@@ -29,54 +36,19 @@ export class InsTrafficComponent implements OnInit {
     yt_iframe_html: any;
     vimeo_iframe_html: any;
     dm_iframe_html: any;
-  
-     chart = new Chart({       
-      chart : {
-         type: 'Highcharts Treemap'   
-      },
-      title: {
-        text: 'Highcharts Treemap'
-      },
-      colorAxis : {               
-        minColor: '#FFFFFF',
-        maxColor: Highcharts.getOptions().colors[0]
-     },    
-    //   series : [{
-    //     type: "treemap",
-    //     layoutAlgorithm: 'squarified',
-    //     data: [
-    //     {
-    //        name: 'A',
-    //        value: 6,
-    //        colorValue: 1
-    //     }, 
-    //     {
-    //        name: 'B',
-    //        value: 6,
-    //        colorValue: 2
-    //     },
-    //     ]
-    //  }]     
-    
-  })
 
-
-  // chart = new Chart({
-  //   chart: {
-  //     type: 'line'
-  //   },
-  //   title: {
-  //     text: 'Linechart'
-  //   },
-  //   credits: {
-  //     enabled: false
-  //   },
-  //   series: [
-  //     {
-  //       name: 'Line 1',
-  //       data: [1,2,3]
-  //     }
-  //   ]
+  //    chart = new Chart({
+  //     chart : {
+  //        type: 'Highcharts Treemap'
+  //     },
+  //     title: {
+  //       text: 'Highcharts Treemap'
+  //     },
+  //     colorAxis : {
+  //       minColor: '#FFFFFF',
+  //       maxColor: Highcharts.getOptions().colors[0]
+  //    }
+  //
   // });
 
   constructor() {
@@ -87,83 +59,85 @@ export class InsTrafficComponent implements OnInit {
     this.array1.push(this.array);
     console.log(this.array1);
 
-    Highcharts.chart('container', {
-      series: [{
-          type: "treemap",
-          layoutAlgorithm: 'stripes',
-          alternateStartingDirection: true,
-          levels: [{
-              level: 1,
-              layoutAlgorithm: 'sliceAndDice',
-              dataLabels: {
-                  enabled: true,
-                  align: 'left',
-                  verticalAlign: 'top',
-                  style: {
-                      fontSize: '15px',
-                      fontWeight: 'bold'
-                  }
-              }
-          }],
-          data: [{
-              id: 'A',
-              name: 'Apples',
-              color: "#EC2500"
-          }, {
-              id: 'B',
-              name: 'Bananas',
-              color: "#ECE100"
-          }, {
-              id: 'O',
-              name: 'Oranges',
-              color: '#EC9800'
-          }, {
-              name: 'Anne',
-              parent: 'A',
-              value: 5
-          }, {
-              name: 'Rick',
-              parent: 'A',
-              value: 3
-          }, {
-              name: 'Peter',
-              parent: 'A',
-              value: 4
-          }, {
-              name: 'Anne',
-              parent: 'B',
-              value: 4
-          }, {
-              name: 'Rick',
-              parent: 'B',
-              value: 10
-          }, {
-              name: 'Peter',
-              parent: 'B',
-              value: 1
-          }, {
-              name: 'Anne',
-              parent: 'O',
-              value: 1
-          }, {
-              name: 'Rick',
-              parent: 'O',
-              value: 3
-          }, {
-              name: 'Peter',
-              parent: 'O',
-              value: 3
-          }, {
-              name: 'Susanne',
-              parent: 'Kiwi',
-              value: 2,
-              color: '#9EDE00'
-          }]
-      }],
-      title: {
-          text: 'Fruit consumption'
+    Highcharts.chart('treemap1', {
+  series: [{
+    type: "treemap",
+    layoutAlgorithm: 'stripes',
+    alternateStartingDirection: true,
+    levels: [{
+      level: 1,
+      layoutAlgorithm: 'sliceAndDice',
+      dataLabels: {
+        enabled: true,
+        align: 'left',
+        verticalAlign: 'top',
+        style: {
+          fontSize: '15px',
+          fontWeight: 'bold'
+        }
       }
-  });
+    }],
+    data: [{
+      id: 'A',
+      name: 'Apples',
+      color: "#EC2500"
+    }, {
+      id: 'B',
+      name: 'Bananas',
+      color: "#ECE100"
+    }, {
+      id: 'O',
+      name: 'Oranges',
+      color: '#EC9800'
+    }, {
+      name: 'Anne',
+      parent: 'A',
+      value: 5
+    }, {
+      name: 'Rick',
+      parent: 'A',
+      value: 3
+    }, {
+      name: 'Peter',
+      parent: 'A',
+      value: 4
+    }, {
+      name: 'Anne',
+      parent: 'B',
+      value: 4
+    }, {
+      name: 'Rick',
+      parent: 'B',
+      value: 10
+    }, {
+      name: 'Peter',
+      parent: 'B',
+      value: 1
+    }, {
+      name: 'Anne',
+      parent: 'O',
+      value: 1
+    }, {
+      name: 'Rick',
+      parent: 'O',
+      value: 3
+    }, {
+      name: 'Peter',
+      parent: 'O',
+      value: 3
+    }, {
+      name: 'Susanne',
+      parent: 'Kiwi',
+      value: 2,
+      color: '#9EDE00'
+    }]
+  }],
+  title: {
+    text: 'Fruit consumption'
+  }
+});
+
+
   }
 
 }
