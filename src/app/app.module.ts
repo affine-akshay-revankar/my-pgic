@@ -4,7 +4,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-import { HighchartsChartModule } from 'highcharts-angular';
 
 import { AuthGuard, Globals } from './shared';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,8 +24,7 @@ import { ChartModule } from 'angular-highcharts';
     ReactiveFormsModule,
     EmbedVideo.forRoot(),
     ChartModule,
-    CommonModule,
-    HighchartsChartModule
+    CommonModule
   ],
   exports: [
 
