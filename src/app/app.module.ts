@@ -1,6 +1,6 @@
 import "@angular/compiler";
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmbedVideo } from 'ngx-embed-video';
 import { ChartModule } from 'angular-highcharts';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ChartModule } from 'angular-highcharts';
     ReactiveFormsModule,
     EmbedVideo.forRoot(),
     ChartModule,
-    CommonModule
+    CommonModule,
+    HighchartsChartModule
   ],
   exports: [
 
