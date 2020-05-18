@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule  } from '@angular/forms';
 import { InsReportRoutingModule } from './ins-report-routing.module';
 import { InsReportComponent } from './ins-report.component';
-// import { DataTableModule } from "angular2-datatable";
-// import { Observable } from 'rxjs/Observable';
-// import { SharedPipesModule  } from '../../../shared';
 
 
 @NgModule({
@@ -15,9 +12,7 @@ import { InsReportComponent } from './ins-report.component';
   imports: [
     CommonModule,
     InsReportRoutingModule,
-    FormsModule,
-
-    // SharedPipesModule
+    FormsModule
   ],
 
 })
