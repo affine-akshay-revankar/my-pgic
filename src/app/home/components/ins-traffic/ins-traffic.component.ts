@@ -16,7 +16,7 @@ import { ApiService } from '../../../shared';
 export class InsTrafficComponent implements OnInit {
   highcharts = Highcharts;
   tableData = [
-    // {Time:"T1",Grooming :"0",Frozen:"0",Health:"0",Home:"0"}
+    // {Time:"T1",Grooming :"0",Frozen:"0",Health:"0",Home:"0",All: "0"}
   ]
   videoData = [];
    vimeoUrl = "https://affineindia-my.sharepoint.com/:v:/r/personal/astha_jagetiya_affineanalytics_com/Documents/TrainedVideos/mp4_videos/Checkout.mp4?csf=1&web=1&e=2MVCtI";
@@ -80,7 +80,7 @@ export class InsTrafficComponent implements OnInit {
   }
 
   renderUpdatedData(data){
-    let seconds = 0, intId, tsData, tsInd, tsLen, lts, ts, a, b, c, d;
+    let seconds = 0, intId, tsData, tsInd, tsLen, lts, ts, a, b, c, d, all;
 
     tsData = data["Time Stamp"];
     tsLen = tsData.length;
@@ -90,7 +90,7 @@ export class InsTrafficComponent implements OnInit {
 
       tsInd = tsData.indexOf(++seconds);
 
-      console.log({tsInd: console.log(), seconds: seconds});
+      console.log({tsInd: tsInd, seconds: seconds});
 
       if( tsInd !== -1 ) {
         a = data["Cosmetics"][tsInd];
@@ -117,10 +117,11 @@ export class InsTrafficComponent implements OnInit {
         }];
         Highcharts.chart('treemap1', this.treeMapOptions);
 
+        all = (a != "-" ? a : 0) + (b != "-" ? b : 0) + (c != "-" ? c : 0) + (d != "-" ? d : 0);
         if ( tsInd == 0 ) {
-          this.tableData[0] = {Time:`T${++tsInd}`,Grooming :a,Frozen:b,Health:c,Home:d};
+          this.tableData[0] = {Time:`T${++tsInd}`,Grooming :a,Frozen:b,Health:c,Home:d, All: all};
         } else {
-          this.tableData.push({Time:`T${++tsInd}`,Grooming :a,Frozen:b,Health:c,Home:d});
+          this.tableData.push({Time:`T${++tsInd}`,Grooming :a,Frozen:b,Health:c,Home:d, All: all});
         }
 
       }
