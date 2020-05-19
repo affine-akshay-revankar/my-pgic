@@ -102,7 +102,7 @@ export class ManCorrosionComponent implements OnInit {
 
     if( this.file ) {
 
-      this.apiService.detectCorrosion2(this.file).then((result) => {
+      this.apiService.detectCorrosion2(this.file).then((result:any) => {
 
         const reader = new FileReader();
         reader.onload = e => this.uploadedimage = reader.result;
@@ -118,7 +118,7 @@ export class ManCorrosionComponent implements OnInit {
     } else {
 
       let filepath = this.selImgObj.path;
-      this.apiService.detectCorrosion1(filepath, 'existing').then(result => {
+      this.apiService.detectCorrosion1(filepath, 'existing').then((result:any) => {
 
         this.uploadedimage = filepath;
         this.response = JSON.parse(result.replace(/'/g,'"'));
