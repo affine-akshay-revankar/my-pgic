@@ -1,0 +1,70 @@
+<div class="container">
+  <h5 class="text">CORROSION DETECTION</h5>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card secondcard">
+        <p class="header">Select An Image</p>
+        <hr>
+        <p class="uploadtext">Upload an Image</p>
+        <div class="card uploadcard">
+          <div class="row">
+            <div class="col-md-2">
+              <input type="file" name="uploadFile" value="UPLOAD" (change)="fileChanged($event)">
+            </div>
+            <div class="col-md-1 offset-md-1">
+              <i class="fa fa-check-circle check" *ngIf="success"></i>
+            </div>
+          </div>
+        </div>
+
+
+        <p class="choosegallery">Choose from Gallery</p>
+        <div class="col-md-12">
+          <div class="row">
+            <div *ngFor="let item of filterdata; let i = index;" class="col-md-4">
+              <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
+            </div>
+            <div class="col-md-12" width="100%">
+              <button class="btn btn-primary col-md-12 detect" (click)="process()"
+              [disabled]="(processing == false) ? 'disabled': null">DETECT CORROSION</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <p class="header">Corrosion Identification</p>
+        <hr>
+        <!-- <p class="uploadtext">Selected/Uploaded</p> -->
+        <div class="selectedimages">
+          <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="Selected/Uploaded Image">
+
+        </div>
+
+        <p class="choosegallery">Corrosion Estimation</p>
+
+        <div class="row">
+          <div class="col-12">
+            <label class="label col-4">Chaffing: {{ response.Chaffing }}</label>
+            <label class="label col-4">Edge: {{ response.Edge }}</label>
+            <label class="label col-4">Fastener: {{ response.Fastener }}</label>
+            <label class="label col-4">Filiform: {{ response.Filiform }}</label>
+            <label class="label col-4">Surface: {{ response.Surface }}</label>
+          </div>
+          <!-- <div class="col-3">
+            <label class="label col-6">Chaffing: {{}}</label>
+            <label class="value col-6">Value</label>
+          </div>
+          <div class="col-md-6">
+            <label class="label col-6">Edge</label>
+            <label class="value col-6">Value</label>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
