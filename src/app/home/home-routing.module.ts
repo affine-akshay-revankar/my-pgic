@@ -21,8 +21,10 @@ const routes: Routes = [
       { path: 'ins-counterfeit', loadChildren: () => import('./components/ins-counterfeit/ins-counterfeit.module').then(m => m.InsCounterfeitModule) },
       { path: 'ins-report', loadChildren: () => import('./components/ins-report/ins-report.module').then(m => m.InsReportModule) },
       { path: 'ins-shelf', loadChildren: () => import('./components/ins-shelf/ins-shelf.module').then(m => m.InsShelfModule) },
+
       { path: 'manufacture', loadChildren: () => import('./components/manufacture/manufacture.module').then(m => m.ManufactureModule) },
       { path: 'man-corrosion', loadChildren: () => import('./components/man-corrosion/man-corrosion.module').then(m => m.ManCorrosionModule) },
+      { path: 'man-damage', loadChildren: () => import('./components/man-damage/man-damage.module').then(m => m.ManDamageModule) },
 
     ]
   }

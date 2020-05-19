@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../shared';
 
 @Component({
-  selector: 'app-man-corrosion',
-  templateUrl: './man-corrosion.component.html',
-  styleUrls: ['./man-corrosion.component.scss']
+  selector: 'app-man-damage',
+  templateUrl: './man-damage.component.html',
+  styleUrls: ['./man-damage.component.scss']
 })
-export class ManCorrosionComponent implements OnInit {
+export class ManDamageComponent implements OnInit {
 
   uploads:boolean = false;
   images:any;
@@ -20,7 +20,7 @@ export class ManCorrosionComponent implements OnInit {
   selImgInd: number = -1;
   selImgObj: any;
   file: any;
-  response: any = {'Chaffing': '', 'Edge': '', 'Fastener': '', 'Filiform': '', 'Surface': ''};
+  response: any = { 'car': '', 'no_car': '', 'Front': '', 'Side': '', 'Rear': '', 'No_damage': '' };
 
   product = [
     {id:1,name:"Tide"},
@@ -30,28 +30,28 @@ export class ManCorrosionComponent implements OnInit {
   imagesList = [
     {
       "id":1,
-      "path":"http://182.156.213.183:8080/qc/Edge.jpg",
-      "name":"Corrosion"
+      "path":"http://182.156.213.183:8080/qc/fntt.JPEG",
+      "name":"Damage"
     },
     {
       "id":2,
-      "path":"http://182.156.213.183:8080/qc/chaffing.jpg",
-      "name":"Corrosion"
+      "path":"http://182.156.213.183:8080/qc/no.jpg",
+      "name":"Damage"
     },
     {
       "id":3,
-      "path":"http://182.156.213.183:8080/qc/fast.jpg",
-      "name":"Corrosion"
+      "path":"http://182.156.213.183:8080/qc/nodmg.jpg",
+      "name":"Damage"
     },
     {
       "id":4,
-      "path":"http://182.156.213.183:8080/qc/filiform.jpg",
-      "name":"Corrosion"
+      "path":"http://182.156.213.183:8080/qc/rear.jpg",
+      "name":"Damage"
     },
     {
       "id":5,
-      "path":"http://182.156.213.183:8080/qc/surface.jpg",
-      "name":"Corrosion"
+      "path":"http://182.156.213.183:8080/qc/sde.jpg",
+      "name":"Damage"
     }
   ];
   filterdata = [];
@@ -102,12 +102,13 @@ export class ManCorrosionComponent implements OnInit {
 
     if( this.file ) {
 
-      this.apiService.detectCorrosion2(this.file).then((result) => {
+      this.apiService.detectDamage2(this.file).then((result) => {
 
         const reader = new FileReader();
         reader.onload = e => this.uploadedimage = reader.result;
         reader.readAsDataURL(this.file);
 
+        console.log(typeof result);
         this.response = JSON.parse(result.replace(/'/g,'"'));
 
       },
@@ -118,7 +119,7 @@ export class ManCorrosionComponent implements OnInit {
     } else {
 
       let filepath = this.selImgObj.path;
-      this.apiService.detectCorrosion1(filepath, 'existing').then(result => {
+      this.apiService.detectDamage1(filepath, 'existing').then(result => {
 
         this.uploadedimage = filepath;
         this.response = JSON.parse(result.replace(/'/g,'"'));
