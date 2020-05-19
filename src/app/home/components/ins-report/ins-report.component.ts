@@ -455,6 +455,7 @@ getfilterData(){
       'city':this.city,
       'product':this.product
     };
+    if(this.startDate && this.endDate&& this.state && this.city && this.product){
   this.apiservice.getPosReportData(params).then(data => {
       console.log(data);
       this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
@@ -489,6 +490,9 @@ getfilterData(){
       this.productOptions.xAxis.categories = xaxisdates;
       this.drawchart();
     });
-
+}
+else{
+  alert("Please select filters");
+}
 }
 }

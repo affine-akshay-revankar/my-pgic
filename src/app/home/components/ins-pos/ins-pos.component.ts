@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../shared';
 
 @Component({
   selector: 'app-ins-pos',
@@ -15,8 +16,9 @@ export class InsPosComponent implements OnInit {
   success:boolean = false;
   chooseFile:boolean = true;
   array=[
-    {id:1,path:"../../../../assets/Tide/tide1.jpg",name:"Tide"},
-    {id:2,path:"../../../../assets/Tide/tide2.jpg",name:"Tide"},
+
+    {id:1,path:"./assets/Tide/Tide_1.png",name:"Tide"},
+    {id:2,path:"./assets/Tide/Tide_3.jpg",name:"Tide"},
     {id:3,path:"../../../../assets/Tide/tide3.png",name:"Tide"},
     {id:4,path:"../../../../assets/Tide/tide4.jpg",name:"Tide"},
     {id:5,path:"../../../../assets/Tide/tide5.png",name:"Tide"},
@@ -24,7 +26,9 @@ export class InsPosComponent implements OnInit {
     {id:7,path:"../../../../assets/Head & Sholder/H2.jpg",name:"Head & Holders"},
     {id:8,path:"../../../../assets/Head & Sholder/H3.jpg",name:"Head & Holders"},
   ]
-  constructor() { }
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -57,6 +61,26 @@ export class InsPosComponent implements OnInit {
   process(){
     this.uploadedimage = this.images;
     console.log(this.uploadedimage);
+    let lastSlashIdx = this.images.lastIndexOf("/");
+    let lastDotIdx = this.images.lastIndexOf(".");
+    let filename = this.images.substring(lastSlashIdx + 1, lastDotIdx);
+    console.log(filename);
+    this.apiService.getEstimatedPos({filename: filename}).then(result => {
+      console.log(result);
+      // if( result && result["Category"] && result["Probability"] ) {
+      //   let prob = result["Probability"];
+      //   this.response = {
+      //     Category: result["Category"],
+      //     Probability: (prob * 100).toFixed(2)
+      //   }
+      // } else {
+      //   this.response = {
+      //     Category: "",
+      //     Probability: ""
+      //   }
+      // }
+    });
+    this.uploadedimage = this.selImgObj.path;
   }
 
 }
