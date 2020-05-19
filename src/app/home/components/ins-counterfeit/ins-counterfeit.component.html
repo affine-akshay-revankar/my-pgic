@@ -68,7 +68,12 @@
 
         <p class="choosegallery">Counterfeit Estimation</p>
 
-        <div class="row">
+        <div class="row labelbox" *ngIf="estimate1">
+          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text">
+          </div>
+          <div class="col-md-6"><label class="label">Probability</label> <input type="text" class="form-control secondtext"></div>
+        </div>
+        <div class="row labelbox1" *ngIf="estimate2">
           <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text" value="{{response.Category}}">
           </div>
           <div class="col-md-6"><label class="label">Probability</label> <input type="text" class="form-control secondtext" value="{{response.Probability}}"></div>
