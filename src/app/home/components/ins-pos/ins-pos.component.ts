@@ -53,15 +53,20 @@ export class InsPosComponent implements OnInit {
     this.processing = false;
     this.chooseFile = false;
     this.path = true;
-  }
-
-  upload(){
     const formData = new FormData;
     formData.append('file', this.images);
     this.image = this.images ;
     this.processing = true;
     this.success = true;
   }
+
+  // upload(){
+  //   const formData = new FormData;
+  //   formData.append('file', this.images);
+  //   this.image = this.images ;
+  //   this.processing = true;
+  //   this.success = true;
+  // }
 
   process(){
     let lastSlashIdx = this.images.lastIndexOf("/");
