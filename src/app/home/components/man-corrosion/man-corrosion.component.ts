@@ -20,6 +20,7 @@ export class ManCorrosionComponent implements OnInit {
   selImgInd: number = -1;
   selImgObj: any;
   file: any;
+  response: any = {'Chaffing': '', 'Edge': '', 'Fastener': '', 'Filiform': '', 'Surface': ''};
 
   product = [
     {id:1,name:"Tide"},
@@ -105,22 +106,31 @@ export class ManCorrosionComponent implements OnInit {
   process(){
 
     if( this.file ) {
+
       this.apiService.makeUniqueFileRequest(this.file).then((result) => {
 
         const reader = new FileReader();
         reader.onload = e => this.uploadedimage = reader.result;
         reader.readAsDataURL(this.file);
 
+        this.response = JSON.parse(result.replace(/'/g,'"'));
+
       },
       (error) => {
         console.error(error);
       });
+
     } else {
+
       let filepath = this.selImgObj.path;
       this.apiService.detectCorrosion(filepath, 'existing').then(result => {
 
+        this.uploadedimage = filepath;
+        this.response = JSON.parse(result.replace(/'/g,'"'));
+
       });
-      this.uploadedimage = filepath;
+
+
     }
 
   }

@@ -38,18 +38,30 @@
       <div class="card">
         <p class="header">Corrosion Identification</p>
         <hr>
-        <p class="uploadtext">Selected/Uploaded</p>
+        <!-- <p class="uploadtext">Selected/Uploaded</p> -->
         <div class="selectedimages">
-          <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="Responsive image">
+          <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="Selected/Uploaded Image">
 
         </div>
 
-        <p class="choosegallery">Counterfeit Estimation</p>
+        <p class="choosegallery">Corrosion Estimation</p>
 
         <div class="row">
-          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text" value="{{response.Category}}">
+          <div class="col-12">
+            <label class="label col-4">Chaffing: {{ response.Chaffing }}</label>
+            <label class="label col-4">Edge: {{ response.Edge }}</label>
+            <label class="label col-4">Fastener: {{ response.Fastener }}</label>
+            <label class="label col-4">Filiform: {{ response.Filiform }}</label>
+            <label class="label col-4">Surface: {{ response.Surface }}</label>
           </div>
-          <div class="col-md-6"><label class="label">Probability</label> <input type="text" class="form-control secondtext" value="{{response.Probability}}"></div>
+          <!-- <div class="col-3">
+            <label class="label col-6">Chaffing: {{}}</label>
+            <label class="value col-6">Value</label>
+          </div>
+          <div class="col-md-6">
+            <label class="label col-6">Edge</label>
+            <label class="value col-6">Value</label>
+          </div> -->
         </div>
       </div>
     </div>
