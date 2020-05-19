@@ -106,8 +106,31 @@ margin-top: 0px;
     padding-bottom: 30px;
     margin-bottom: 36px;
 }
+.label1{
+  margin-left:10px;
+}
+.counterestimation{
+  margin-left:5px;
+  margin-right:5px;
+  background-color: lightsalmon;
+  margin-bottom: 10px;
+}
+.Gallery{
+  border:1px solid red;
+}
 @media screen and (min-width: 768px) {
   .detectbutton {
     margin-top: 188px;
   }
+}
+
+.labelbox{
+    background-color: lightgrey;
+    margin:10px;
+    margin-top: -5px;
+}
+.labelbox1{
+    background-color: lightpink;
+    margin:10px;
+    margin-top: -5px;
 }

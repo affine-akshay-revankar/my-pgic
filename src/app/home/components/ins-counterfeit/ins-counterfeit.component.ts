@@ -16,7 +16,8 @@ export class InsCounterfeitComponent implements OnInit {
   path:boolean = false;
   success:boolean = false;
   chooseFile:boolean = true;
-
+  estimate1:boolean = true;
+  estimate2:boolean = false;
   selImgInd: number = -1;
   selImgObj: any;
 
@@ -168,7 +169,8 @@ export class InsCounterfeitComponent implements OnInit {
       }
     });
     this.uploadedimage = this.selImgObj.path;
-
+    this.estimate1 = false;
+    this.estimate2 = true;
     // this.apiService.getPosReportData({}).then(result => {
     //   debugger;
     // });
