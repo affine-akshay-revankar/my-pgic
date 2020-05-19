@@ -7,6 +7,9 @@ import 'rxjs/add/operator/toPromise';
 export class ApiService {
 
   baseURL: string = 'http://127.0.0.1:5000';
+  private httpOptions: any = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(
     private httpClient: HttpClient
@@ -79,33 +82,92 @@ export class ApiService {
     });
   }
 
-  getShelfInventoryData(){
+
+getShelfInventoryData(){
     return this.httpClient.get(
       `${this.baseURL}/api/getShelfInventoryData`,
     )
     .toPromise()
     .then(response => {
     return response;
+  })
+  .catch(err => {
+    console.log(err);
+  });
+}
+
+  detectCorrosion1(data, type){
+    var url = 'http://fr-api.affineanalytics.co.in:5001/analysenew';
+
+    return this.httpClient.post(
+      url,
+      data,
+      this.httpOptions
+    )
+    .toPromise()
+    .then(response => {
+      return response;
     })
     .catch(err => {
       console.log(err);
     });
   }
-  //
-  // checkCounterfeit(data){
-  //   let params = new HttpParams();
-  //   params = params.append('filename', data.filename);
-  //   return this.httpClient.get(
-  //     `${this.baseURL}/api/checkCounterfeit`,
-  //     { params: params }
-  //   )
-  //   .toPromise()
-  //   .then(response => {
-  //     return response;
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
-  // }
+
+  detectCorrosion2(file: File) {
+    return new Promise((resolve, reject) => {
+      var formData: any = new FormData();
+      var xhr = new XMLHttpRequest();
+      var d = new Date().getTime();
+      formData.append("pic", file);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            resolve(JSON.parse(xhr.response));
+          } else {
+            reject(xhr.response);
+          }
+        }
+      }
+      xhr.open("POST", 'http://fr-api.affineanalytics.co.in:5001/analyse', true);
+      xhr.send(formData);
+    });
+  }
+
+  detectDamage1(data, type){
+    var url = 'http://fr-api.affineanalytics.co.in:5002/analysenew';
+
+    return this.httpClient.post(
+      url,
+      data,
+      this.httpOptions
+    )
+    .toPromise()
+    .then(response => {
+      return response;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  detectDamage2(file: File) {
+    return new Promise((resolve, reject) => {
+      var formData: any = new FormData();
+      var xhr = new XMLHttpRequest();
+      var d = new Date().getTime();
+      formData.append("pic", file);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            resolve(JSON.parse(xhr.response));
+          } else {
+            reject(xhr.response);
+          }
+        }
+      }
+      xhr.open("POST", 'http://fr-api.affineanalytics.co.in:5002/analyse', true);
+      xhr.send(formData);
+    });
+  }
 
 }
