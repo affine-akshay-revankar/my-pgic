@@ -27,13 +27,17 @@
 .tablemargin {
   margin-top: 15px;
   margin-bottom: 20px;
+  margin-right: -18px;
+  margin-left: -19px;
 }
-// .thead-inverse {
-//   background-color: #dee2e6;
-// }
+th {
+  background-color: #dee2e6;
+  border-right:6px solid dee2e6;
+}
 .tableheader,
 .tabledata {
   text-align: center;
+  font-size: 14px
 }
 // th{
 //     background-color: #dee2e6;
@@ -53,3 +57,5 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <div class="col-md-9">
-<h5 class="text">ESTIMATING POS THROUGHPUT</h5>
+<h5 class="text1">ESTIMATING POS THROUGHPUT</h5>
 </div>
 <div class="col-md-3 buttons">
   <button class="btn btn-light upload" routerLink="/ins-pos">UPLOAD</button>
@@ -15,14 +15,14 @@
   <div class="selectmenu jumbotron">
     <div class="row dropdowns">
     <div class="col-md-3">
-      <label> Time Period: <span > </span> </label>
+      <label class="header">Select Time Period: <span > </span> </label>
       <!-- <input type="date" class="form-control" id="startDate" [(ngModel)]="startDate" /> -->
 
       <div class="row">
         <div class="col-md-3">
           <label> From</label>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <input type="date" class="form-control" id="startDate" [(ngModel)]="startDate" />
         </div>
       </div>
@@ -31,14 +31,14 @@
         <div class="col-md-3">
           <label> To</label>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <input type="date" class="form-control" id="endDate" [(ngModel)]="endDate" />
         </div>
       </div>
 
     </div>
     <div class="col-md-3">
-      <label> Country:</label>
+      <label class="header"> Country:</label>
       <select class="form-control" id="level" [(ngModel)]="level"  >
         <option value="">Select Country</option>
         <option *ngFor='let lev of levelList' value="{{lev}}">
@@ -47,7 +47,7 @@
       </select>
     </div>
     <div class="col-md-3">
-      <label> State:  </label>
+      <label class="header"> State:  </label>
       <select class="form-control" id="geography" [(ngModel)]="geography" >
         <option value="">Select State</option>
         <option *ngFor='let lev of geographyList' value="{{lev}}">
@@ -55,7 +55,7 @@
         </option>
       </select></div>
       <div class="col-md-3">
-        <label> Product:  </label>
+        <label class="header"> Product:  </label>
         <select class="form-control" id="product" [(ngModel)]="product" >
           <option value="">Select Product</option>
           <option *ngFor='let lev of productList' value="{{lev}}">
@@ -63,9 +63,9 @@
           </option>
         </select>
       </div>
-      <!-- <div class="col-md-1">
+      <div class="col-md-2 offset-md-10">
         <button class="btn btn-default affineblue"  (click)="getfilterData()">Apply</button>
-      </div> -->
+      </div>
       </div>
     </div>
     <div class="row">
@@ -156,16 +156,16 @@
       </div>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
           <div class="card">
           <div class="col-md-12 margin">
-            <label class="aa-field-label">Top 4 Performing Products</label>
+            <label class="aa-field-label1">Top 4 Performing Products</label>
             <br>
-            <div class="products row margin">
+            <div class="products row">
   
               <div class="col-md-6">
-                <div class="pull-right"><span>By Quantity Sold </span></div>
-                <table class="table table-bordered table-striped cus-table aa-table table1" >
+                <div class="pull-right name"><span>By Quantity Sold </span></div>
+                <table class="table table-bordered cus-table aa-table table1" >
                   <thead class="thead-inverse">
                     <tr>
                       <th> PRODUCT </th>
@@ -183,11 +183,11 @@
                     </ng-template>
                   </tbody>
                 </table>
-  
               </div>
+
               <div class="col-md-6">
-                <div class="pull-right"><span>By Revenue </span></div>
-                <table class="table table-bordered table-striped cus-table aa-table" >
+                <div class="pull-right name"><span>By Revenue </span></div>
+                <table class="table table-bordered cus-table aa-table" >
                   <thead class="thead-inverse">
                     <tr>
                       <th> PRODUCT </th>
@@ -208,7 +208,7 @@
               </div>
             </div>
           </div>
-            <label class="aa-field-label2">Bottom 4 Performing Products</label>
+            <!-- <label class="aa-field-label2">Bottom 4 Performing Products</label>
             <br>
             <div class="products row margin">
               <div class="col-md-6">
@@ -253,10 +253,10 @@
                   </tbody>
                 </table>
               </div>
-            </div>
+            </div> -->
         </div>
     </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div class="card graph">
             PRODUCT AFFINITY DIAGRAM
           </div>

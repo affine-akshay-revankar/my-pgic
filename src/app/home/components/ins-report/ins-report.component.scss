@@ -1,6 +1,6 @@
 $sky-blue : #24AEE4;
-.text{
-    text-align:center;
+.text1 {
+  color: darkblue;
 }
 .reports{
   margin-left:10px;
@@ -10,7 +10,9 @@ $sky-blue : #24AEE4;
   margin-bottom: 20px;
 }
 .selectmenu{
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
+    margin-top:-16px;
+    padding-bottom: 10px;
 }
 .card-body{
     padding-top:10px;
@@ -40,7 +42,10 @@ $sky-blue : #24AEE4;
     border: none !important;
 }
 .affineblue{
-  background-color: $sky-blue;
+  background-color: darkblue;
+  color: white;
+  padding-left: 36px;
+  padding-right: 36px;
 }
 .chart {
   height: 270px;
@@ -87,6 +92,11 @@ table {
   text-align: right;
   font-weight: bold;
   font-size: 12px;
+  background-color: #D3D3D3;
+  /* padding: 3px; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
 .pull-right span{
   background-color: #D3D3D3
@@ -111,6 +121,7 @@ table {
 }
 .bighorizon{
   margin-top:0px;
+  background-color: darkblue;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -135,4 +146,32 @@ table {
   .dropdowns{
     margin-top: -46px;
     }/* Styles */
+}
+.header{
+  font-weight: bold;
+}
+.aa-field-label1{
+    font-weight: bold;
+    font-size: 15px;
+    padding-top:20px;
+    padding-left:10px;
+    color:lightgreen;
+}
+th{
+  background-color: #dee2e6;
+}
+.margin{
+  margin-left: -6px;
+  margin-right: -6px;
+}
+.graph{
+font-size: 15px;
+font-weight: bold;
+padding-top: 20px;
+text-align: center;
+}
+@media(min-width : 1200px) {
+  .name{
+    margin-top:-23px;
+  }
 }
