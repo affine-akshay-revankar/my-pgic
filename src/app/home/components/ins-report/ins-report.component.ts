@@ -222,9 +222,7 @@ export class InsReportComponent implements OnInit {
         Highcharts.chart('productchart', this.productOptions);
       }
 
-//   onChange(data : any) {
-//     this.level = data;
-// }
+
 getfilterData(){
   var params ={
       'from': this.startDate,
