@@ -5,13 +5,19 @@
 A set of functions to start the API server and listen to the requests.
 Returns the JSON output from running models and IOU their outputs.
 """
+import sys
 import json
-from flask import Flask, request, jsonify
 import logging, os
-from results.traffic.Convert_CSV_to_Dictionary import csv_to_dictionary
-from results.pos_reports.WarehouseStorage import show_details
-from flask_cors import CORS
 import time
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+# from results.traffic.Convert_CSV_to_Dictionary import csv_to_dictionary
+sys.path.append('results/traffic')
+from Convert_CSV_to_Dictionary import csv_to_dictionary
+sys.path.append('results/pos_reports')
+from WarehouseStorage import show_details
+
+
 
 
 app = Flask(__name__)
