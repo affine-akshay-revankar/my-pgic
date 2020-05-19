@@ -3,6 +3,8 @@
 }
 .text1 {
   color: darkblue;
+  font-weight: bold;
+  margin-top:30px;
 }
 .reports {
   margin-left: 10px;
@@ -147,6 +149,7 @@
   }
   .buttons {
     margin-bottom: 20px;
+    // margin-top: 30px;
   }
   .selectmenu {
     margin-bottom: 20px;
@@ -195,15 +198,15 @@
     background-color: darkblue;
   }
   .bighorizon {
-    margin-top: -19px;
-  }
+    margin-top:0px;
+}
   .upload {
     background-color: grey;
   }
-  .buttons {
-    margin-left: 0px;
-    padding-left: 70px;
-  }
+//   .buttons {
+//     margin-left: 0px;
+//     padding-left: 70px;
+//   }
   margin-right: 10px;
   margin-top: 0px;
 }
@@ -242,9 +245,9 @@
 .reports {
   margin-left: 10px;
 }
-.buttons {
-  margin-bottom: 20px;
-}
+// .buttons {
+//   margin-bottom: 20px;
+// }
 .selectmenu {
   margin-bottom: 20px;
 }
@@ -292,15 +295,19 @@
   background-color: darkblue;
 }
 .bighorizon {
-  margin-top: -21px;
+  margin-top: 0px;
 }
 .upload {
   background-color: grey;
 }
-.buttons {
-  margin-left: 0px;
-  padding-left: 70px;
-}
+// .buttons {
+//   margin-left: 0px;
+//   padding-left: 70px;
+// }
 .images {
   margin-left: 0px;
+}
+.buttons{
+    margin-top:30px;
+    padding-left: 68px;
 }

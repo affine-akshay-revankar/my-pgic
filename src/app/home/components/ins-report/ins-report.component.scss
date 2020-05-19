@@ -1,6 +1,8 @@
 $sky-blue : #24AEE4;
 .text1 {
   color: darkblue;
+  font-weight:bold;
+  margin-top:30px;
 }
 .reports{
   margin-left:10px;
@@ -8,6 +10,7 @@ $sky-blue : #24AEE4;
 }
 .buttons{
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 .selectmenu{
     margin-bottom: 20px;
@@ -120,7 +123,7 @@ table {
   color: #0000FF
 }
 .bighorizon{
-  margin-top:0px;
+  margin-top:-20px;
   background-color: darkblue;
 }
 .card {
@@ -133,14 +136,11 @@ table {
   border:1px solid black;
 }
 .table1{
-  margin-left:10px;
+  margin-left:13px;
 }
 .buttons{
   margin-left: 0px;
   padding-left: 70px;
-}
-.bighorizon{
-  margin-top: -19px;
 }
 @media(min-width : 1200px) {
   .dropdowns{
@@ -159,6 +159,10 @@ table {
 }
 th{
   background-color: #dee2e6;
+  font-size: 12px;
+}
+td{
+  font-size: 12px;
 }
 .margin{
   margin-left: -6px;

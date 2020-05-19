@@ -97,9 +97,68 @@ export class InsPosComponent implements OnInit {
       "name":"Head & Shoulders"
     }
   ];
+
+  posData=[{
+    "DateTime": [
+        {
+            "Description": "01.07.2017",
+            "label": "TransactionDate"
+        }
+    ],
+    "Items": [
+        {
+            "Description": " I CO HENLY, XL, NAVY",
+            "ItemCost": "1049.00",
+            "label": "ItemName1"
+        },
+        {
+            "Description": "DJ & C MNS SOCKS",
+            "ItemCost": "99.00",
+            "label": "ItemName2"
+        },
+        {
+            "Description": "BUF, FSTRS, 32,KHAKI",
+            "ItemCost": "1399.00",
+            "label": "ItemName3"
+        },
+        {
+            "Description": "FSB 1000 GV on 2500",
+            "ItemCost": "0.01",
+            "label": "ItemName4"
+        },
+        {
+            "Description": "SHOPPING CARRY BAG",
+            "ItemCost": "5.00",
+            "label": "ItemName5"
+        }
+    ],
+    "StoreDetails": [
+        {
+            "Description": "BIG BAZAAR (FUTURE RETAIL LTD)",
+            "label": "MerchantName"
+        },
+        {
+            "Description": "GURU EMPIRES, GRAND ROAD PURI, NEAR TOWN POLICE STATION, PURI-752001",
+            "label": "MerchantAddress"
+        },
+        {
+            "Description": "06752-252602",
+            "label": "MerchantPhoneNumber"
+        }
+    ],
+    "Total": [
+        {
+            "label": "Total"
+        },
+        {
+            "Description": "2552.01"
+        }
+    ]
+}]
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.posData)
   }
 
   onFileChange(event){
