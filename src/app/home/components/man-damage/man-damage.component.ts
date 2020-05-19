@@ -102,7 +102,7 @@ export class ManDamageComponent implements OnInit {
 
     if( this.file ) {
 
-      this.apiService.detectDamage2(this.file).then((result) => {
+      this.apiService.detectDamage2(this.file).then((result:any) => {
 
         const reader = new FileReader();
         reader.onload = e => this.uploadedimage = reader.result;
@@ -119,7 +119,7 @@ export class ManDamageComponent implements OnInit {
     } else {
 
       let filepath = this.selImgObj.path;
-      this.apiService.detectDamage1(filepath, 'existing').then(result => {
+      this.apiService.detectDamage1(filepath, 'existing').then((result:any) => {
 
         this.uploadedimage = filepath;
         this.response = JSON.parse(result.replace(/'/g,'"'));
