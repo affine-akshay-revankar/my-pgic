@@ -78,6 +78,19 @@ export class ApiService {
       console.log(err);
     });
   }
+
+  getShelfInventoryData(){
+    return this.httpClient.get(
+      `${this.baseURL}/api/getShelfInventoryData`,
+    )
+    .toPromise()
+    .then(response => {
+    return response;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
   //
   // checkCounterfeit(data){
   //   let params = new HttpParams();
