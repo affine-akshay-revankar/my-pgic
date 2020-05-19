@@ -30,23 +30,31 @@
       </div>
 
     </div>
-    <div class="col-md-2">
+    <!-- <div class="col-md-2">
       <label class="aa-field-label"> Country:</label>
-      <select class="form-control" id="level" [(ngModel)]="level"  >
+      <select class="form-control" id="country" [(ngModel)]="country"  >
         <option value="">Select Country</option>
-        <option *ngFor='let lev of levelList' value="{{lev}}">
+        <option *ngFor='let lev of countrylist' value="{{lev}}">
           {{ lev }}
         </option>
       </select>
-    </div>
+    </div> -->
     <div class="col-md-2">
       <label class="aa-field-label"> State:  </label>
-      <select class="form-control" id="geography" [(ngModel)]="geography" >
+      <select class="form-control" id="state" [(ngModel)]="state" >
         <option value="">Select State</option>
-        <option *ngFor='let lev of geographyList' value="{{lev}}">
+        <option *ngFor='let lev of statelist' value="{{lev}}">
           {{ lev }}
         </option>
       </select></div>
+      <div class="col-md-2">
+        <label class="aa-field-label"> City:  </label>
+        <select class="form-control" id="city" [(ngModel)]="city" >
+          <option value="">Select City</option>
+          <option *ngFor='let lev of citylist' value="{{lev}}">
+            {{ lev }}
+          </option>
+        </select></div>
       <div class="col-md-3">
         <label class="aa-field-label"> Product:  </label>
         <select class="form-control" id="product" [(ngModel)]="product" >
@@ -66,7 +74,7 @@
         <div class="row card-body">
           <div class="col-md-9">
             <div class= "title">Total Transaction</div>
-            <span class = "disp_vals golden"> {{totaltranscation}}</span>
+            <span class = "disp_vals golden"> {{totalTransaction}}</span>
           </div>
           <div class="col-md-3">
             <span><i class="fa fa-money-check-alt fa-3x golden"></i></span>
@@ -79,7 +87,7 @@
         <div class="row card-body">
           <div class="col-md-9">
             <div class= "title">Total Revenue</div>
-            <span class = "disp_vals purple">  {{totaltranscation}}</span>
+            <span class = "disp_vals purple">  {{totalRevenue}}</span>
           </div>
           <div class="col-md-3">
             <i class="fa fa-chart-bar fa-3x purple"></i>
@@ -91,7 +99,7 @@
         <div class="row card-body">
           <div class="col-md-9">
             <div class= "title">Total Quantity Sold</div>
-            <span class = "disp_vals green">  {{totaltranscation}}</span>
+            <span class = "disp_vals green">  {{totalUnitsSold}}</span>
           </div>
           <div class="col-md-3">
             <i class="fas fa-industry fa-3x green"></i>
@@ -103,7 +111,7 @@
         <div class="row card-body">
           <div class="col-md-9">
             <div class= "title">Avg. Customer Spend</div>
-            <span class = "disp_vals blue">  {{totaltranscation}}</span>
+            <span class = "disp_vals blue"> {{totalAvgCustomerSpend}}</span>
           </div>
           <div class="col-md-3">
             <i class="fas fa-wallet fa-3x blue"></i>
@@ -150,17 +158,17 @@
               <table class="table table-bordered table-striped cus-table aa-table" >
                 <thead class="thead-inverse">
                   <tr>
-                    <th> PRODUCT </th>
-                    <th> UNIT </th>
+                    <th> Product </th>
+                    <th> Units </th>
                     <th>  %Sale </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
+                  <ng-template ngFor let-req [ngForOf]="topFour_ByUnitsSold"; let-i="index">
                     <tr class="row-{{ i }}" *ngIf="i<4">
-                      <td> {{ req.product }} </td>
-                      <td> {{req.unit}}</td>
-                      <td> {{req.sale}} </td>
+                      <td> {{ req.Product }} </td>
+                      <td> {{req['Units Sold']}}</td>
+                      <td> {{req['Share Percent']}}% </td>
                     </tr>
                   </ng-template>
                 </tbody>
@@ -172,17 +180,17 @@
               <table class="table table-bordered table-striped cus-table aa-table" >
                 <thead class="thead-inverse">
                   <tr>
-                    <th> PRODUCT </th>
-                    <th> UNIT </th>
+                    <th> Product </th>
+                    <th> Revenue </th>
                     <th>  %Sale </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
+                  <ng-template ngFor let-req [ngForOf]="topFour_ByRevenue"; let-i="index">
                     <tr class="row-{{ i }}"*ngIf=" i < 4" >
-                      <td> {{ req.product }} </td>
-                      <td> {{req.unit}}</td>
-                      <td> {{req.sale}} </td>
+                      <td> {{ req.Product }} </td>
+                      <td> {{req.Revenue}}</td>
+                      <td> {{req['Share Percent']}}% </td>
                     </tr>
                   </ng-template>
                 </tbody>
@@ -201,17 +209,17 @@
               <table class="table table-bordered table-striped cus-table aa-table" >
                 <thead class="thead-inverse">
                   <tr>
-                    <th> PRODUCT </th>
-                    <th> UNIT </th>
+                    <th> Product </th>
+                    <th> Units </th>
                     <th>  %Sale </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
+                  <ng-template ngFor let-req [ngForOf]="bottomFour_ByUnitsSold"; let-i="index">
                     <tr class="row-{{ i }}" *ngIf=" i < 4">
-                      <td> {{ req.product }} </td>
-                      <td> {{req.unit}}</td>
-                      <td> {{req.sale}} </td>
+                      <td> {{ req.Product }} </td>
+                      <td> {{req['Units Sold']}}</td>
+                      <td> {{req['Share Percent']}}% </td>
                     </tr>
                   </ng-template>
                 </tbody>
@@ -223,17 +231,17 @@
               <table class="table table-bordered table-striped cus-table aa-table" >
                 <thead class="thead-inverse">
                   <tr>
-                    <th> PRODUCT </th>
-                    <th> UNIT </th>
+                    <th> Product </th>
+                    <th> Revenue </th>
                     <th>  %Sale </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
+                  <ng-template ngFor let-req [ngForOf]="bottomFour_ByRevenue"; let-i="index">
                     <tr class="row-{{ i }}" *ngIf=" i < 4">
-                      <td> {{ req.product }} </td>
-                      <td> {{req.unit}}</td>
-                      <td> {{req.sale}} </td>
+                      <td> {{ req.Product }} </td>
+                      <td> {{req.Revenue}}</td>
+                      <td> {{req['Share Percent']}}% </td>
                     </tr>
                   </ng-template>
                 </tbody>
