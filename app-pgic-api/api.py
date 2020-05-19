@@ -78,10 +78,13 @@ def getEstimatedPos():
 
 @app.route('/api/getShelfInventoryData', methods = ['GET'])
 def getShelfInventoryData():
- filepath = 'results/shelf/Shelf_Inventory.json'
- f = open(filepath,)
- resp = json.load(f)  # print(resp)
+  filepath = 'results/shelf/Shelf_Inventory.json'
+  f = open(filepath,)
+  resp = json.load(f)
+  #print(resp)
   return jsonify(resp)
+
+
 '''
 Reads the json file with the specified file name and filters the data for the specified parameter values.
 '''

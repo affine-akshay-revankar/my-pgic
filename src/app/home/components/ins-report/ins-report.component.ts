@@ -181,7 +181,7 @@ export class InsReportComponent implements OnInit {
     'city':'Bangalore',
     'product':'Tide'
     };
-    this.apiservice.getPosReportData(params).then(data => {
+    this.apiservice.getPosReportData(params).then((data: any) => {
       this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
       this.totalRevenue=data.totalRevenue;
       this.totalTransaction=data.totalTransaction;
