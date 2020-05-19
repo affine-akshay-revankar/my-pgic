@@ -29,17 +29,14 @@ export class ApiService {
   }
 
   getEstimatedPos(data){
-    console.log(data);
     let params = new HttpParams();
     params = params.append('filename', data.filename);
-    console.log(params);
     return this.httpClient.get(
       `${this.baseURL}/api/getEstimatedPos`,
       { params: params }
     )
     .toPromise()
     .then(response => {
-      console.log(response);
       return response;
     })
     .catch(err => {
@@ -49,7 +46,6 @@ export class ApiService {
 
 
   getPosReportData(data){
-    console.log(data);
     let params = new HttpParams();
     params = params.append('from',data.from);
     params = params.append('to',data.to);

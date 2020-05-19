@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-5">
               <p *ngIf="chooseFile" class="path">No file selected</p>
-              <p *ngIf="path" class="path">{{images | slice:24}}</p>
+              <p *ngIf="path" class="path">{{images | slice:13}}</p>
             </div>
             <div class="col-md-1">
               <i class="fa fa-check-circle check" *ngIf="success"></i>
@@ -37,8 +37,8 @@
 
 
         <div class="row">
-          <div *ngFor="let item of imagesList" class="col-md-4">
-            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" (click)="selectimage()">
+          <div *ngFor="let item of imagesList; let i = index;" class="col-md-4">
+            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
           </div>
           <div class="col-md-12" width="100%">
             <button class="btn btn-primary col-md-12 detect" (click)="process()"
@@ -61,7 +61,7 @@
         <p class="header">Processed Data</p>
         <hr>
         <label class="label">Detail</label>
-        <form>
+        <form *ngIf="response.Details">
           <!-- <div class="form-group col-md-12">
             <input type="text" class="form-control" required readonly>
           </div>
