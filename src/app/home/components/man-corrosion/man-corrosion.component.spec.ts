@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManexcComponent } from './manexc.component';
+import { ManCorrosionComponent } from './man-corrosion.component';
 
-describe('ManexcComponent', () => {
-  let component: ManexcComponent;
-  let fixture: ComponentFixture<ManexcComponent>;
+describe('ManCorrosionComponent', () => {
+  let component: ManCorrosionComponent;
+  let fixture: ComponentFixture<ManCorrosionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManexcComponent ]
+      declarations: [ ManCorrosionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManexcComponent);
+    fixture = TestBed.createComponent(ManCorrosionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
