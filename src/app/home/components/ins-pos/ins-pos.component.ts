@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../shared';
 
 @Component({
   selector: 'app-ins-pos',
@@ -9,95 +10,34 @@ export class InsPosComponent implements OnInit {
   uploads:boolean = false;
   images:any;
   image:any;
+  selImgInd:any= -1;
   uploadedimage:any;
   processing:boolean = false;
   path:boolean = false;
   success:boolean = false;
   chooseFile:boolean = true;
- 
   imagesList = [
     {
       "id":1,
-      "path":"./assets/Tide/Tide_1.png",
-      "name":"Tide"
+      "path":"./assets/POS/BigBazaar.jpg",
+      "name":"BigBazaar"
     },
     {
       "id":2,
-      "path":"./assets/Tide/Tide_2.jpg",
-      "name":"Tide"
-    },
-    {
-      "id":3,
-      "path":"./assets/Tide/Tide_3.jpg",
-      "name":"Tide"
-    },
-    {
-      "id":4,
-      "path":"./assets/Tide/Tide_4.png",
-      "name":"Tide"
-    },
-    {
-      "id":5,
-      "path":"./assets/Tide/Tide_5.png",
-      "name":"Tide"
-    },
-    {
-      "id":6,
-      "path":"./assets/Tide/Tide_6.jpg",
-      "name":"Tide"
-    },
-    {
-      "id":7,
-      "path":"./assets/Tide/Tide_7.PNG",
-      "name":"Tide"
-    },
-    {
-      "id":8,
-      "path":"./assets/Head_N_Sholder/HS_1.jpg",
-      "name":"Head & Shoulders"
-    },
-    {
-      "id":9,
-      "path":"./assets/Head_N_Sholder/HS_2.jpg",
-      "name":"Head & Shoulders"
-    },
-    {
-      "id":10,
-      "path":"./assets/Head_N_Sholder/HS_3.jpg",
-      "name":"Head & Shoulders"
-    },
-    {
-      "id":11,
-      "path":"./assets/Head_N_Sholder/HS_4.jpg",
-      "name":"Head & Shoulders"
-    },
-    {
-      "id":12,
-      "path":"./assets/Head_N_Sholder/HS_5.jpg",
-      "name":"Head & Shoulders"
-    },
-    {
-      "id":13,
-      "path":"./assets/Head_N_Sholder/HS_6.jpeg",
-      "name":"Head & Shoulders"
-    },
-    {
-      "id":14,
-      "path":"./assets/Head_N_Sholder/HS_7.jpeg",
-      "name":"Head & Shoulders"
-    },
-    {
-      "id":15,
-      "path":"./assets/Head_N_Sholder/HS_8.jpg",
-      "name":"Head & Shoulders"
-    },
-    {
-      "id":16,
-      "path":"./assets/Head_N_Sholder/HS_9.jpg",
-      "name":"Head & Shoulders"
+      "path":"./assets/POS/Reliance.jpg",
+      "name":"Reliance"
     }
   ];
-  constructor() { }
+  response : any = {
+    Details: "",
+    TransactionDate : "",
+    Items:"",
+    ItemCost : "",
+    Total : ""
+}
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -105,31 +45,61 @@ export class InsPosComponent implements OnInit {
   onFileChange(event){
     console.log(event);
   }
-  selectimage(){
+  selectimage(i){
     var x = document.images.length;
-    console.log(x);
-    this.images = document.getElementById('myImg').getAttribute('src');
-    console.log(this.images)
+    this.selImgInd = i;
+    this.images = this.imagesList[i].path;
     this.uploads = true;
     this.processing = false;
     this.chooseFile = false;
     this.path = true;
-  }
-
-  upload(){
     const formData = new FormData;
     formData.append('file', this.images);
-    console.log(this.images);
     this.image = this.images ;
-    console.log(this.image);
-    console.log(event);
     this.processing = true;
     this.success = true;
   }
 
+  // upload(){
+  //   const formData = new FormData;
+  //   formData.append('file', this.images);
+  //   this.image = this.images ;
+  //   this.processing = true;
+  //   this.success = true;
+  // }
+
   process(){
-    this.uploadedimage = this.images;
-    console.log(this.uploadedimage);
+    let lastSlashIdx = this.images.lastIndexOf("/");
+    let lastDotIdx = this.images.lastIndexOf(".");
+    let filename = this.images.substring(lastSlashIdx + 1, lastDotIdx);
+    let uploadpath = this.images.substring(0, lastDotIdx);
+    let uploadformat= this.images.substring(lastDotIdx);
+    this.apiService.getEstimatedPos({filename: filename}).then(result => {
+       if( result && result["StoreDetails"] && result["DateTime"] && result["Items"] && result["Total"] ) {
+          var Details= result["StoreDetails"].map(a => a.Description);
+          var TransactionDate = result["DateTime"].map(a => a.Description);
+          var Items= result["Items"].map(a => a.Description);
+          var ItemCost = result["Items"].map(a => a.ItemCost);
+          var Total = result["Total"].find(a => a.Description);
+        this.response = {
+           Details: Details,
+           TransactionDate:TransactionDate,
+           Items: Items,
+           ItemCost : ItemCost,
+           Total : Total.Description
+        }
+      }
+      else {
+        this.response = {
+          Details: "",
+          TransactionDate : "",
+          Items:"",
+          ItemCost : "",
+          Total : ""
+        }
+      }
+    });
+    this.uploadedimage = uploadpath+"_OCR"+uploadformat;
   }
 
 }
