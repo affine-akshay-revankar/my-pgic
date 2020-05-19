@@ -62,7 +62,7 @@
         <hr>
         <label class="label">Detail</label>
         <form>
-          <div class="form-group col-md-12">
+          <!-- <div class="form-group col-md-12">
             <input type="text" class="form-control" required readonly>
           </div>
           <div class="form-group col-md-12">
@@ -73,11 +73,17 @@
           </div>
           <div class="form-group col-md-12">
             <input type="text" class="form-control" required readonly>
+          </div> -->
+          <div class="form-group col-md-12" *ngFor="let details of response.Details" >
+            <input type="text" class="form-control"  value="{{details}}" required readonly>
+          </div>
+          <div class="form-group col-md-12">
+            <input type="text" class="form-control"  value="{{response.TransactionDate}}" required readonly>
           </div>
           <label class="label">Items</label>
           <div class="row">
-            <div >
-              <div class="form-group col-md-12 offset-md-1">
+           <div >
+              <!-- <div class="form-group col-md-12 offset-md-1">
                 <input type="text" class="form-control" required readonly>
               </div>
               <div class="form-group col-md-12 offset-md-1">
@@ -94,10 +100,17 @@
               </div>
               <div class="form-group col-md-12 offset-md-1">
                 <input type="text" class="form-control" required readonly>
-              </div>
+              </div> -->
+
+            <div class="form-group col-md-12 offset-md-1" *ngFor="let item of response.Items" >
+              <input type="text" class="form-control"  value="{{item}}" required readonly>
             </div>
+            <div class="form-group col-md-12 offset-md-1" >
+              <input type="text" class="form-control"  value="TOTAL" required readonly>
+            </div>
+              </div>
             <div class="col-md-3">
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input type="text" class="form-control" required readonly>
               </div>
               <div class="form-group">
@@ -114,6 +127,13 @@
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" required readonly>
+              </div> -->
+              <div class="form-group" *ngFor="let cost of response.ItemCost">
+                <input type="text" class="form-control" value="{{cost}}" required readonly>
+              </div>
+              <br>
+              <div class="form-group">
+                <input type="text" class="form-control"  value="{{response.Total}}" required readonly>
               </div>
             </div>
 
