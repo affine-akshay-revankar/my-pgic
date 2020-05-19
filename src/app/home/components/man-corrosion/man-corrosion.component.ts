@@ -19,6 +19,7 @@ export class ManCorrosionComponent implements OnInit {
 
   selImgInd: number = -1;
   selImgObj: any;
+  file: any;
 
   product = [
     {id:1,name:"Tide"},
@@ -28,27 +29,27 @@ export class ManCorrosionComponent implements OnInit {
   imagesList = [
     {
       "id":1,
-      "path":"./assets/Corrosion/Corrosion_1.jpg",
+      "path":"http://182.156.213.183:8080/qc/Edge.jpg",
       "name":"Corrosion"
     },
     {
       "id":2,
-      "path":"./assets/Corrosion/Corrosion_2.jpg",
+      "path":"http://182.156.213.183:8080/qc/chaffing.jpg",
       "name":"Corrosion"
     },
     {
       "id":3,
-      "path":"./assets/Corrosion/Corrosion_3.jpg",
+      "path":"http://182.156.213.183:8080/qc/fast.jpg",
       "name":"Corrosion"
     },
     {
       "id":4,
-      "path":"./assets/Corrosion/Corrosion_4.jpg",
+      "path":"http://182.156.213.183:8080/qc/filiform.jpg",
       "name":"Corrosion"
     },
     {
       "id":5,
-      "path":"./assets/Corrosion/Corrosion_5.jpg",
+      "path":"http://182.156.213.183:8080/qc/surface.jpg",
       "name":"Corrosion"
     }
   ];
@@ -74,8 +75,9 @@ export class ManCorrosionComponent implements OnInit {
   selectimage(i){
     this.selImgInd = i;
     this.selImgObj = this.filterdata[i];
-
+    this.file = '';
     this.processing = true;
+
     this.uploads = true;
     this.processing = true;
     this.chooseFile = false;
@@ -93,29 +95,33 @@ export class ManCorrosionComponent implements OnInit {
     this.success = true;
   }
 
-  process(){
-    let lastSlashIdx = this.selImgObj.path.lastIndexOf("/");
-    let lastDotIdx = this.selImgObj.path.lastIndexOf(".");
-    let filename = this.selImgObj.path.substring(lastSlashIdx + 1, lastDotIdx);
-    this.apiService.checkCounterfeit({filename: filename}).then(result => {
-      if( result && result["Category"] && result["Probability"] ) {
-        let prob = result["Probability"];
-        this.response = {
-          Category: result["Category"],
-          Probability: (prob * 100).toFixed(2)
-        }
-      } else {
-        this.response = {
-          Category: "",
-          Probability: ""
-        }
-      }
-    });
-    this.uploadedimage = this.selImgObj.path;
+  fileChanged(e) {
+    this.file = e.target.files[0];
+    this.processing = true;
+    this.selImgInd = -1;
+    this.selImgObj = '';
+  }
 
-    // this.apiService.getPosReportData({}).then(result => {
-    //   debugger;
-    // });
+  process(){
+
+    if( this.file ) {
+      this.apiService.makeUniqueFileRequest(this.file).then((result) => {
+
+        const reader = new FileReader();
+        reader.onload = e => this.uploadedimage = reader.result;
+        reader.readAsDataURL(this.file);
+
+      },
+      (error) => {
+        console.error(error);
+      });
+    } else {
+      let filepath = this.selImgObj.path;
+      this.apiService.detectCorrosion(filepath, 'existing').then(result => {
+
+      });
+      this.uploadedimage = filepath;
+    }
 
   }
 

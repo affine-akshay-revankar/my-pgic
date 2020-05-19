@@ -10,14 +10,8 @@
         <div class="card uploadcard">
           <div class="row">
             <div class="col-md-2">
-              <!-- <button class="btn btn-primary recepients" (click)="upload()"
-              [disabled]="null">UPLOAD</button> -->
-              <input type="file" name="uploadFile" value="UPLOAD">
+              <input type="file" name="uploadFile" value="UPLOAD" (change)="fileChanged($event)">
             </div>
-            <!-- <div class="col-md-6 offset-md-1">
-              <p *ngIf="chooseFile" class="path">No file choosen</p>
-              <p *ngIf="path" class="path">{{images | slice:25}}</p>
-            </div> -->
             <div class="col-md-1 offset-md-1">
               <i class="fa fa-check-circle check" *ngIf="success"></i>
             </div>
@@ -31,25 +25,18 @@
             <div *ngFor="let item of filterdata; let i = index;" class="col-md-4">
               <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
             </div>
-            <!-- </div> -->
             <div class="col-md-12" width="100%">
               <button class="btn btn-primary col-md-12 detect" (click)="process()"
-              [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
+              [disabled]="(processing == false) ? 'disabled': null">DETECT CORROSION</button>
             </div>
           </div>
-          <!-- </div> -->
-          <!-- <div class=" card-footer col-md-12 detectbutton" width="100%">
-
-        </div> -->
+        </div>
       </div>
     </div>
-  </div>
-    <!-- <div class="col-md-2 offset-md-1 detectbutton">
-            <button class="btn btn-danger" (click)="process()"  [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
-        </div> -->
+
     <div class="col-md-6">
       <div class="card">
-        <p class="header">Counterfeit Identification</p>
+        <p class="header">Corrosion Identification</p>
         <hr>
         <p class="uploadtext">Selected/Uploaded</p>
         <div class="selectedimages">
