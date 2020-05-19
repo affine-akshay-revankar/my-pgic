@@ -27,6 +27,8 @@ const routes: Routes = [
       { path: 'ins-report', loadChildren: () => import('./components/ins-report/ins-report.module').then(m => m.InsReportModule) },
 
       { path: 'manufacture', loadChildren: () => import('./components/manufacture/manufacture.module').then(m => m.ManufactureModule) },
+
+      { path: 'manexc', loadChildren: () => import('./components/manexc/manexc.module').then(m => m.ManexcModule) }
     ]
   }
 ];
