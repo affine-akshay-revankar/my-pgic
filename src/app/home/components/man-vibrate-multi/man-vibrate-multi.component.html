@@ -1,0 +1,165 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h5 class="text1">VIBRATION ANALYSIS</h5>
+    </div>
+    <div class="col-md-6 buttons">
+      <button class="btn btn-light "routerLink="/man-vibrate">Single Acoustic Profile</button>
+      <button class="btn btn-light "routerLink="/man-vibrate-multi" >Multiple Acoustic Profile</button>
+    </div>
+  </div>
+</div>
+<div class="container1 container">
+
+    <div class="row">
+
+                <div class="col-md-12">
+                  <figure>
+                    <audio
+                      title="MIX Sound"
+                      id="myaudiomix"
+                      controls
+                      class="col-md-3 audiomix"
+                      src="combined_changed_final.wav"
+                    ></audio>
+                    <label style="padding-top: 60px; padding-left: 20px;"
+                      >Multiple Issues in Series</label
+                    >
+                  </figure>
+                  <br />
+                  <table id="myTable" style="width:60%;float:left;display:none">
+                    <tr>
+                      <td class="defect"></td>
+                      <script>
+                        for (var j = 5; j <= 20; j += 5) {
+                          document.write(
+                            "<td class='sec'>" +
+                              (j - 5) +
+                              " - " +
+                              j +
+                              " sec" +
+                              "</td>"
+                          );
+                        }
+                      </script>
+                    </tr>
+                    <tr id="normal">
+                      <td class="defect">Normal</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr id="pitting">
+                      <td class="defect">Pitting</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr id="tooth">
+                      <td class="defect">Tooth Fracture</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr id="wear">
+                      <td class="defect">Wear</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
+
+                  <div
+                    class="col-md-3 "
+                    style="margin-top:5%;margin-left:5%;float:left"
+                  >
+                    <canvas id="imgg1mix" width="261" height="200"></canvas>
+                  </div>
+                </div>
+
+
+
+        <div class="col-md-12">
+          <figure>
+            <audio
+              title="Multi level MIX Sound"
+              id="myaudiomixmulti"
+              controls
+              class="col-md-3 audiomixmulti"
+              src="overlaid_final.wav"
+            ></audio>
+            <label style="padding-top: 60px; padding-left: 20px;"
+              >Multiple Issues in Parallel</label
+            >
+          </figure>
+          <br />
+          <table id="myTable1" style="width:60%;float:left;display:none">
+            <tr>
+              <td class="defect"></td>
+              <script>
+                for (var j = 5; j <= 20; j += 5) {
+                  document.write(
+                    "<td class='sec'>" +
+                      (j - 5) +
+                      " - " +
+                      j +
+                      " sec" +
+                      "</td>"
+                  );
+                }
+              </script>
+            </tr>
+            <tr id="normal1">
+              <td class="defect">
+                Normal
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id="pitting1">
+              <td class="defect">
+                Pitting
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id="tooth1">
+              <td class="defect">
+                Tooth Fracture
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id="wear1">
+              <td class="defect">
+                Wear
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+
+          <div
+            class="col-md-3 "
+            style="margin-top:5%;margin-left:5%;float:left"
+          >
+            <canvas id="imgg1mixmulti" width="261" height="200"></canvas>
+          </div>
+
+          <!-- chart -->
+        </div>
+      </div>
+
+</div>
