@@ -1,0 +1,151 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h5 class="text1">VIBRATION ANALYSIS</h5>
+    </div>
+    <div class="col-md-6 buttons">
+      <button class="btn btn-light "routerLink="/man-vibrate">Single Acoustic Profile</button>
+      <button class="btn btn-light "routerLink="/man-vibrate-multi" >Multiple Acoustic Profile</button>
+    </div>
+  </div>
+</div>
+<div class="container1 container">
+  <div class="row">
+
+          <div class="col-md-12" style="height:45vh;">
+
+            <figure>
+              <audio
+                title="Normal Sound"
+                id="myaudio"
+                controls
+                class="col-md-3 audio"
+                src="http://182.156.213.183:8080/qc/normal.wav">
+              </audio>
+              <label
+                style="padding-top: 60px;padding-left: 20px;"
+                >Normal Sound</label>
+
+            </figure>
+            <br>
+            <div id="loader"></div>
+            <!-- spectogram image -->
+            <div class="col-md-12" style="margin-top: 30px;">
+              <div class="col-md-2" style="visibility: hidden;"></div>
+              <div id="imgg" class="col-md-4 idimg "></div>
+
+              <!-- amplitude image  -->
+              <div class="col-md-3 ">
+                <canvas id="imgg1" width="261" height="200"></canvas>
+              </div>
+              <!-- <div id="imgg1" class="col-md-4 idimg1"></div> -->
+
+              <!-- chart -->
+              <!-- <span
+                class="chart-container1 col-md-3"
+                style="position: absolute; width:80vw;top:5%;left:40%"
+              >
+                <canvas class="chart" id="myChart" style="left:60%;"></canvas>
+              </span> -->
+              <div class="col-md-2" style="visibility: hidden;"></div>
+            </div>
+          </div>
+
+        <!-- ----------------------------------------------------------pitting -->
+
+          <div class="col-md-12" style="height:40vh;">
+            <figure>
+              <audio
+                title="Pitting Sound"
+                id="myaudiopitting"
+                controls
+                class="col-md-3 audiopitting"
+                src="http://182.156.213.183:8080/qc/pitting.wav"
+              ></audio>
+              <label
+                style=" padding-top: 60px;padding-left: 20px;"
+                >Pitting Sound</label
+              >
+            </figure>
+
+            <div id="loader1"></div>
+            <!-- spectogram image -->
+            <div class="col-md-12" style="margin-top:50px;">
+              <div id="imggpitting" class="col-md-3 idimgpitting"></div>
+              <div id="imggpittingdiff" class="col-md-3 idimgpitting"></div>
+
+              <!-- amplitude image  -->
+              <div class="col-md-3 ">
+                <canvas id="imgg1pitting" width="261" height="200"></canvas>
+              </div>
+              <!-- <div id="imgg1pitting" class="col-md-3 idimg1pitting"></div> -->
+              <div
+                id="imgg1pittingdiff"
+                class="col-md-3 idimg1pittingdiff"
+              ></div>
+            </div>
+          </div>
+        <!-- ------------------------------------------------------ tooth fracture  -->
+          <div class="col-md-12" style="height: 40vh">
+            <figure>
+              <audio
+                title="Tooth Fracture Sound"
+                id="myaudiotooth"
+                controls
+                class="col-md-3 audiotooth"
+                src="http://182.156.213.183:8080/qc/tooth_fracture.wav"
+              ></audio>
+              <label style="padding-top: 60px; padding-left: 20px;" >Tooth-Fracture Sound</label
+              >
+            </figure>
+            <div id="loader2"></div>
+            <!-- spectogram image -->
+            <div class="col-md-12" style="margin-top:50px;">
+              <div id="imggtooth" class="col-md-3 idimgtooth"></div>
+              <div id="imggtoothdiff" class="col-md-3 idimgtoothdiff"></div>
+
+              <!-- amplitude image  -->
+              <div class="col-md-3 ">
+                <canvas id="imgg1tooth" width="261" height="200"></canvas>
+              </div>
+              <!-- <div id="imgg1tooth" class="col-md-3 idimg1tooth"></div> -->
+              <div id="imgg1toothdiff" class="col-md-3 idimg1toothdiff"></div>
+            </div>
+
+            <!-- chart -->
+          </div>
+
+        <!-- -------------------------------------------------------------------- wear -->
+
+          <div class="col-md-12" style="height: 40vh">
+            <figure>
+              <audio
+                title="Wear Sound"
+                id="myaudiowear"
+                controls
+                class="col-md-3 audiowear"
+                src="http://182.156.213.183:8080/qc/wear.wav"
+              ></audio>
+              <label style="padding-top: 60px; padding-left: 20px;" >Wear Sound</label>
+
+            </figure>
+            <div id="loader3"></div>
+            <!-- spectogram image -->
+            <div class="col-md-12" style="margin-top:50px;">
+              <div id="imggwear" class="col-md-3 idimgwear"></div>
+              <div id="imggweardiff" class="col-md-3 idimgweardiff"></div>
+
+              <!-- amplitude image  -->
+              <div class="col-md-3 ">
+                <canvas id="imgg1wear" width="261" height="200"></canvas>
+              </div>
+              <!-- <div id="imgg1wear" class="col-md-3 idimg1wear"></div> -->
+              <div id="imgg1weardiff" class="col-md-3 idimg1weardiff"></div>
+            </div>
+
+            <!-- chart -->
+        </div>
+      </div>
+
+
+    <div>
