@@ -13,6 +13,9 @@ $topnav-background-color: #FFF;
   text-align: center;
   color: #222;
   padding: 1em;
+  > div.row.d-flex.align-items-center.justify-content-center {
+    height: 90vh;
+  }
   .col-lg-4{
     padding :0;
   }

@@ -1,13 +1,18 @@
 .text {
     color:darkblue;
     font-weight: bold;
+    margin-top:30px;
 }
 .header{
     // padding-left:10px;
     font-weight: bold;
     padding-top: 10px;
     margin-bottom: -2px;
-    padding-left: 5px;
+    padding-left: 10px;
+}
+.smallhorizon{
+  margin-left: 10px;
+  margin-right:10px;
 }
 hr{
     color:darkblue;
@@ -41,29 +46,22 @@ hr{
   margin: 10px;
 }
 .selectedimages {
-  border: 1px solid black;
-  width: 90%;
+  border: 1px solid #cccc;
+  width: 95%;
   height: 257px;
-  margin-left: 15px;
+  margin-left: 9px;
+  margin-top: -7px;
+  opacity:0.2px;
 }
 .img-thumbnail {
   cursor: pointer;
-  width: 109px;
-  height: 128px;
-  margin-left: 10px;
+  width: 140px;
+  height: 112px;
   margin-bottom: 10px;
+  margin-left: 6px;
 }
 .secondcard {
   margin-bottom: 20px;
-}
-.label{
-    padding-left: 10px;;
-}
-.text{
-margin-left: 10px;
-margin-right:10px;
-margin-bottom: 10px;
-width:90%;
 }
 .secondtext{
     width:100%;
@@ -76,8 +74,11 @@ margin-bottom: 10px;
   margin-top: 20px;
 }
 .detect{
-    background-color:darkblue;
-    color:white;
+  background-color: darkblue;
+  color: white;
+  margin-left: -8px;
+  margin-bottom: 8px;
+  width: 100%;
 }
 .path{
     margin:14px;
@@ -133,4 +134,13 @@ margin-top: 0px;
     background-color: lightpink;
     margin:10px;
     margin-top: -5px;
+}
+.text1{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+.images{
+  margin-left:0px;
 }

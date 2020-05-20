@@ -40,10 +40,11 @@ export class InsPosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // console.log(this.posData)
   }
 
   onFileChange(event){
-    console.log(event);
+    // console.log(event);
   }
   selectimage(i){
     var x = document.images.length;
