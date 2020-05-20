@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Highcharts from 'highcharts';
-// import * as highchartsTreemap from 'highcharts/modules/treemap';
-// highchartsTreemap(Highcharts);
 declare var require: any;
 let Tree = require('highcharts/modules/treemap');
 Tree(Highcharts);
@@ -61,7 +60,8 @@ export class InsTrafficComponent implements OnInit {
   }
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) {
   }
 
@@ -125,7 +125,7 @@ export class InsTrafficComponent implements OnInit {
         }
 
       }
-      if ( seconds >= lts ) {
+      if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
         clearInterval(intId);
       }
     }, 1000);
