@@ -37,7 +37,7 @@ $topnav-background-color: #FFF;
     color: #585858;
     font-weight: bold;
     margin-top: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 0;
     font-size: 24px;
     text-transform: uppercase;
     // color: #94ca53;
@@ -54,7 +54,6 @@ $topnav-background-color: #FFF;
   }
 
   .form-group {
-    padding: 4px 0;
     input::-webkit-input-placeholder {
       /*color: rgba(255,255,255,0.6) !important;*/
       text-align: center;
@@ -118,6 +117,13 @@ $topnav-background-color: #FFF;
     padding: 0 0 8px 0;
   }
 
+  .form-group.un {
+    margin-top: 10px;
+  }
+  .form-group.pwd {
+    margin-bottom: 25px;
+  }
+
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -127,10 +133,6 @@ $topnav-background-color: #FFF;
 h4{
   font-size: 16px;
   opacity: 0.4;
-  margin-top: -26px;
-}
-.opts-container {
-  height: calc(100vh - 167px);
 }
 .form-group{
      background-color: #fbfbfb;
@@ -139,15 +141,6 @@ h4{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   margin-top: 20px;
-}
-h4{
-  font-size: 16px;
-  opacity: 0.4;
-  margin-top: -26px;
-}
-.opts-container {
-  // height: calc(100vh - 167px);
-  margin-top:150px;
 }
 .form-group{
      background-color: #fbfbfb;

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
     if( model?.username && model?.password && model.username == 'admin' && model.password == 'admin@affine' ) {
       sessionStorage.setItem('isLoggedin', 'true');
-      this.router.navigate(['/intro']);
+      this.router.navigate(['/ins-counterfeit']);
     } else {
       alert("Invalid username & password!");
     }
