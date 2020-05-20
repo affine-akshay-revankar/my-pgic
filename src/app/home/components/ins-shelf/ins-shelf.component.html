@@ -7,25 +7,29 @@
                 <p class="header">SHELF1</p>
                 <hr class="horizon">
                 <video class="video1" controls="allowControls" id="myVideo1" autoplay playsinline>
-                    <source src="../../../../assets/Video/Checkout.mp4" type="video/mp4">
+                    <source src="../../../../assets/Video/coke_video_output.mp4" type="video/mp4">
                 </video>
                 <p class="shelftext header">SHELF INVENTORY</p>
                 <div class="row tablemargin">
                     <table class="table table-bordered cus-table aa-table">
                         <thead class="thead-inverse">
                             <tr>
-                                <th class="tableheader">T0 </th>
+                                <!-- <th class="tableheader">T0 </th> -->
                                 <th class="tableheader">T1</th>
                                 <th class="tableheader">T2</th>
                                 <th class="tableheader">T3</th>
+                                <th class="tableheader">T4</th>
+                                <th class="tableheader">T5</th>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let data of array1">
+                        <tbody >
                             <tr>
-                                <td class="tabledata">{{data.T0}}</td>
-                                <td class="tabledata">{{data.T1}}</td>
-                                <td class="tabledata">{{data.T2}}</td>
-                                <td class="tabledata">{{data.T3}}</td>
+                                <!-- <td class="tabledata" *ngIf="data.T0">{{data.T0}}</td> -->
+                                <td class="tabledata" >{{array1.T1}}</td>
+                                <td class="tabledata" >{{array1.T2}}</td>
+                                <td class="tabledata" >{{array1.T3}}</td>
+                                <td class="tabledata" >{{array1.T4}}</td>
+                                <td class="tabledata" >{{array1.T5}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -37,25 +41,29 @@
                 <p class="header">SHELF2</p>
                 <hr class="horizon">
                 <video class="video1" controls id="myVideo2" autoplay>
-                    <source src="../../../../assets/Video/Checkout.mp4" type="video/mp4">
+                    <source src="../../../../assets/Video/maggi_video_output.mp4" type="video/mp4">
                 </video>
                 <p class="shelftext header">SHELF INVENTORY</p>
                 <div class="row tablemargin">
                     <table class="table table-bordered cus-table aa-table">
                         <thead class="thead-inverse">
                             <tr>
-                                <th class="tableheader">T0 </th>
+                                <!-- <th class="tableheader">T0 </th> -->
                                 <th class="tableheader">T1</th>
                                 <th class="tableheader">T2</th>
                                 <th class="tableheader">T3</th>
+                                <th class="tableheader">T4</th>
+                                <th class="tableheader">T5</th>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let data of array2">
+                        <tbody >
                             <tr>
-                                <td class="tabledata">{{data.T0}}</td>
-                                <td class="tabledata">{{data.T1}}</td>
-                                <td class="tabledata">{{data.T2}}</td>
-                                <td class="tabledata">{{data.T3}}</td>
+                              <!-- <td class="tabledata" *ngIf="data.T0">{{data.T0}}</td> -->
+                              <td class="tabledata">{{array2.T1}}</td>
+                              <td class="tabledata">{{array2.T2}}</td>
+                              <td class="tabledata">{{array2.T3}}</td>
+                              <td class="tabledata">{{array2.T4}}</td>
+                              <td class="tabledata">{{array2.T5}}</td>
                             </tr>
                         </tbody>
                     </table>

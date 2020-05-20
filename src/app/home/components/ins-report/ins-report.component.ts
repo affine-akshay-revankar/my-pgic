@@ -1,5 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { ApiService } from 'src/app/shared/services/api.service';
+
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
 let noData = require('highcharts/modules/no-data-to-display');
@@ -16,25 +19,25 @@ noData(Highcharts);
   styleUrls: ['./ins-report.component.scss']
 })
 export class InsReportComponent implements OnInit {
-  levelList:any=[1,2,3,4];
-  geographyList: any=["India","USA","APAC"];
-  productList: any=["Tide","Head&Shoulders","SurfExcel"]
-  level: any= "";
+  countrylist:any=["India","USA"];
+  statelist: any=["Karnataka","Maharashtra","kerala"];
+  productList: any=["Tide","Head&Shoulders","SurfExcel"];
+  citylist:any=["Bangalore","Mangalore"];
+  country: any= "";
   product: any ="";
-  geography:any="";
+  state:any="";
+  city:any="";
   startDate: any="";
-  endDate:any;
-  totaltranscation: any =123;
-  requests = [
-    {product:"Head & Shoilder",unit :"8",sale:"7"},
-    {product:"Tide",unit :"9",sale:"7"},
-    {product:"wisper",unit :"8",sale:"5"},
-    {product:"Shampoos",unit :"6",sale:"7"},
-    {product:"T5",unit :"8",sale:"7"},
-    {product:"T6",unit :"8",sale:"4"},
-    {product:"T7",unit :"8",sale:"7"},
-    {product:"T8",unit :"8",sale:"9"},
-  ]
+  endDate:any="";
+  totalAvgCustomerSpend: any;
+  totalRevenue: number;
+  totalTransaction: number;
+  totalUnitsSold: number;
+  bottomFour_ByRevenue:any;
+  bottomFour_ByUnitsSold:any;
+  topFour_ByRevenue:any;
+  topFour_ByUnitsSold:any;
+
   public revenueoptions: any = {
       chart: {
         type: 'line',
@@ -50,17 +53,15 @@ export class InsReportComponent implements OnInit {
       },
       tooltip: {
         formatter: function() {
-          return 'x: ' + Highcharts.dateFormat('%e %b %y %H:%M:%S', this.x) +
-            ' y: ' + this.y.toFixed(2);
+          return 'x: ' +  this.x +
+            ' y: ' + this.y;
         }
       },
       xAxis: {
-        type: 'datetime',
-        labels: {
-          formatter: function() {
-            return Highcharts.dateFormat('%e %b %y', this.value);
-          }
-        }
+        type: 'linear',
+        rotation: -45,
+        categories: []
+
       },
       yAxis: {
          title: {
@@ -77,20 +78,8 @@ export class InsReportComponent implements OnInit {
     },
       series: [
         {  name: 'Revenue',
-          data: [
-                [new Date('2018-01-25 18:38:31').getTime(), 7.0],
-                [new Date('2018-01-26 18:38:31').getTime(), 6.9],
-                [new Date('2018-01-20 18:38:31').getTime(), 9.5],
-                [new Date('2018-01-19 18:38:31').getTime(), 14.5],
-                [new Date('2018-02-20 18:38:31').getTime(), 18.4],
-                [new Date('2018-02-25 18:38:31').getTime(), 21.5],
-                [new Date('2018-02-27 18:38:31').getTime(), 25.2],
-                [new Date('2018-03-01 18:38:31').getTime(), 26.5],
-                [new Date('2018-03-15 18:38:31').getTime(), 23.3],
-                [new Date('2018-03-17 18:38:31').getTime(), 18.3],
-                [new Date('2018-04-25 18:38:31').getTime(), 13.9],
-                [new Date('2018-05-25 18:38:31').getTime(), 9.6]
-            ]
+          data:[]
+
         }
       ]
     }
@@ -110,8 +99,8 @@ export class InsReportComponent implements OnInit {
         },
         tooltip: {
           formatter: function() {
-            return 'x: ' + Highcharts.dateFormat('%e %b %y %H:%M:%S', this.x) +
-              ' y: ' + this.y.toFixed(2);
+            return 'x: ' + this.x +
+              ' y: ' + this.y;
           }
         },
           yAxis: {
@@ -128,11 +117,11 @@ export class InsReportComponent implements OnInit {
           }
       },
       xAxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+          categories: []
       },
 
       series: [{
-          data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+          data: []
       }]
       }
 
@@ -151,7 +140,7 @@ export class InsReportComponent implements OnInit {
           },
           tooltip: {
             formatter: function() {
-              return 'x: ' + Highcharts.dateFormat('%e %b %y %H:%M:%S', this.x) +
+              return 'x: ' + this.x +
                 ' y: ' + this.y.toFixed(2);
             }
           },
@@ -169,26 +158,116 @@ export class InsReportComponent implements OnInit {
             }
         },
         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+          rotation: -45,
+          categories: []
         },
 
         series: [{
-            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+          data: []
         }]
         }
 
-  constructor() { }
+  constructor(
+    private apiservice: ApiService
+
+  ) {
+  }
 
   ngOnInit(): void {
-    Highcharts.chart('revenuechart', this.revenueoptions);
-      Highcharts.chart('quantitychart', this.quantityOptions);
-      Highcharts.chart('productchart', this.productOptions);
+    var params ={
+      'from': '',
+      'to':'',
+    'state':'',
+    'city':'',
+    'product':''
+    };
+    this.apiservice.getPosReportData(params).then((data:any) => {
+      this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
+      this.totalRevenue=data.totalRevenue;
+      this.totalTransaction=data.totalTransaction;
+      this.totalUnitsSold=data.totalUnitsSold;
+      this.bottomFour_ByRevenue = data.bottomFour_ByRevenue;
+      this.bottomFour_ByUnitsSold= data.bottomFour_ByUnitsSold;
+      this.topFour_ByRevenue= data.topFour_ByRevenue;
+      this.topFour_ByUnitsSold= data.topFour_ByUnitsSold;
+      var revenuegraphdata:any=[];
+      var avgspendgraphdata:any=[];
+      var unitsgraphdata:any=[];
+      var xaxisdates:any=[];
+      for(let i=0; i<data.Data.length;i++){
+          xaxisdates.push(data.Data[i].Date);
+      }
+      for(let i=0; i<data.Data.length;i++){
+        revenuegraphdata.push(data.Data[i].Revenue);
+      }
+      this.revenueoptions.xAxis.categories = xaxisdates;
+      this.revenueoptions.series[0].data= revenuegraphdata;
+      for(let i=0; i<data.Data.length;i++){
+          unitsgraphdata.push(data.Data[i]['Units Sold']);
+      }
+      this.quantityOptions.series[0].data= unitsgraphdata;
+      this.quantityOptions.xAxis.categories = xaxisdates;
+      for(let i=0; i<data.Data.length;i++){
+          avgspendgraphdata.push(data.Data[i]['Av Customer Spend']);
+      }
+      this.productOptions.series[0].data= avgspendgraphdata;
+      this.productOptions.xAxis.categories = xaxisdates;
+      this.drawchart();
+    });
+
+      }
+      drawchart(){
+      Highcharts.chart('revenuechart', this.revenueoptions);
+        Highcharts.chart('quantitychart', this.quantityOptions);
+        Highcharts.chart('productchart', this.productOptions);
       }
 
-  onChange(data : any) {
-    this.level = data;
-}
+
 getfilterData(){
-  console.log(this.level);
+  var params ={
+      'from': this.startDate,
+      'to':this.endDate,
+      'state':this.state,
+      'city':this.city,
+      'product':this.product
+    };
+    if(this.startDate && this.endDate&& this.state && this.city && this.product){
+  this.apiservice.getPosReportData(params).then((data:any) => {
+      this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
+      this.totalRevenue=data.totalRevenue;
+      this.totalTransaction=data.totalTransaction;
+      this.totalUnitsSold=data.totalUnitsSold;
+      this.bottomFour_ByRevenue = data.bottomFour_ByRevenue;
+      this.bottomFour_ByUnitsSold= data.bottomFour_ByUnitsSold;
+      this.topFour_ByRevenue= data.topFour_ByRevenue;
+      this.topFour_ByUnitsSold= data.topFour_ByUnitsSold;
+      var revenuegraphdata:any=[];
+      var avgspendgraphdata:any=[];
+      var unitsgraphdata:any=[];
+      var xaxisdates:any=[];
+      for(let i=0; i<data.Data.length;i++){
+          xaxisdates.push(data.Data[i].Date);
+      }
+      for(let i=0; i<data.Data.length;i++){
+        revenuegraphdata.push(data.Data[i].Revenue);
+      }
+      this.revenueoptions.xAxis.categories = xaxisdates;
+      this.revenueoptions.series[0].data= revenuegraphdata;
+      for(let i=0; i<data.Data.length;i++){
+          unitsgraphdata.push(data.Data[i]['Units Sold']);
+      }
+      this.quantityOptions.series[0].data= unitsgraphdata;
+      this.quantityOptions.xAxis.categories = xaxisdates;
+      for(let i=0; i<data.Data.length;i++){
+          avgspendgraphdata.push(data.Data[i]['Av Customer Spend']);
+      }
+      this.productOptions.series[0].data= avgspendgraphdata;
+      this.productOptions.xAxis.categories = xaxisdates;
+      this.drawchart();
+    });
+}
+else{
+  alert("Please select filters");
+}
 }
 }
