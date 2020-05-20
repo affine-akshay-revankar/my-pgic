@@ -20,6 +20,8 @@ export class InsCounterfeitComponent implements OnInit {
   estimate2:boolean = false;
   selImgInd: number = -1;
   selImgObj: any;
+  responseText: any;
+  selStore: any;
 
   product = [
     {id:1,name:"Tide"},
@@ -156,12 +158,14 @@ export class InsCounterfeitComponent implements OnInit {
     let filename = this.selImgObj.path.substring(lastSlashIdx + 1, lastDotIdx);
     this.apiService.checkCounterfeit({filename: filename}).then(result => {
       if( result && result["Category"] && result["Probability"] ) {
-        let prob = result["Probability"];
+        let prob = result["Category"] == 'Fake' ? result["Probability"] : (1 - result["Probability"]);
+        this.responseText = (prob * 100).toFixed(2) + "%";
         this.response = {
           Category: result["Category"],
           Probability: (prob * 100).toFixed(2)
         }
       } else {
+        this.responseText = '';
         this.response = {
           Category: "",
           Probability: ""
@@ -175,6 +179,10 @@ export class InsCounterfeitComponent implements OnInit {
     //   debugger;
     // });
 
+  }
+
+  selectstore(storeId){
+    this.selStore = storeId;
   }
 
 }

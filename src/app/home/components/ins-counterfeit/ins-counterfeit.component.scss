@@ -18,16 +18,16 @@ hr{
     color:darkblue;
 }
 .select {
-    height: 114px;
+    padding: 0 0 15px 0;
 }
 .selecttag{
-    margin-left: 12px;
+    margin: 6px 12px;
     width: 90%;
 }
 .card {
-  margin-top: 20px;
+
 }
-.selectedimage {
+.age {
   height: 63px;
   border: 1px solid black;
   margin: 20px;
@@ -43,15 +43,12 @@ hr{
   height: calc(100vh - 167px);
 }
 .recepients {
-  margin: 10px;
+  margin: 8px;
 }
 .selectedimages {
   border: 1px solid #cccc;
-  width: 95%;
-  height: 257px;
-  margin-left: 9px;
-  margin-top: -7px;
-  opacity:0.2px;
+  height: 250px;
+  margin: 0 12px;
 }
 .img-thumbnail {
   cursor: pointer;
@@ -71,7 +68,6 @@ margin-bottom: 10px;
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  margin-top: 20px;
 }
 .detect{
   background-color: darkblue;
@@ -81,7 +77,10 @@ margin-bottom: 10px;
   width: 100%;
 }
 .path{
-    margin:14px;
+  margin: 14px 0 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #7d7d7d;
 }
 .check{
     margin-top:14px;
@@ -89,16 +88,20 @@ margin-bottom: 10px;
     color:lightgreen;
 }
 .uploadcard{
-margin-left: 10px;
-margin-right: 10px;
-margin-top: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0px;
+  box-shadow: none;
+  background-color: #f1f1f1;
 }
 .uploadtext{
-    padding-left:10px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
 }
 .choosegallery{
-    padding-left:10px;
-    padding-top:10px;
+  margin: 20px 10px 0px 10px;
+  font-size: 14px;
 }
 .selected{
     max-height: 100%;
@@ -143,4 +146,9 @@ margin-top: 0px;
 }
 .images{
   margin-left:0px;
+}
+.result-label {
+  margin: 20px 10px 20px 10px;
+  font-size: 14px;
+  font-weight: bold;
 }
