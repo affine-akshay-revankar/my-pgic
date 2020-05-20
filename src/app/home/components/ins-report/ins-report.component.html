@@ -1,7 +1,6 @@
 <div class="container">
-  <div class="row">
-      <div class="col-md-9">
-<h5 class="text1">ESTIMATING POS THROUGHPUT</h5>
+  <h5 class="text">ESTIMATING POS THROUGHPUT</h5>
+  <hr>
 </div>
 <div class="container-fluid">
   <button class="btn btn-light" routerLink="/ins-pos">UPLOAD</button>
@@ -11,14 +10,12 @@
 <div class="container-fluid">
   <div class="row selectmenu">
     <div class="col-md-3">
-      <label class="header">Select Time Period: <span > </span> </label>
-      <!-- <input type="date" class="form-control" id="startDate" [(ngModel)]="startDate" /> -->
-
+      <label class="aa-field-label"> Time Period: <span > </span> </label>
       <div class="row">
         <div class="col-md-3">
           <label> From : </label>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-7">
           <input type="date" class="form-control" id="startDate" [(ngModel)]="startDate" />
         </div>
       </div>
@@ -27,24 +24,24 @@
         <div class="col-md-3">
           <label> To :</label>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-7">
           <input type="date" class="form-control" id="endDate" [(ngModel)]="endDate" />
         </div>
       </div>
 
     </div>
-    <div class="col-md-3">
-      <label class="header"> Country:</label>
-      <select class="form-control" id="level" [(ngModel)]="level"  >
+    <!-- <div class="col-md-2">
+      <label class="aa-field-label"> Country:</label>
+      <select class="form-control" id="country" [(ngModel)]="country"  >
         <option value="">Select Country</option>
         <option *ngFor='let lev of countrylist' value="{{lev}}">
           {{ lev }}
         </option>
       </select>
-    </div>
-    <div class="col-md-3">
-      <label class="header"> State:  </label>
-      <select class="form-control" id="geography" [(ngModel)]="geography" >
+    </div> -->
+    <div class="col-md-2">
+      <label class="aa-field-label"> State:  </label>
+      <select class="form-control" id="state" [(ngModel)]="state" >
         <option value="">Select State</option>
         <option *ngFor='let lev of statelist' value="{{lev}}">
           {{ lev }}
@@ -59,7 +56,7 @@
           </option>
         </select></div>
       <div class="col-md-3">
-        <label class="header"> Product:  </label>
+        <label class="aa-field-label"> Product:  </label>
         <select class="form-control" id="product" [(ngModel)]="product" >
           <option value="">Select Product</option>
           <option *ngFor='let lev of productList' value="{{lev}}">
@@ -67,9 +64,8 @@
           </option>
         </select>
       </div>
-      <div class="col-md-2 offset-md-10">
+      <div class="col-md-1">
         <button class="btn btn-default affineblue"  (click)="getfilterData()">Apply</button>
-      </div>
       </div>
     </div>
     <hr>
@@ -150,44 +146,51 @@
       </div>
     </div>
 
-      <div class="row">
-        <div class="col-md-7">
-          <div class="card">
-          <div class="col-md-12 margin">
-            <label class="aa-field-label1">Top 4 Performing Products</label>
-            <br>
-            <div class="products row">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="col-md-12 margin">
+          <label class="aa-field-label">Top 4 Products</label>
+          <br>
+          <div class="card products row margin">
 
-              <div class="col-md-6">
-                <div class="pull-right name"><span>By Quantity Sold </span></div>
-                <table class="table table-bordered cus-table aa-table table1" >
-                  <thead class="thead-inverse">
-                    <tr>
-                      <th> PRODUCT </th>
-                      <th> UNIT </th>
-                      <th>  %Sale </th>
+            <div class="card-body col-md-6">
+              <div class="pull-right"><span>By Quantity Sold </span></div>
+              <table class="table table-bordered table-striped cus-table aa-table" >
+                <thead class="thead-inverse">
+                  <tr>
+                    <th> Product </th>
+                    <th> Units </th>
+                    <th>  %Sale </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-template ngFor let-req [ngForOf]="topFour_ByUnitsSold"; let-i="index">
+                    <tr class="row-{{ i }}" *ngIf="i<4">
+                      <td> {{ req.Product }} </td>
+                      <td> {{req['Units Sold']}}</td>
+                      <td> {{req['Share Percent']}}% </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
-                      <tr class="row-{{ i }}" *ngIf="i<4">
-                        <td> {{ req.product }} </td>
-                        <td> {{req.unit}}</td>
-                        <td> {{req.sale}} </td>
-                      </tr>
-                    </ng-template>
-                  </tbody>
-                </table>
-              </div>
+                  </ng-template>
+                </tbody>
+              </table>
 
-              <div class="col-md-6">
-                <div class="pull-right name"><span>By Revenue </span></div>
-                <table class="table table-bordered cus-table aa-table" >
-                  <thead class="thead-inverse">
-                    <tr>
-                      <th> PRODUCT </th>
-                      <th> UNIT </th>
-                      <th>  %Sale </th>
+            </div>
+            <div class="card-body col-md-6">
+              <div class="pull-right"><span>By Revenue </span></div>
+              <table class="table table-bordered table-striped cus-table aa-table" >
+                <thead class="thead-inverse">
+                  <tr>
+                    <th> Product </th>
+                    <th> Revenue </th>
+                    <th>  %Sale </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-template ngFor let-req [ngForOf]="topFour_ByRevenue"; let-i="index">
+                    <tr class="row-{{ i }}"*ngIf=" i < 4" >
+                      <td> {{ req.Product }} </td>
+                      <td> {{req.Revenue}}</td>
+                      <td> {{req['Share Percent']}}% </td>
                     </tr>
                   </ng-template>
                 </tbody>
@@ -195,49 +198,56 @@
 
             </div>
           </div>
-            <label class="aa-field-label3">Bottom 4 Performing Products</label>
-            <br>
-            <div class="products row margin">
-              <div class="col-md-6">
-                <!-- <div class="pull-right"> <span>By Quantity Sold</span> </div> -->
-                <table class="table table-bordered cus-table aa-table table2" >
-                  <thead class="thead-inverse">
-                    <tr>
-                      <th> PRODUCT </th>
-                      <th> UNIT </th>
-                      <th>  %Sale </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <ng-template ngFor let-req [ngForOf]="requests"; let-i="index">
-                      <tr class="row-{{ i }}" *ngIf=" i < 4">
-                        <td> {{ req.product }} </td>
-                        <td> {{req.unit}}</td>
-                        <td> {{req.sale}} </td>
-                      </tr>
-                    </ng-template>
-                  </tbody>
-                </table>
-              </div>
-              <div class="col-md-6">
-                <!-- <div class="pull-right"><span>By Revenue </span></div> -->
-                <table class="table table-bordered cus-table aa-table" >
-                  <thead class="thead-inverse">
-                    <tr>
-                      <th> PRODUCT </th>
-                      <th> UNIT </th>
-                      <th>  %Sale </th>
+        </div>
+        <div class="col-md-12 margin ">
+          <label class="aa-field-label">Bottom 4 Products</label>
+          <br>
+          <div class="card products row margin">
+            <div class="card-body col-md-6">
+              <div class="pull-right"> <span>By Quantity Sold</span> </div>
+
+              <table class="table table-bordered table-striped cus-table aa-table" >
+                <thead class="thead-inverse">
+                  <tr>
+                    <th> Product </th>
+                    <th> Units </th>
+                    <th>  %Sale </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-template ngFor let-req [ngForOf]="bottomFour_ByUnitsSold"; let-i="index">
+                    <tr class="row-{{ i }}" *ngIf=" i < 4">
+                      <td> {{ req.Product }} </td>
+                      <td> {{req['Units Sold']}}</td>
+                      <td> {{req['Share Percent']}}% </td>
                     </tr>
                   </ng-template>
                 </tbody>
               </table>
 
             </div>
-        </div>
-    </div>
-        <div class="col-md-5">
-          <div class="card graph">
-            PRODUCT AFFINITY DIAGRAM
+            <div class="card-body col-md-6">
+              <div class="pull-right"><span>By Revenue </span></div>
+              <table class="table table-bordered table-striped cus-table aa-table" >
+                <thead class="thead-inverse">
+                  <tr>
+                    <th> Product </th>
+                    <th> Revenue </th>
+                    <th>  %Sale </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-template ngFor let-req [ngForOf]="bottomFour_ByRevenue"; let-i="index">
+                    <tr class="row-{{ i }}" *ngIf=" i < 4">
+                      <td> {{ req.Product }} </td>
+                      <td> {{req.Revenue}}</td>
+                      <td> {{req['Share Percent']}}% </td>
+                    </tr>
+                  </ng-template>
+                </tbody>
+              </table>
+
+            </div>
           </div>
         </div>
       </div>
