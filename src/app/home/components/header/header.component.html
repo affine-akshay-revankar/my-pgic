@@ -55,11 +55,10 @@
         <div class="collapse navbar-collapse">
           <div class="navbar-nav navbox">
             <a (click)="navigateTo('/man-corrosion')" class="nav-item nav-link" [ngClass]="isActiveLink('/man-corrosion') ? 'active' : null">DEFECT DETECTION <span style="margin-left:15px;">|</span></a>
-            <a (click)="navigateTo('/man-damage')" class="nav-item nav-link" [ngClass]="isActiveLink('/man-damage') ? 'active' : null">VIBRATION ANALYSIS</a>
-            <!-- <a (click)="navigateTo('/man-vibration')" class="nav-item nav-link" [ngClass]="isActiveLink('/man-vibration') ? 'active' : null">VIBRATION ANALYSIS</a> -->
+            <a (click)="navigateTo('/man-vibrate')" class="nav-item nav-link" [ngClass]="isActiveLink('/man-vibrate') || isActiveLink('/man-vibrate-multi') ? 'active' : null">VIBRATION ANALYSIS</a>
           </div>
         </div>
-        
+
       </div>
 
     </nav>
