@@ -34,8 +34,9 @@ $topnav-background-color: #FFF;
   }
 
   h1 {
+    color: #585858;
     font-weight: bold;
-    margin-top: 25px;
+    margin-top: 5px;
     margin-bottom: 25px;
     font-size: 24px;
     text-transform: uppercase;
@@ -109,6 +110,12 @@ $topnav-background-color: #FFF;
 
   .btn-primary:focus {
     color: #fff;
+  }
+
+  .png-logo {
+    margin: 25px 0 0;
+    border-bottom: 1px solid #ddd;
+    padding: 0 0 8px 0;
   }
 
 }
