@@ -21,7 +21,7 @@ noData(Highcharts);
 export class InsReportComponent implements OnInit {
   countrylist:any=["India","USA"];
   statelist: any=["Karnataka","Maharashtra","kerala"];
-  productList: any=["Tide","Head&Shoulders","SurfExcel"];
+  productList: any=[];
   citylist:any=["Bangalore","Mangalore"];
   country: any= "";
   product: any ="";
@@ -190,6 +190,8 @@ export class InsReportComponent implements OnInit {
       this.bottomFour_ByUnitsSold= data.bottomFour_ByUnitsSold;
       this.topFour_ByRevenue= data.topFour_ByRevenue;
       this.topFour_ByUnitsSold= data.topFour_ByUnitsSold;
+      var profuctslist= data["Data"].map(a => a.Product);
+      this.productList = [...new Set(profuctslist)];
       var revenuegraphdata:any=[];
       var avgspendgraphdata:any=[];
       var unitsgraphdata:any=[];
