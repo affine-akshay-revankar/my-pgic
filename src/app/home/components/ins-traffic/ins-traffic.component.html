@@ -1,0 +1,80 @@
+<div class="container">
+    <h5 class="text">IN STORE TRAFFIC SUMMARY</h5>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card video">
+                <h6 class="textheader">In Store Video Feed</h6>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="subtext beuty">Beauty & Grooming</p>
+                        <!-- <div class="video1"> -->
+                        <video class="video1" controls autoplay>
+                            <source src="../../../../assets/Video/Checkout.mp4" type="video/mp4">
+                        </video>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col-md-4 offset-md-2">
+                        <p class="subtext2 beuty">Frozen Food Section</p>
+                        <video class="video2" controls autoplay>
+                            <source src="../../../../assets/Video/FrozenFood.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="col-md-4 secondvideo ">
+                        <p class="subtext offset-md-1 beuty">Personal Health</p>
+                        <video class="video3" controls autoplay>
+                            <source src="../../../../assets/Video/cosmetics.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="col-md-4 offset-md-2 secondvideo">
+                        <p class="subtext offset-md-1 beuty">Home Care Section</p>
+                        <video class="video4" controls autoplay>
+                            <source src="../../../../assets/Video/personalhealthcare.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <div class="card trafficgraph">
+                    <h6 class="textheader">Traffic Intensity Across Store</h6>
+                    <hr>
+                    <div id="treemap1"></div>
+                </div>
+            </div>
+            <div class="col-md-12 padding">
+                <div class="card trafficgraph">
+                    <h6 class="textheader">Traffic Intensity By TIme</h6>
+                    <hr>
+                    <div class="row">
+                        <div class="table table-bordered table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="header">Time</th>
+                                        <th class="header">Beuty & Grooming</th>
+                                        <th class="header">Frozen Food</th>
+                                        <th class="header">Health Care</th>
+                                        <th class="header">Home care</th>
+                                        <th class="header">All</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of videoData[0]">
+                                        <td class="time">{{data.Time}}</td>
+                                        <td class="grooming">{{data.Grooming}}</td>
+                                        <td class="Frozen">{{data.Frozen}}</td>
+                                        <td class="Health">{{data.Health}}</td>
+                                        <td class="Home">{{data.Home}}</td>
+                                        <td class="Home">{{data.All}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

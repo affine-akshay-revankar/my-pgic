@@ -1,0 +1,100 @@
+
+.secondvideo{
+    margin-top:10px;
+}
+time,.grooming,.Frozen,.Health,.Home{
+    background-color: lightgreen;
+    text-align: center;
+
+}
+.header{
+    text-align: center;
+}
+.time{
+    font-weight: bold;
+}
+.beuty{
+    margin-left:25px;
+    background-color: grey;
+    color:white;
+}
+.text {
+    color:darkblue;
+    font-weight: bold;
+    margin-top:30px;
+}
+.subtext{
+    margin-left:10px;
+}
+.subtext2{
+    margin-left:0px;
+
+}
+.video{
+    // height:411px;
+    margin-top:10px;
+}
+.textheader{
+    padding-top: 10px;
+    margin-bottom: -2px;
+    padding-left: 5px;
+}
+.video1{
+    // width: 282px;
+    width: 262px;
+    margin-left:10px;
+    height: 150px;
+    margin-top: -18px;
+}
+.video3{
+    width: 262px;
+    margin-left:10px;
+    height: 150px;
+    margin-top: -16px;
+}
+.video4{
+    width: 248px;
+    height: 150px;
+    margin-top: -16px;
+}
+.video2{
+    width: 248px;
+    height: 157px;
+    margin-top: -25px;
+}
+.trafficgraph{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.data{
+    border: 1px solid black;
+    height: 148px;
+    margin: 10px;
+}
+.padding{
+    padding:0px;
+}
+// .video2{
+//     margin-right: 25px;
+//     margin-top:40px;
+// }
+.table-responsive{
+margin-left: 26px;
+margin-right: 26px;
+margin-bottom:0px;
+}
+.platformRating{
+    display:inline-block;
+}
+
+#platformRating select,
+#platformRating p {
+  display: inline;
+  vertical-align: top;
+  line-height: 28px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    margin-top: 20px;
+  }

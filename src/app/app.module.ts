@@ -1,36 +1,44 @@
+import "@angular/compiler";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
+import { AuthGuard, Globals } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { IntroComponent } from './intro/intro.component';
-import { InstoreComponent } from './instore/instore.component';
-import { InsCounterfeitComponent } from './ins-counterfeit/ins-counterfeit.component';
-import { InsTrafficComponent } from './ins-traffic/ins-traffic.component';
-import { InsPosComponent } from './ins-pos/ins-pos.component';
-import { InsReportComponent } from './ins-report/ins-report.component';
-import { InsStoredTrafficComponent } from './ins-stored-traffic/ins-stored-traffic.component';
+import { EmbedVideo } from 'ngx-embed-video';
+import { ChartModule } from 'angular-highcharts';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { ApiService } from './shared';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    IntroComponent,
-    InstoreComponent,
-    InsCounterfeitComponent,
-    InsTrafficComponent,
-    InsPosComponent,
-    InsReportComponent,
-    InsStoredTrafficComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    EmbedVideo.forRoot(),
+    ChartModule,
+    CommonModule,
+    HighchartsChartModule
   ],
-  providers: [],
+  exports: [
+
+  ],
+  providers: [
+    AuthGuard,
+    Globals,
+    HttpClient,
+    FormsModule,
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

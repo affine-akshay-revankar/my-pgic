@@ -1,0 +1,85 @@
+<div class="container">
+  <h5 class="text">COUNTERFEIT PRODUCT DETECTION</h5>
+  <hr>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card select">
+        <p class="header">Product</p>
+        <hr class="smallhorizon">
+        <select class="form-control selecttag" name="businessType" (change)="selectproduct($event.target.value)" required>
+          <option>Select</option>
+          <option *ngFor="let item of product">{{item.name}}</option>
+          <!-- <option value="Head & Holder">Head & Holder</option> -->
+        </select>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card secondcard">
+        <p class="header">Select A Source Image</p>
+        <hr class="smallhorizon">
+        <!-- <p class="uploadtext">Upload an Image</p>
+        <div class="card uploadcard">
+          <div class="row">
+            <div class="col-md-2">
+              <button class="btn btn-primary recepients" (click)=" upload()"
+                [disabled]="(uploads == false) ? 'disabled': null">UPLOAD</button>
+            </div>
+            <div class="col-md-6 offset-md-1">
+              <p *ngIf="chooseFile" class="path">No file choosen</p>
+              <p *ngIf="path" class="path">{{images | slice:25}}</p>
+            </div>
+            <div class="col-md-1 offset-md-1">
+              <i class="fa fa-check-circle check" *ngIf="success"></i>
+            </div>
+          </div>
+        </div> -->
+
+
+        <!-- <p class="choosegallery">Choose from Gallery</p> -->
+        <!-- <div class="col-md-12"> -->
+        <div class="row images">
+          <div *ngFor="let item of filterdata; let i = index;">
+            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
+          </div>
+          <!-- </div> -->
+          <div class="col-md-12" width="100%">
+            <button class="btn btn-primary col-md-12 detect" (click)="process()"
+              [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
+          </div>
+        </div>
+        <!-- </div> -->
+        <!-- <div class=" card-footer col-md-12 detectbutton" width="100%">
+
+              </div> -->
+      </div>
+    </div>
+    <!-- <div class="col-md-2 offset-md-1 detectbutton">
+            <button class="btn btn-danger" (click)="process()"  [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
+        </div> -->
+    <div class="col-md-4">
+      <div class="card">
+        <p class="header">Counterfeit Identification</p>
+        <hr class="smallhorizon">
+        <p class="uploadtext">Selected/Uploaded Image</p>
+        <div class="selectedimages">
+          <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="Responsive image">
+
+        </div>
+
+        <p class="choosegallery">Counterfeit Estimation</p>
+
+        <div class="row labelbox" *ngIf="estimate1">
+          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text1">
+          </div>
+          <div class="col-md-6"><label class="label">Probability</label> <input type="text" class="form-control secondtext"></div>
+        </div>
+        <div class="row labelbox1" *ngIf="estimate2">
+          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text1" value="{{response.Category}}">
+          </div>
+          <div class="col-md-6"><label class="label">Probability</label> <input type="text" class="form-control secondtext" value="{{response.Probability}}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
