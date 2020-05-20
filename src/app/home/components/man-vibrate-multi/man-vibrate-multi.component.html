@@ -12,19 +12,19 @@
 <div class="container1 container">
 
     <div class="row">
-      <div class="col-md-12"  *ngFor="let item of audioList; let i = index;">
+      <div class="col-md-12"  >
         <figure>
           <audio
-            title="{{item.name}}"
+            title="Multiple Issues in Series"
             id="myaudio"
             controls
             class="col-md-3 audio"
-            src="{{item.path}}"
-            (play)="selectimage(i)">
+            src="http://182.156.213.183:8080/qc/combined_changed_final.wav"
+            (play)="selectimage(0)">
           </audio>
           <label
             style="padding-top: 60px;padding-left: 20px;"
-            >{{item.name}}</label>
+            >Multiple Issues in Series</label>
 
         </figure>
 
@@ -61,7 +61,22 @@
                       <td [ngClass]="wear == 03 ? 'greybg1' : null"></td>
                     </tr>
                   </table>
+                </div>
+                  <div class="col-md-12" >
+                    <figure>
+                      <audio
+                        title="Multiple Issues in Parallel"
+                        id="myaudio"
+                        controls
+                        class="col-md-3 audio"
+                        src="http://182.156.213.183:8080/qc/overlaid_final.wav"
+                        (play)="selectimage(1)">
+                      </audio>
+                      <label
+                        style="padding-top: 60px;padding-left: 20px;"
+                        >Multiple Issues in Parallel</label>
 
+                    </figure>
                   <table id="myTable" *ngIf="show == 'multi'"style="width:60%;float:left;display:inline">
                     <tr>
                       <td class="defect"></td>
