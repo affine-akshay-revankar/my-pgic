@@ -9,7 +9,7 @@
 				<h4>CHALLENGE</h4>
 				<form novalidate role="form" #f="ngForm" (ngSubmit)="f.valid && onLoggedin(f.value)">
 					<div class="form-content">
-						<div class="form-group">
+						<div class="form-group un">
 							<input type="text" name="username" [(ngModel)]="username" #un="ngModel"
 							class="form-control input-lg" placeholder="Username"
 							required forbiddenName="" pattern="[A-Za-z0-9]+" autofocus />
@@ -22,7 +22,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group pwd">
 							<input type="password" name="password" [(ngModel)]="password" #pwd="ngModel"
 							class="form-control input-lg" placeholder="Password"
 							required minlength="4" autocomplete="off"/>

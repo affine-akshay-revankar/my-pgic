@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Router } from '@angular/router';
 
-import { Globals } from '../global'
+import { Globals } from '../global';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
