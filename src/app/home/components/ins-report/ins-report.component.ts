@@ -71,7 +71,7 @@ export class InsReportComponent implements OnInit {
      plotOptions: {
         line: {
             dataLabels: {
-                enabled: true
+                enabled: false
             },
             enableMouseTracking: true
         }
@@ -111,7 +111,7 @@ export class InsReportComponent implements OnInit {
        plotOptions: {
           line: {
               dataLabels: {
-                  enabled: true
+                  enabled: false
               },
               enableMouseTracking: true
           }
@@ -152,7 +152,7 @@ export class InsReportComponent implements OnInit {
          plotOptions: {
             line: {
                 dataLabels: {
-                    enabled: true
+                    enabled: false
                 },
                 enableMouseTracking: true
             }
@@ -231,7 +231,6 @@ getfilterData(){
       'city':this.city,
       'product':this.product
     };
-    if(this.startDate && this.endDate&& this.state && this.city && this.product){
   this.apiservice.getPosReportData(params).then((data:any) => {
       this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
       this.totalRevenue=data.totalRevenue;
@@ -265,9 +264,7 @@ getfilterData(){
       this.productOptions.xAxis.categories = xaxisdates;
       this.drawchart();
     });
-}
-else{
-  alert("Please select filters");
-}
+
+
 }
 }

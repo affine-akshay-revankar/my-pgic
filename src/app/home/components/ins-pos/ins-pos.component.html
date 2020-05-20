@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
       <h5 class="text1">ESTIMATING POS THROUGHPUT</h5>
     </div>
-    <div class="col-md-3 buttons">
+    <div class="col-md-4 buttons">
       <button class="btn btn-light upload">UPLOAD</button>
       <button class="btn btn-light reports" routerLink="/ins-report">REPORTS</button>
     </div>
@@ -82,8 +82,7 @@
               <div class="form-group" *ngFor="let cost of response.ItemCost">
                 <input type="text" class="form-control" value="{{cost}}" required readonly>
               </div>
-              <br>
-              <div class="form-group">
+                <div class="form-group">
                 <input type="text" class="form-control"  value="{{response.Total}}" required readonly>
               </div>
             </div>
