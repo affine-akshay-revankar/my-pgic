@@ -29,7 +29,7 @@ export class InsReportComponent implements OnInit {
   city:any="";
   startDate: any="";
   endDate:any="";
-  totalAvgCustomerSpend: number;
+  totalAvgCustomerSpend: any;
   totalRevenue: number;
   totalTransaction: number;
   totalUnitsSold: number;
@@ -175,13 +175,13 @@ export class InsReportComponent implements OnInit {
 
   ngOnInit(): void {
     var params ={
-      'from': '2020-05-01',
-      'to':'2020-05-09',
-    'state':'Karnataka',
-    'city':'Bangalore',
-    'product':'Tide'
+      'from': '',
+      'to':'',
+    'state':'',
+    'city':'',
+    'product':''
     };
-    this.apiservice.getPosReportData(params).then((data: any) => {
+    this.apiservice.getPosReportData(params).then((data:any) => {
       this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
       this.totalRevenue=data.totalRevenue;
       this.totalTransaction=data.totalTransaction;
@@ -222,9 +222,7 @@ export class InsReportComponent implements OnInit {
         Highcharts.chart('productchart', this.productOptions);
       }
 
-//   onChange(data : any) {
-//     this.level = data;
-// }
+
 getfilterData(){
   var params ={
       'from': this.startDate,
@@ -234,7 +232,7 @@ getfilterData(){
       'product':this.product
     };
     if(this.startDate && this.endDate&& this.state && this.city && this.product){
-  this.apiservice.getPosReportData(params).then(data => {
+  this.apiservice.getPosReportData(params).then((data:any) => {
       this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
       this.totalRevenue=data.totalRevenue;
       this.totalTransaction=data.totalTransaction;

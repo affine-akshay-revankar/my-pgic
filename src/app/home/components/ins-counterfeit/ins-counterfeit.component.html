@@ -5,7 +5,7 @@
     <div class="col-md-3">
       <div class="card select">
         <p class="header">Product</p>
-        <hr>
+        <hr class="smallhorizon">
         <select class="form-control selecttag" name="businessType" (change)="selectproduct($event.target.value)" required>
           <option>Select</option>
           <option *ngFor="let item of product">{{item.name}}</option>
@@ -15,8 +15,8 @@
     </div>
     <div class="col-md-5">
       <div class="card secondcard">
-        <p class="header">Select A Source Image From Gallery</p>
-        <hr>
+        <p class="header">Select A Source Image</p>
+        <hr class="smallhorizon">
         <!-- <p class="uploadtext">Upload an Image</p>
         <div class="card uploadcard">
           <div class="row">
@@ -37,8 +37,8 @@
 
         <!-- <p class="choosegallery">Choose from Gallery</p> -->
         <!-- <div class="col-md-12"> -->
-        <div class="row">
-          <div *ngFor="let item of filterdata; let i = index;" class="col-md-4">
+        <div class="row images">
+          <div *ngFor="let item of filterdata; let i = index;">
             <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
           </div>
           <!-- </div> -->
@@ -59,8 +59,8 @@
     <div class="col-md-4">
       <div class="card">
         <p class="header">Counterfeit Identification</p>
-        <hr>
-        <p class="uploadtext">Selected/Uploaded</p>
+        <hr class="smallhorizon">
+        <p class="uploadtext">Selected/Uploaded Image</p>
         <div class="selectedimages">
           <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="Responsive image">
 
@@ -69,12 +69,12 @@
         <p class="choosegallery">Counterfeit Estimation</p>
 
         <div class="row labelbox" *ngIf="estimate1">
-          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text">
+          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text1">
           </div>
           <div class="col-md-6"><label class="label">Probability</label> <input type="text" class="form-control secondtext"></div>
         </div>
         <div class="row labelbox1" *ngIf="estimate2">
-          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text" value="{{response.Category}}">
+          <div class="col-md-6"><label class="label">Category</label><input type="text" class="form-control text1" value="{{response.Category}}">
           </div>
           <div class="col-md-6"><label class="label">Probability</label> <input type="text" class="form-control secondtext" value="{{response.Probability}}"></div>
         </div>

@@ -23,3 +23,20 @@
     </div>
   </div>
 </header>
+
+<div class="bs-example">
+  <nav class="navbar navbar-expand-md navbar-light">
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav navbox">
+              <a (click)="navigateTo('/ins-counterfeit')" class="nav-item nav-link active name" style="color:white;font-size: 14px;cursor:pointer">COUNTERFEIT DETECTION <span style="margin-left:15px;">|</span></a>
+              <a (click)="navigateTo('/ins-traffic')" class="nav-item nav-link" style="color:white;font-size: 14px;cursor:pointer">STORE TRAFFIC ANALYTICS <span style="margin-left:15px;">|</span></a>
+              <a (click)="navigateTo('/ins-pos')" class="nav-item nav-link" style="color:white;font-size: 14px;cursor:pointer">ESTIMATING POS THROUGHPUT <span style="margin-left:15px;">|</span></a>
+              <a (click)="navigateTo('/ins-shelf')" class="nav-item nav-link" style="color:white;font-size: 14px;cursor:pointer">SHELF INVENTORY MONITORING</a>
+          </div>
+      </div>
+  </nav>
+</div>
