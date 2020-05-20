@@ -152,10 +152,10 @@ table {
 }
 .aa-field-label1{
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
     padding-top:20px;
     padding-left:10px;
-    color:lightgreen;
+    color:#006400;
 }
 th{
   background-color: #dee2e6;
@@ -175,17 +175,23 @@ padding-top: 20px;
 text-align: center;
 }
 .aa-field-label3{
-font-size: 14px;
-padding-left: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top:20px;
+  padding-left:10px;
+  color:#800000;
 }
 .name1{
   margin-top: -48px;
 }
-.table1,.aa-table{
+.table1,.aa-table,.table2{
   margin-top:-25px
 }
 @media(min-width : 1200px) {
   .name{
     margin-top:-23px;
   }
+}
+.ip{
+    margin: 0px 0px 0px -12px;
 }
