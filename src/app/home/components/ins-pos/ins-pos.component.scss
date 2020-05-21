@@ -36,7 +36,11 @@
     padding: 0;
   }
   .card.source img {
-    min-height: 162px;
+    min-height: 297px;
+    padding: 0 10px 10px;
+  }
+  .card.result {
+    min-height: 350px;
   }
 }
 
@@ -109,11 +113,6 @@
   .viewimage {
     padding-top: 128px;
     text-align: center;
-  }
-  .recepients {
-    width: 100%;
-    margin-top: 5px;
-    background-color: darkblue;
   }
   .uploads,
   .process,
@@ -331,4 +330,30 @@
 
 .images {
   margin-left: 0px;
+}
+
+.uploadcard{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0px;
+  box-shadow: none;
+  background-color: #f1f1f1;
+}
+.uploadtext{
+  padding-left: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.choosegallery{
+  margin: 20px 10px 4px 10px;
+  font-size: 14px;
+}
+.path{
+  margin: 14px 0 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #7d7d7d;
+}
+.disabled {
+  cursor: not-allowed;
 }
