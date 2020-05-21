@@ -57,7 +57,10 @@ export class ManVibrateMultiComponent implements OnInit {
           height:310,
           width:300
           },
-
+          title: {
+            text: '',
+             align: 'center'
+          },
         tooltip: {
           formatter: function() {
             return 'x: ' +  this.x +
@@ -102,7 +105,8 @@ export class ManVibrateMultiComponent implements OnInit {
   drawchart(){
     this.revenueoptions.series[0].data=this.DataResult;
     this.revenueoptions.xAxis.categories = this.LabelResult;
-  Highcharts.chart(this.chartid, this.revenueoptions);
+    this.revenueoptions.title.text=this.chartid;
+    Highcharts.chart(this.chartid, this.revenueoptions);
 
   }
   selectimage(i){
@@ -166,7 +170,7 @@ export class ManVibrateMultiComponent implements OnInit {
         this.LabelResult= [];
 
         for (let i = 1; i <= 16000; i++) {
-          this.LabelResult.push(parseInt(i/16000));
+          this.LabelResult.push((i/16000).toString());
         }
           this.drawchart();
           var loop = 1;
@@ -179,7 +183,7 @@ export class ManVibrateMultiComponent implements OnInit {
 
             this.LabelResult = [];
             for (let i = loop * 16000 + 1; i <= (loop + 1) * 16000; i++) {
-              this.LabelResult.push(parseInt(i/16000));
+              this.LabelResult.push((i/16000).toString());
             }
 
           this.drawchart();

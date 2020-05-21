@@ -1,14 +1,17 @@
 <div class="container section">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-auto mr-auto sub-header">
       <h5 class="text1">VIBRATION ANALYSIS</h5>
     </div>
-    <div class="col-md-6 buttons">
-      <button class="btn btn-light "routerLink="/man-vibrate">Single Acoustic Profile</button>
-      <button class="btn btn-light "routerLink="/man-vibrate-multi" >Multiple Acoustic Profile</button>
+    <div class="col-auto sub-header buttons align-self-end">
+      <button class="btn btn-sm upload"routerLink="/man-vibrate">Single Acoustic Profile</button>
+      <button class="btn  btn-sm reports "routerLink="/man-vibrate-multi" >Multiple Acoustic Profile</button>
+      <i class="fa fa-cogs config-icon"></i>
     </div>
   </div>
+    <hr class="bighorizon">
 </div>
+
 <div class="container1">
   <div class="row">
             <div class="col-md-12"  *ngFor="let item of audioList; let i = index;">
