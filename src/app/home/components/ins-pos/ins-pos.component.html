@@ -19,7 +19,7 @@
       <div class="card secondcard">
         <p class="header">Select Source Image</p>
         <hr>
-        <p class="uploadtext">Upload an Image</p>
+        <p class="uploadtext font-weight-bold">Upload an Image</p>
         <div class="card uploadcard">
           <div class="row">
             <div class="col-md-5">
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <p class="choosegallery">Or Choose from Gallery</p>
+        <p class="choosegallery font-weight-bold">or Choose from Gallery</p>
         <div class="row images">
           <div *ngFor="let item of imagesList; let i = index;" class="col-md-4">
             <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
