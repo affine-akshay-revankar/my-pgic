@@ -104,7 +104,7 @@ export class InsTrafficComponent implements OnInit {
         sortdata.push(d);
         sortdata.sort();
 
-        var colorcodes=["#90EE90","#9ACD32","#32CD32","#008000"];
+        var colorcodes=["#00bd00","#00ab00","#009800 ","#008000"];
         this.treeMapOptions["series"][0].data = [
         {
           id: t,
