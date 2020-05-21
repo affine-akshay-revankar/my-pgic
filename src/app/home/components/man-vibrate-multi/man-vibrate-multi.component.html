@@ -9,7 +9,7 @@
     </div>
   </div>
 </div>
-<div class="container1 container">
+<div class="container1">
 
     <div class="row">
       <div class="col-md-12"  >
@@ -27,7 +27,8 @@
             >Multiple Issues in Series</label>
 
         </figure>
-
+        <div class="row">
+<div class="col-md-6">
                   <table id="myTable"  *ngIf="show == 'single'"style="width:60%;float:left;display:inline">
                     <tr>
                       <td class="defect"></td>
@@ -60,8 +61,13 @@
                       <td [ngClass]="wear == 02 ? 'greybg1' : null"></td>
                       <td [ngClass]="wear == 03 ? 'greybg1' : null"></td>
                     </tr>
-                  </table>
+                  </table></div>
+                  <div class="col-md-3 ">
+                    <div  id="Multiple Issues in Series" class="chart"></div>
+                    <!-- <canvas id="chart" width="261" height="200"></canvas> -->
+                  </div>
                 </div>
+              </div>
                   <div class="col-md-12" >
                     <figure>
                       <audio
@@ -77,6 +83,8 @@
                         >Multiple Issues in Parallel</label>
 
                     </figure>
+                    <div class="row">
+                    <div class="col-md-6">
                   <table id="myTable" *ngIf="show == 'multi'"style="width:60%;float:left;display:inline">
                     <tr>
                       <td class="defect"></td>
@@ -109,14 +117,13 @@
                       <td [ngClass]="wear == 12 ? 'greybg1' : null"></td>
                       <td [ngClass]="wear == 13 ? 'greybg1' : null"></td>
                     </tr>
-                  </table>
+                  </table></div>
+                <div class="col-md-3 ">
+                  <div  id="Multiple Issues in Parallel" class="chart">
+                  <!-- <canvas id="chart" width="261" height="200"></canvas> -->
+                </div>\</div>
 
-                  <!-- <div
-                    class="col-md-3 "
-                    style="margin-top:5%;margin-left:5%;float:left;">
-                    <canvas id="imgg1mix" width="261" height="200"></canvas>
-                  </div> -->
-
+</div>
 
 
   </div>
