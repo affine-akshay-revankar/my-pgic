@@ -23,12 +23,12 @@
         <div class="card uploadcard">
           <div class="row">
             <div class="col-md-5">
-              <button class="btn btn-sm btn-secondary recepients disabled" (click)=" upload()"
+              <button class="btn btn-sm btn-secondary recepients disabled"
                 [disabled]="(uploads == false) ? 'disabled': null">UPLOAD</button>
             </div>
             <div class="col-md-5">
-              <p *ngIf="chooseFile" class="path">No file choosen</p>
-              <p *ngIf="path" class="path">{{images | slice:25}}</p>
+              <p class="path">No file choosen</p>
+              <!-- <p *ngIf="path" class="path">{{images | slice:25}}</p> -->
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 <div class="container section">
-  <h5 class="text">CORROSION DETECTION</h5>
+  <h5 class="text">DEFECT DETECTION<i class="fa fa-cogs config-icon"></i></h5>
   <hr>
   <div class="row">
     <div class="col-md-6">
@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-12" width="100%">
               <button class="btn btn-primary col-md-12 detect" (click)="process()"
-              [disabled]="(processing == false) ? 'disabled': null">DETECT CORROSION</button>
+              [disabled]="(processing == false) ? 'disabled': null">DETECT DEFECTS</button>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
 
     <div class="col-md-6">
       <div class="card">
-        <p class="header">Corrosion Identification</p>
+        <p class="header">DEFECT Identification</p>
         <hr>
         <!-- <p class="uploadtext">Selected/Uploaded</p> -->
         <div class="selectedimages">
@@ -42,15 +42,15 @@
 
         </div>
 
-        <p class="choosegallery">Corrosion Estimation</p>
+        <p class="choosegallery">Defect Estimation</p>
 
         <div class="row">
           <div class="col-12">
-            <label class="label col-4">Chaffing: {{ response.Chaffing }}</label>
-            <label class="label col-4">Edge: {{ response.Edge }}</label>
-            <label class="label col-4">Fastener: {{ response.Fastener }}</label>
-            <label class="label col-4">Filiform: {{ response.Filiform }}</label>
-            <label class="label col-4">Surface: {{ response.Surface }}</label>
+            <label class="label col-4">Type 1: {{ response.Chaffing }}</label>
+            <label class="label col-4">Type 2: {{ response.Edge }}</label>
+            <label class="label col-4">Type 3: {{ response.Fastener }}</label>
+            <label class="label col-4">Type 4: {{ response.Filiform }}</label>
+            <label class="label col-4">Type 5: {{ response.Surface }}</label>
           </div>
           <!-- <div class="col-3">
             <label class="label col-6">Chaffing: {{}}</label>
