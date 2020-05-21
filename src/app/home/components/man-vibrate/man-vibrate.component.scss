@@ -126,8 +126,6 @@ th {
  .container1 {
   position: relative;
     margin-top: 50px;
-  left:9%;
-  top:53%;
 
 }
 
@@ -136,7 +134,21 @@ th {
   left:19%;
 
 } */
-/* Expanding image text */
+.chart {
+  height: 275px;
+  width:300px;
+  margin-right: -14px;
+  vertical-align:middle;
+  border-style: none;
+}
+.disp{
+  display:block;
+}
+.hide{
+  display: none;
+}
+/* Expanding ima
+ge text */
 #imgtext {
   position: absolute;
   bottom: 15px;
