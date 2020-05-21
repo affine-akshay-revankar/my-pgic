@@ -4,20 +4,25 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card secondcard">
-        <p class="header">Select An Image</p>
+
+        <p class="header">Select Source Image</p>
         <hr>
-        <!-- <p class="uploadtext">Upload an Image</p>
+        <p class="uploadtext">Upload an Image</p>
         <div class="card uploadcard">
           <div class="row">
-            <div class="col-md-2">
-              <input type="file" name="uploadFile" value="UPLOAD" (change)="fileChanged($event)">
+            <div class="col-md-5">
+              <button class="btn btn-sm btn-secondary recepients disabled"
+                [disabled]="(uploads == false) ? 'disabled': null">UPLOAD</button>
             </div>
-            <div class="col-md-1 offset-md-1">
-              <i class="fa fa-check-circle check" *ngIf="success"></i>
+            <div class="col-md-5">
+              <p class="path">No file choosen</p>
+              <!-- <p *ngIf="path" class="path">{{images | slice:25}}</p> -->
             </div>
           </div>
         </div>
-        <p class="choosegallery">Choose from Gallery</p> -->
+
+        <p class="choosegallery">Or Choose from Gallery</p>
+
         <div class="col-md-12">
           <div class="row">
             <div *ngFor="let item of filterdata; let i = index;" class="col-md-4">
@@ -34,18 +39,18 @@
 
     <div class="col-md-6">
       <div class="card">
-        <p class="header">DEFECT Identification</p>
+        <p class="header">Defect Identification</p>
         <hr>
-        <!-- <p class="uploadtext">Selected/Uploaded</p> -->
+        <p class="uploadtext">Selected Image</p>
         <div class="selectedimages">
-          <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="Selected/Uploaded Image">
+          <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="">
 
         </div>
 
         <p class="choosegallery">Defect Estimation</p>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 result-labels">
             <label class="label col-4">Type 1: {{ response.Chaffing }}</label>
             <label class="label col-4">Type 2: {{ response.Edge }}</label>
             <label class="label col-4">Type 3: {{ response.Fastener }}</label>
