@@ -6,13 +6,13 @@
       <div class="card select">
         <p class="header">Product</p>
         <hr class="smallhorizon">
-        <label class="label-text">Store :</label>
+        <label class="label-text">Store & Product :</label>
         <select class="form-control selecttag" name="store" (change)="selectstore($event.target.value)" required>
           <option>-- Select A Store --</option>
           <option value="1">Store 1</option>
           <option value="2">Store 2</option>
         </select>
-        <label class="label-text">Product :</label>
+        <!-- <label class="label-text">Product :</label> -->
         <select *ngIf="selStore !== 1 ||selStore !== 2" class="form-control selecttag" [hidden]="selStore == 1 ||selStore == 2" name="businessType" >
           <option>-- Select A Product --</option>
         </select>
@@ -38,7 +38,7 @@
                 [disabled]="(uploads == false) ? 'disabled': null">UPLOAD</button>
             </div>
             <div class="col-md-6 offset-md-1">
-              <p class="path">No file choosen</p>
+              <p class="path">No file chosen</p>
               <!-- <p *ngIf="path" class="path">{{images | slice:25}}</p> -->
             </div>
           </div>
@@ -66,8 +66,8 @@
           <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="">
 
         </div>
-
-        <p class="result-label">Counterfeit Probability : {{ responseText }}</p>
+        <p class="result-label">Is Counterfeit Product ? {{ responseYN }}</p>
+        <p class="result-label1">Counterfeit Probability : {{ responseText }}</p>
 
       </div>
     </div>

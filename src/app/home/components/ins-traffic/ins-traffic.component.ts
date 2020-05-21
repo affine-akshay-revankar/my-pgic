@@ -84,7 +84,7 @@ export class InsTrafficComponent implements OnInit {
     tsData = data["Time Stamp"];
     tsLen = tsData.length;
     lts = tsData[tsLen - 1];
-
+    var i=2;
     intId = setInterval(() => {
 
       tsInd = tsData.indexOf(++seconds);
@@ -96,32 +96,39 @@ export class InsTrafficComponent implements OnInit {
         b = data["Frozen Food"][tsInd];
         c = data["Personal Health Care"][tsInd];
         d = data["Checkout"][tsInd];
-        t = `T${++tsInd}`;
+        t = `${i}s`;
+        let sortdata=[]
+        sortdata.push(a);
+        sortdata.push(b);
+        sortdata.push(c);
+        sortdata.push(d);
+        sortdata.sort();
 
+        var colorcodes=["#90EE90","#9ACD32","#32CD32","#008000"];
         this.treeMapOptions["series"][0].data = [
         {
           id: t,
           name: t,
-          color: '#008000'
+          // color: colorcodes[sortdata.indexOf(a)]
         }, {
           name: 'Cosmetics',
           value: a,
-          colorValue: 'green',
+          color: colorcodes[sortdata.indexOf(a)],
           parent: t
         }, {
           name: 'Frozen Food',
           value: b,
-          colorValue: 'green',
+          color: colorcodes[sortdata.indexOf(b)],
           parent: t
         }, {
           name: 'Personal Health Care',
           value: c,
-          colorValue: 'green',
+          color: colorcodes[sortdata.indexOf(c)],
           parent: t
         }, {
           name: 'Checkout',
           value: d,
-          colorValue: 'green',
+          color:colorcodes[sortdata.indexOf(d)],
           parent: t
         }];
         Highcharts.chart('treemap1', this.treeMapOptions);
@@ -132,7 +139,7 @@ export class InsTrafficComponent implements OnInit {
         } else {
           this.tableData.unshift({Time:t,Grooming :a,Frozen:b,Health:c,Home:d, All: all});
         }
-
+        i=i+2;
       }
       if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
         clearInterval(intId);
