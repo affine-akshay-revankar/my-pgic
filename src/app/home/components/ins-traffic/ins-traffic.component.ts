@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Highcharts from 'highcharts';
-// import * as highchartsTreemap from 'highcharts/modules/treemap';
-// highchartsTreemap(Highcharts);
 declare var require: any;
 let Tree = require('highcharts/modules/treemap');
 Tree(Highcharts);
@@ -28,31 +27,30 @@ export class InsTrafficComponent implements OnInit {
 
   public treeMapOptions: any = {
     chart: {
-      height: 150,
-      width: 500,
+      height: 150
     },
     colorAxis: {
       minColor: '#FFFFFF',
-      maxColor: Highcharts.getOptions().colors[0]
+      maxColor: '#0000FF'
     },
     series: [{
       type: 'treemap',
       data: [{
         name: 'Cosmetics',
         value: 0,
-        colorValue: 1
+        colorValue: '#00F'
       }, {
         name: 'Frozen Food',
         value: 0,
-        colorValue: 2
+        colorValue: '#00F'
       }, {
         name: 'Personal Health Care',
         value: 0,
-        colorValue: 3
+        colorValue: '#00F'
       }, {
         name: 'Checkout',
         value: 0,
-        colorValue: 4
+        colorValue: '#00F'
       }]
     }],
     title: {
@@ -61,7 +59,8 @@ export class InsTrafficComponent implements OnInit {
   }
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) {
   }
 
@@ -80,7 +79,7 @@ export class InsTrafficComponent implements OnInit {
   }
 
   renderUpdatedData(data){
-    let seconds = 0, intId, tsData, tsInd, tsLen, lts, ts, a, b, c, d, all;
+    let seconds = 0, intId, tsData, tsInd, tsLen, lts, ts, a, b, c, d, t, all;
 
     tsData = data["Time Stamp"];
     tsLen = tsData.length;
@@ -97,35 +96,45 @@ export class InsTrafficComponent implements OnInit {
         b = data["Frozen Food"][tsInd];
         c = data["Personal Health Care"][tsInd];
         d = data["Checkout"][tsInd];
+        t = `T${++tsInd}`;
 
-        this.treeMapOptions["series"][0].data = [{
+        this.treeMapOptions["series"][0].data = [
+        {
+          id: t,
+          name: t,
+          color: '#008000'
+        }, {
           name: 'Cosmetics',
           value: a,
-          colorValue: 1
+          colorValue: 'green',
+          parent: t
         }, {
           name: 'Frozen Food',
           value: b,
-          colorValue: 2
+          colorValue: 'green',
+          parent: t
         }, {
           name: 'Personal Health Care',
           value: c,
-          colorValue: 3
+          colorValue: 'green',
+          parent: t
         }, {
           name: 'Checkout',
           value: d,
-          colorValue: 4
+          colorValue: 'green',
+          parent: t
         }];
         Highcharts.chart('treemap1', this.treeMapOptions);
 
         all = (a != "-" ? a : 0) + (b != "-" ? b : 0) + (c != "-" ? c : 0) + (d != "-" ? d : 0);
         if ( tsInd == 0 ) {
-          this.tableData[0] = {Time:`T${++tsInd}`,Grooming :a,Frozen:b,Health:c,Home:d, All: all};
+          this.tableData[0] = {Time:t,Grooming :a,Frozen:b,Health:c,Home:d, All: all};
         } else {
-          this.tableData.push({Time:`T${++tsInd}`,Grooming :a,Frozen:b,Health:c,Home:d, All: all});
+          this.tableData.unshift({Time:t,Grooming :a,Frozen:b,Health:c,Home:d, All: all});
         }
 
       }
-      if ( seconds >= lts ) {
+      if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
         clearInterval(intId);
       }
     }, 1000);
