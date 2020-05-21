@@ -45,7 +45,7 @@
         </div>
 
 
-        <p class="choosegallery">Or Choose from Gallery</p>
+        <p class="choosegallery font-weight-bold">or Choose from Gallery</p>
         <div class="row images">
           <div *ngFor="let item of filterdata; let i = index;">
             <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
