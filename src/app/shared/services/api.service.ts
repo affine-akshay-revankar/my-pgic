@@ -113,6 +113,24 @@ getShelfInventoryData(){
     });
   }
 
+  analyseVibration(data){
+    var url = "http://fr-api.affineanalytics.co.in:5005/testpost";
+
+    return this.httpClient.post(
+      url,
+      data,
+      this.httpOptions
+    )
+    .toPromise()
+    .then(response => {
+      console.log(response);
+      return response;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
   detectCorrosion2(file: File) {
     return new Promise((resolve, reject) => {
       var formData: any = new FormData();
