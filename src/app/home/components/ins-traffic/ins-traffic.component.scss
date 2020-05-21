@@ -37,9 +37,10 @@ table {
   margin: 0 auto;
   width: 96%;
   text-align: center;
+  border: none;
   tr:first-child td {
-    background-color: green;
-    color: #fff;
+    // background-color: green;
+    // color: #fff;
   }
 }
 .table-container {

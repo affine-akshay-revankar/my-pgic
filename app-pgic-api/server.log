@@ -332,3 +332,90 @@ Traceback (most recent call last):
   File "D:\P&G\GitHub\app-pgic\app-pgic-api\results\traffic\Convert_CSV_to_Dictionary.py", line 20, in csv_to_dictionary
     dictionary[c] = data[c].fillna("-", inplace = True).tolist()
 AttributeError: 'NoneType' object has no attribute 'tolist'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 89, in getPosReportData
+    Reads the json file with the specified file name and filters the data for the specified parameter values.
+  File "results/pos_reports\WarehouseStorage.py", line 18, in show_details
+    data = pd.read_excel(filepath)
+  File "C:\Python27\lib\site-packages\pandas\util\_decorators.py", line 188, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pandas\util\_decorators.py", line 188, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 350, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 653, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 393, in __init__
+    raise ImportError(err_msg)
+ImportError: Install xlrd >= 1.0.0 for Excel support
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 89, in getPosReportData
+    Reads the json file with the specified file name and filters the data for the specified parameter values.
+  File "results/pos_reports\WarehouseStorage.py", line 18, in show_details
+    data = pd.read_excel(filepath)
+  File "C:\Python27\lib\site-packages\pandas\util\_decorators.py", line 188, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pandas\util\_decorators.py", line 188, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 350, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 653, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 393, in __init__
+    raise ImportError(err_msg)
+ImportError: Install xlrd >= 1.0.0 for Excel support
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 89, in getPosReportData
+    Reads the json file with the specified file name and filters the data for the specified parameter values.
+  File "results/pos_reports\WarehouseStorage.py", line 18, in show_details
+    data = pd.read_excel(filepath)
+  File "C:\Python27\lib\site-packages\pandas\util\_decorators.py", line 188, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pandas\util\_decorators.py", line 188, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 350, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 653, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 393, in __init__
+    raise ImportError(err_msg)
+ImportError: Install xlrd >= 1.0.0 for Excel support
