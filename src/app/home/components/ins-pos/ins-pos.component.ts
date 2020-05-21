@@ -29,11 +29,11 @@ export class InsPosComponent implements OnInit {
     }
   ];
   response : any = {
-    Details: "",
-    TransactionDate : "",
-    Items:"",
-    ItemCost : "",
-    Total : ""
+    Details: ["Merchant Name"],
+    TransactionDate : "Date & Time",
+    Items:["Item Name"],
+    ItemCost : ["0.0"],
+    Total : "0.0"
 }
   constructor(
     private apiService: ApiService
