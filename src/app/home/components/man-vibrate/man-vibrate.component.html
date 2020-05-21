@@ -9,7 +9,7 @@
     </div>
   </div>
 </div>
-<div class="container1 container">
+<div class="container1">
   <div class="row">
             <div class="col-md-12"  *ngFor="let item of audioList; let i = index;">
               <figure>
@@ -28,19 +28,19 @@
               </figure>
               <!-- <div id="loader"></div> -->
               <div class="col-md-12 row" >
-                <div class="col-md-3">
-                  <img id="imgg" class="idimg "  src="{{item.dest}}">
+                <div class="col-md-3" *ngIf="item.dest">
+                  <img id="imgg" class="chart "  src="{{item.dest}}">
+                </div>
+                <div class="col-md-3" *ngIf="item.diff">
+                  <img id="imgg" class="chart "  src="{{item.diff}}">
                 </div>
                 <div class="col-md-3">
-                  <img id="imgg" class="idimg "  src="{{item.diff}}">
-                </div>
-                <div class="col-md-3">
-                  <img id="imgg" class="idimg "  src="{{item.amp}}">
-                </div>
-                <!-- <div class="col-md-3 ">
-                  <canvas id="chart" width="261" height="200"></canvas>
-                </div> -->
+                  <div id="{{item.name}}" class="chart"></div>
                   </div>
+                <div class="col-md-3" *ngIf="item.amp">
+                  <img id="imgg" class="chart "  src="{{item.amp}}">
+                </div>
+
             </div>
 
         </div>

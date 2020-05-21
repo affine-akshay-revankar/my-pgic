@@ -1,5 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../shared';
+import * as Highcharts from 'highcharts';
+
+declare var require: any;
+let Boost = require('highcharts/modules/boost');
+let noData = require('highcharts/modules/no-data-to-display');
+let More = require('highcharts/highcharts-more');
+
+Boost(Highcharts);
+noData(Highcharts);
+More(Highcharts);
+noData(Highcharts);
 
 @Component({
   selector: 'app-man-vibrate',
@@ -9,8 +20,10 @@ import { ApiService } from '../../../shared';
 export class ManVibrateComponent implements OnInit {
 
   uploads:boolean = false;
+  showgraphs:boolean = false;
   images:any;
   image:any;
+  imagedatas:any;
   uploadedimage:any;
   processing:boolean = false;
   path:boolean = false;
@@ -19,8 +32,11 @@ export class ManVibrateComponent implements OnInit {
   myaudio:any;
   selImgInd: number = -1;
   selImgObj: any;
+  chartid:any;
   file: any;
   filterdata = [];
+  DataResult:any = [];
+  LabelResult:any = [];
   audioList = [
     {
       "id":1,
@@ -103,33 +119,73 @@ export class ManVibrateComponent implements OnInit {
   ngOnInit(): void {
 
     }
+    drawchart(){
+      this.revenueoptions.series[0].data=this.DataResult;
+      this.revenueoptions.xAxis.categories = this.LabelResult;
+    Highcharts.chart(this.chartid, this.revenueoptions);
 
+    }
 
   selectimage(i){
 
     var x = document.images.length;
     this.selImgInd = i;
+    this.chartid=this.audioList[i].name;
     this.images = this.audioList[i].path;
     this.apiService.analyseVibration(this.images).then((result:any) => {
+      this.showgraphs=true;
         var  base="http://182.156.213.183:8080/qc/";
+        this.imagedatas=result;
         var imgdata = result;
-        this.uploadedimage = imgdata.data1;
         var array = eval(imgdata.data8);
         if(this.audioList[i].name == "Normal Sound"){
           this.audioList[i].dest= base+imgdata.data1;
         }
-        else{
+        else if (this.audioList[i].name == "Pitting Sound") {
           this.audioList[i].dest= base+imgdata.data3;
-          this.audioList[i].diff= base+imgdata.data6;
-          this.audioList[i].amp= base+imgdata.data7;
+          this.audioList[i].diff= base+imgdata.data7;
+          this.audioList[i].amp= base+imgdata.data6;
         }
+        else if (this.audioList[i].name == "Tooth Fracture  Sound") {
+          this.audioList[i].dest= base+imgdata.data3;
+          this.audioList[i].diff= base+imgdata.data2;
+          this.audioList[i].amp= base+imgdata.data1;
+        }
+        else if (this.audioList[i].name == "Wear Sound") {
+          this.audioList[i].dest= base+imgdata.data3;
+          this.audioList[i].diff= base+imgdata.data2;
+          this.audioList[i].amp= base+imgdata.data1;
+        }
+          var count = array.length;
+          var counter = 0;
+          this.DataResult= array.slice(0, 16000);
+          this.LabelResult= [];
+
+          for (let i = 1; i <= 16000; i++) {
+            this.LabelResult.push(parseInt(i/16000));
+          }
+            this.drawchart();
+            var loop = 1;
+            var clearint9 = setInterval(()=> {
+            if (loop < 20) {
+              this.DataResult = array.slice(
+                loop * 16000,
+                (loop + 1) * 16000
+              );
+
+              this.LabelResult = [];
+              for (let i = loop * 16000 + 1; i <= (loop + 1) * 16000; i++) {
+                this.LabelResult.push(parseInt(i/16000));
+              }
+
+            this.drawchart();
+              loop++;
+            }
+          }, 900);
 
           });
 
 }
 
-// drawchart(){
-// Highcharts.chart('chart', this.revenueoptions);
-//
-// }
+
   }

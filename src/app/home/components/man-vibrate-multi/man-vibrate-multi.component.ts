@@ -1,5 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../shared';
+import * as Highcharts from 'highcharts';
+
+declare var require: any;
+let Boost = require('highcharts/modules/boost');
+let noData = require('highcharts/modules/no-data-to-display');
+let More = require('highcharts/highcharts-more');
+
+Boost(Highcharts);
+noData(Highcharts);
+More(Highcharts);
+noData(Highcharts);
 
 @Component({
   selector: 'app-man-vibrate-multi',
@@ -10,6 +21,7 @@ export class ManVibrateMultiComponent implements OnInit {
   uploads:boolean = false;
   images:any;
   image:any;
+  imagedatas:any;
   uploadedimage:any;
   processing:boolean = false;
   path:boolean = false;
@@ -18,8 +30,11 @@ export class ManVibrateMultiComponent implements OnInit {
   myaudio:any;
   selImgInd: number = -1;
   selImgObj: any;
+  chartid:any;
   file: any;
   filterdata = [];
+  DataResult:any = [];
+  LabelResult:any = [];
   audioList = [
     {
       "id":1,
@@ -36,18 +51,65 @@ export class ManVibrateMultiComponent implements OnInit {
     tooth:any;
     wear:any;
     show:any;
+    public revenueoptions: any = {
+        chart: {
+          type: 'line',
+          height:310,
+          width:300
+          },
 
+        tooltip: {
+          formatter: function() {
+            return 'x: ' +  this.x +
+              ' y: ' + this.y;
+          }
+        },
+        xAxis: {
+          type: 'linear',
+          rotation: -45,
+          categories: [],
+          title: {
+              text: 'Time'
+          }
+
+        },
+        yAxis: {
+           title: {
+               text: 'Amplitude'
+           }
+       },
+       plotOptions: {
+          line: {
+              dataLabels: {
+                  enabled: false
+              },
+              enableMouseTracking: true
+          }
+      },
+        series: [
+          {
+            data:[]
+
+          }
+        ]
+      };
   constructor(
     private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
   }
+  drawchart(){
+    this.revenueoptions.series[0].data=this.DataResult;
+    this.revenueoptions.xAxis.categories = this.LabelResult;
+  Highcharts.chart(this.chartid, this.revenueoptions);
 
+  }
   selectimage(i){
 
     var x = document.images.length;
     this.selImgInd = i;
+    this.chartid=this.audioList[i].name;
     this.images = this.audioList[i].path;
   var resp = ["Normal", "Tooth Fracture", "Wear", "Pitting"];
 
@@ -95,25 +157,40 @@ export class ManVibrateMultiComponent implements OnInit {
 
     // var soundfile = document.getElementById("myaudio");
     this.apiService.analyseVibration(this.images).then((result:any) => {
-      console.log(result);
       var imgdata = result;
+      this.imagedatas=result;
+      var array = eval(imgdata.data8);
+        var count = array.length;
+        var counter = 0;
+        this.DataResult= array.slice(0, 16000);
+        this.LabelResult= [];
 
-        var array = eval(imgdata.data8);
+        for (let i = 1; i <= 16000; i++) {
+          this.LabelResult.push(parseInt(i/16000));
+        }
+          this.drawchart();
+          var loop = 1;
+          var clearint9 = setInterval(()=> {
+          if (loop < 20) {
+            this.DataResult = array.slice(
+              loop * 16000,
+              (loop + 1) * 16000
+            );
 
+            this.LabelResult = [];
+            for (let i = loop * 16000 + 1; i <= (loop + 1) * 16000; i++) {
+              this.LabelResult.push(parseInt(i/16000));
+            }
 
-        console.log(array);
-  var count = array.length;
-  var counter = 0;
-  var DataResult = array.slice(0, 16000);
-  var LabelResult = [];
+          this.drawchart();
+            loop++;
+          }
+        }, 900);
 
-  });
+        });
+
 
   }
 
-  //
-  // drawchart(){
-  // Highcharts.chart('chart', this.revenueoptions);
-  //
-  // }
+
   }

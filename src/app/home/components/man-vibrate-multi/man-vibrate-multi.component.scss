@@ -124,19 +124,25 @@ th {
 }
 
 /* The expanding image container */
- .container1 {
-  position: relative;
-    margin-top: 50px;
-  left:9%;
-  top:53%;
+.container1 {
+ position: relative;
+   margin-top: 50px;
 
 }
+
 
 /* .chart{
   position: absolute;
   left:19%;
 
 } */
+.chart {
+  height: 275px;
+  width:300px;
+  margin-right: -14px;
+  vertical-align:middle;
+  border-style: none;
+}
 /* Expanding image text */
 #imgtext {
   position: absolute;
