@@ -21,8 +21,9 @@ hr{
     padding: 0 0 15px 0;
 }
 .selecttag{
-    margin: 6px 12px;
-    width: 90%;
+  margin: 3px 12px 9px 12px;
+  width: 90%;
+  font-size: 14px;
 }
 .card {
 
@@ -72,9 +73,8 @@ margin-bottom: 10px;
 .detect{
   background-color: darkblue;
   color: white;
-  margin-left: -8px;
-  margin-bottom: 8px;
   width: 100%;
+  margin: 5px 0px 15px 0px;
 }
 .path{
   margin: 14px 0 0;
@@ -145,10 +145,17 @@ margin-bottom: 10px;
   width: 100%;
 }
 .images{
-  margin-left:0px;
+  margin: 0px;
+  padding: 0px 0 0 5px;
 }
 .result-label {
   margin: 20px 10px 20px 10px;
   font-size: 14px;
   font-weight: bold;
+}
+.label-text {
+  margin: 0 0 0 11px;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
 }
