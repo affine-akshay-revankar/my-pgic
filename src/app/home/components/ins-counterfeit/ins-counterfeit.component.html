@@ -6,10 +6,15 @@
       <div class="card select">
         <p class="header">Product</p>
         <hr class="smallhorizon">
+        <p class="uploadtext">Store :</p>
         <select class="form-control selecttag" name="store" (change)="selectstore($event.target.value)" required>
           <option>-- Select A Store --</option>
           <option value="1">Store 1</option>
           <option value="2">Store 2</option>
+        </select>
+        <p class="uploadtext">Product :</p>
+        <select *ngIf="selStore !== 1 ||selStore !== 2" class="form-control selecttag" [hidden]="selStore == 1 ||selStore == 2" name="businessType" >
+          <option>-- Select A Product --</option>
         </select>
         <select *ngIf="selStore == 1" class="form-control selecttag" name="businessType" (change)="selectproduct($event.target.value)" required>
           <option>-- Select A Product --</option>
