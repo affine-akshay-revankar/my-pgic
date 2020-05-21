@@ -7,6 +7,8 @@ import 'rxjs/add/operator/toPromise';
 export class ApiService {
 
   baseURL: string = 'http://127.0.0.1:5000';
+  // baseURL: string = 'http://3.80.213.87:5000';
+
   private httpOptions: any = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

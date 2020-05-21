@@ -1,7 +1,7 @@
 import "@angular/compiler";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
@@ -37,7 +37,8 @@ import { ApiService } from './shared';
     Globals,
     HttpClient,
     FormsModule,
-    ApiService
+    ApiService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
