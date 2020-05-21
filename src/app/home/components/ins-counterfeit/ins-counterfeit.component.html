@@ -4,15 +4,15 @@
   <div class="row">
     <div class="col-md-3">
       <div class="card select">
-        <p class="header">Product</p>
+        <p class="header">Store & Product </p>
         <hr class="smallhorizon">
-        <label class="label-text">Store & Product :</label>
+        <label class="label-text">Store :</label>
         <select class="form-control selecttag" name="store" (change)="selectstore($event.target.value)" required>
           <option>-- Select A Store --</option>
           <option value="1">Store 1</option>
           <option value="2">Store 2</option>
         </select>
-        <!-- <label class="label-text">Product :</label> -->
+        <label class="label-text">Product :</label>
         <select *ngIf="selStore !== 1 ||selStore !== 2" class="form-control selecttag" [hidden]="selStore == 1 ||selStore == 2" name="businessType" >
           <option>-- Select A Product --</option>
         </select>
