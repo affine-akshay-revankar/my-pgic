@@ -37,7 +37,7 @@
               <div class="navbar-nav navbox">
                   <a (click)="navigateTo('/ins-counterfeit')" class="nav-item nav-link" [ngClass]="isActiveLink('/ins-counterfeit') ? 'active' : null">COUNTERFEIT DETECTION <span style="margin-left:15px;">|</span></a>
                   <a (click)="navigateTo('/ins-traffic')" class="nav-item nav-link" [ngClass]="isActiveLink('/ins-traffic') ? 'active' : null">STORE TRAFFIC ANALYTICS <span style="margin-left:15px;">|</span></a>
-                  <a (click)="navigateTo('/ins-pos')" class="nav-item nav-link" [ngClass]="isActiveLink('/ins-pos') ? 'active' : null">ESTIMATING POS THROUGHPUT <span style="margin-left:15px;">|</span></a>
+                  <a (click)="navigateTo('/ins-pos')" class="nav-item nav-link" [ngClass]="isActiveLink('/ins-pos') || isActiveLink('/ins-report') ? 'active' : null">ESTIMATING POS THROUGHPUT <span style="margin-left:15px;">|</span></a>
                   <a (click)="navigateTo('/ins-shelf')" class="nav-item nav-link" [ngClass]="isActiveLink('/ins-shelf') ? 'active' : null">SHELF INVENTORY MONITORING</a>
               </div>
           </div>

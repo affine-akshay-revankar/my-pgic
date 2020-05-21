@@ -75,7 +75,7 @@ table {
   margin-right: 15%;
   border-collapse: collapse;
   width: 50%;
-  margin: 150px auto;
+
 
 }
 
@@ -83,6 +83,7 @@ th, td {
   text-align: left;
   padding: 8px;
   top:50%;
+  width: 80px;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
@@ -123,19 +124,25 @@ th {
 }
 
 /* The expanding image container */
- .container1 {
-  position: relative;
-    margin-top: 50px;
-  left:9%;
-  top:53%;
+.container1 {
+ position: relative;
+   margin-top: 50px;
 
 }
+
 
 /* .chart{
   position: absolute;
   left:19%;
 
 } */
+.chart {
+  height: 275px;
+  width:300px;
+  margin-right: -14px;
+  vertical-align:middle;
+  border-style: none;
+}
 /* Expanding image text */
 #imgtext {
   position: absolute;
@@ -378,3 +385,10 @@ html, body {height: 100%; min-height: 100%}
     }
 /* center line ends */
 /*search html ends*/
+.greybg{
+  background-color: #006400;
+}
+/*search html ends*/
+.greybg1{
+  background-color: #800000;
+}
