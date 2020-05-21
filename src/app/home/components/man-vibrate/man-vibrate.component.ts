@@ -23,6 +23,7 @@ export class ManVibrateComponent implements OnInit {
   showgraphs:boolean = false;
   images:any;
   image:any;
+  imagedatas:any;
   uploadedimage:any;
   processing:boolean = false;
   path:boolean = false;
@@ -134,8 +135,8 @@ export class ManVibrateComponent implements OnInit {
     this.apiService.analyseVibration(this.images).then((result:any) => {
       this.showgraphs=true;
         var  base="http://182.156.213.183:8080/qc/";
+        this.imagedatas=result;
         var imgdata = result;
-        this.uploadedimage = imgdata.data1;
         var array = eval(imgdata.data8);
         if(this.audioList[i].name == "Normal Sound"){
           this.audioList[i].dest= base+imgdata.data1;
@@ -161,7 +162,7 @@ export class ManVibrateComponent implements OnInit {
           this.LabelResult= [];
 
           for (let i = 1; i <= 16000; i++) {
-            this.LabelResult.push(parseInt(i / 16000));
+            this.LabelResult.push(parseInt(i/16000));
           }
             this.drawchart();
             var loop = 1;
@@ -174,7 +175,7 @@ export class ManVibrateComponent implements OnInit {
 
               this.LabelResult = [];
               for (let i = loop * 16000 + 1; i <= (loop + 1) * 16000; i++) {
-                this.LabelResult.push(parseInt(i / 16000));
+                this.LabelResult.push(parseInt(i/16000));
               }
 
             this.drawchart();
