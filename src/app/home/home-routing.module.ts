@@ -22,9 +22,9 @@ const routes: Routes = [
       { path: 'man-damage', loadChildren: () => import('./components/man-damage/man-damage.module').then(m => m.ManDamageModule) },
       { path: 'man-vibrate', loadChildren: () => import('./components/man-vibrate/man-vibrate.module').then(m => m.ManVibrateModule) },
       { path: 'man-vibrate-multi', loadChildren: () => import('./components/man-vibrate-multi/man-vibrate-multi.module').then(m => m.ManVibrateMultiModule) },
-
+      { path: 'counter-config', loadChildren: () => import('./components/counter-config/counter-config.module').then(m => m.CounterConfigModule) }
     ]
-  }
+  },
 ];
 
 @NgModule({

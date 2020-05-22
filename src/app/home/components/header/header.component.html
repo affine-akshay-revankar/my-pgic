@@ -19,7 +19,7 @@
               <a class="nav-link " routerLink="/man-corrosion" [ngClass]="!isInstore() ? 'active' : null">Manufacturing Excellence</a>
             </li>
             <li class="nav-item main-nav">
-              <a class="nav-link" href="/login">Logout</a>
+              <a class="nav-link" routerLink="/login">Logout</a>
             </li>
           </ul>
         </nav>
@@ -54,8 +54,8 @@
 
         <div class="collapse navbar-collapse">
           <div class="navbar-nav navbox">
-            <a (click)="navigateTo('/man-corrosion')" class="nav-item nav-link" [ngClass]="isActiveLink('/man-corrosion') ? 'active' : null">DEFECT DETECTION <span style="margin-left:15px;">|</span></a>
-            <a (click)="navigateTo('/man-vibrate')" class="nav-item nav-link" [ngClass]="isActiveLink('/man-vibrate') || isActiveLink('/man-vibrate-multi') ? 'active' : null">VIBRATION ANALYSIS</a>
+            <a (click)="navigateTo('/man-corrosion')" class="nav-item nav-link" [ngClass]="isActiveLink('/man-corrosion') ? 'active' : null">COMPUTER VISION <span style="margin-left:15px;">|</span></a>
+            <a (click)="navigateTo('/man-vibrate')" class="nav-item nav-link" [ngClass]="isActiveLink('/man-vibrate') || isActiveLink('/man-vibrate-multi') ? 'active' : null">SOUND CLASSIFICATION</a>
           </div>
         </div>
 

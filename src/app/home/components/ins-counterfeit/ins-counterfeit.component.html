@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-3">
       <div class="card select">
-        <p class="header">Product</p>
+        <p class="header">Store & Product </p>
         <hr class="smallhorizon">
         <label class="label-text">Store :</label>
         <select class="form-control selecttag" name="store" (change)="selectstore($event.target.value)" required>
@@ -30,7 +30,7 @@
       <div class="card secondcard">
         <p class="header">Select An Image</p>
         <hr class="smallhorizon">
-        <p class="uploadtext">Upload an Image</p>
+        <p class="uploadtext font-weight-bold">Upload an Image</p>
         <div class="card uploadcard">
           <div class="row">
             <div class="col-md-2">
@@ -38,14 +38,14 @@
                 [disabled]="(uploads == false) ? 'disabled': null">UPLOAD</button>
             </div>
             <div class="col-md-6 offset-md-1">
-              <p class="path">No file choosen</p>
+              <p class="path">No file chosen</p>
               <!-- <p *ngIf="path" class="path">{{images | slice:25}}</p> -->
             </div>
           </div>
         </div>
 
 
-        <p class="choosegallery">Or Choose from Gallery</p>
+        <p class="choosegallery font-weight-bold">or Choose from Gallery</p>
         <div class="row images">
           <div *ngFor="let item of filterdata; let i = index;">
             <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
@@ -61,13 +61,13 @@
       <div class="card">
         <p class="header">Counterfeit Identification</p>
         <hr class="smallhorizon">
-        <p class="uploadtext">Selected Image</p>
+        <p class="uploadtext font-weight-bold">Selected Image</p>
         <div class="selectedimages">
           <img class="card-img-top selected img-fluid" src="{{uploadedimage}}" alt="">
 
         </div>
-
-        <p class="result-label">Counterfeit Probability : {{ responseText }}</p>
+        <p class="result-label">Is Counterfeit Product ? {{ responseYN }}</p>
+        <p class="result-label1">Counterfeit Probability : {{ responseText }}</p>
 
       </div>
     </div>

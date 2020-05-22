@@ -22,6 +22,7 @@ export class InsCounterfeitComponent implements OnInit {
   selImgInd: number = -1;
   selImgObj: any;
   responseText: any;
+  responseYN:any;
   selStore: any;
   counterfeit:boolean = true;
   product = [
@@ -165,6 +166,7 @@ export class InsCounterfeitComponent implements OnInit {
       if( result && result["Category"] && result["Probability"] ) {
         let prob = result["Category"] == 'Fake' ? result["Probability"] : (1 - result["Probability"]);
         this.responseText = (prob * 100).toFixed(2) + "%";
+        this.responseYN = ((prob * 100)>80)?"Yes": "No";
         this.response = {
           Category: result["Category"],
           Probability: (prob * 100).toFixed(2)
