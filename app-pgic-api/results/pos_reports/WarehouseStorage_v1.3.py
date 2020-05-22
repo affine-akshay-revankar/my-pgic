@@ -95,4 +95,4 @@ def show_details(input_start_date,input_end_date,input_state,input_city,input_pr
 
     return master_dict
 
-# print(show_details('2020-05-01','2020-05-10','Karnataka','Bangalore','Ambi Pur', r'PG_Global_Hackathon_Mockup_v5_1.xlsx'))
+print(show_details('2020-05-01','2020-05-10','Karnataka','Bangalore','Ambi Pur', r'PG_Global_Hackathon_Mockup_v5_1.xlsx'))

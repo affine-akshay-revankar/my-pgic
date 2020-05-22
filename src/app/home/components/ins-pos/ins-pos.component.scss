@@ -352,8 +352,16 @@
   cursor: not-allowed;
 }
 .label-text {
-  margin: 0 0 0 11px;
+  margin: 0 0 0 2px;
     padding: 0;
     font-size: 12px;
     font-weight: bold;
+}
+.secondtext{
+  margin-top: -18px;
+}
+.load{
+  padding-left: 10px;
+  padding-top:10px;
+  font-size: 10px;
 }

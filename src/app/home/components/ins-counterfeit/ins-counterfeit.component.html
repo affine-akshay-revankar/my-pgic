@@ -1,7 +1,11 @@
 <div class="container section">
-  <h5 class="text">COUNTERFEIT PRODUCT DETECTION<i class="fa fa-cogs config-icon"></i></h5>
+  <h5 class="text">
+    COUNTERFEIT PRODUCT DETECTION
+    <i class="fa fa-info-circle info-icon"></i>
+    <i class="fa config-icon" [ngClass]="showConfig ? 'active' : null" (click)="toggleConfig()">Config</i>
+  </h5>
   <hr>
-  <div class="row">
+  <div class="row" *ngIf="!showConfig">
     <div class="col-md-3">
       <div class="card select">
         <p class="header">Store & Product </p>
@@ -50,7 +54,11 @@
           <div *ngFor="let item of filterdata; let i = index;">
             <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? (imagesList[i].state == 'Fake'? 'fake': 'active') : null" (click)="selectimage(i)">
           </div>
+        
           <div class="col-md-12" width="100%" style="margin: 0;padding: 0 11px 0 7px;">
+            <div>
+              <p class="load">Loading images may take some time</p>
+              </div>
             <button class="btn btn-primary col-md-12 detect" (click)="process()"
               [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
           </div>
@@ -74,14 +82,14 @@
   </div>
 </div>
 
-<div class="container" *ngIf="counterfeit">
+<div class="container">
   <!-- Button to Open the Modal -->
   <button type="button" #landingButton class="btn btn-primary hidden d-none" data-toggle="modal" data-target="#myModal">
   Button
   </button>
 
   <!-- The Modal -->
-  <div class="modal" id="myModal" [ngClass]="counterfeit ? 'show-lp' : null">
+  <div class="modal" id="myModal">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
 
@@ -166,3 +174,6 @@
   </div>
 
 </div>
+
+
+<app-counter-config *ngIf="showConfig"></app-counter-config>
