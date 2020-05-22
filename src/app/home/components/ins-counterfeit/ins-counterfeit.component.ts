@@ -182,9 +182,6 @@ export class InsCounterfeitComponent implements OnInit {
     this.uploadedimage = this.selImgObj.path;
     this.estimate1 = false;
     this.estimate2 = true;
-    // this.apiService.getPosReportData({}).then(result => {
-    //   debugger;
-    // });
 
   }
 
