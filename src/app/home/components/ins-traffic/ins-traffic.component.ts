@@ -77,7 +77,7 @@ export class InsTrafficComponent implements OnInit {
 
   playvideodata(){
     if( this.actIndId ) {
-      clearInterval(this.this.actIndId)  
+      clearInterval(this.actIndId)  
     }
     var name=<HTMLVideoElement>document.getElementById('audio')
     name.play();
