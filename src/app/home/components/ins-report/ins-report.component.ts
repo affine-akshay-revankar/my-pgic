@@ -27,9 +27,20 @@ export class InsReportComponent implements OnInit {
   private chartContainer: ElementRef;
 
   countrylist:any=["India","USA"];
-  statelist: any=[];
-  productList: any=[];
-  citylist:any=[];
+  statelist: any=["Karnataka"];
+  productList: any=[
+    { id:'Ambi_Pur', name: 'Ambi Pur'},
+    { id:'Ariel', name: 'Ariel'},
+    { id:'Head_&_Shoulders', name: 'Head & Shoulders'},
+    { id:'Olay', name: 'Olay'},
+    { id:'Old_Spice', name: 'Old Spice'},
+    { id:'Oral_B', name: 'Oral B'},
+    { id:'Pantene', name: 'Pantene'},
+    { id:'Purex', name: 'Purex'},
+    { id:'Tide', name: 'Tide'},
+    { id:'whisper', name: 'whisper'}
+  ];
+  citylist:any=["Bangalore"];
   country: any= "";
   product: any ="";
   state:any="";
@@ -214,11 +225,11 @@ export class InsReportComponent implements OnInit {
       this.topFour_ByRevenue= data.topFour_ByRevenue;
       this.topFour_ByUnitsSold= data.topFour_ByUnitsSold;
       var profuctslist= data["Data"].map(a => a.Product);
-      this.productList = [...new Set(profuctslist)];
-      var stateslist= data["Data"].map(a => a.State);
-      this.statelist = [...new Set(stateslist)];
-      var citlist= data["Data"].map(a => a.City);
-      this.citylist = [...new Set(citlist)];
+      // this.productList = [...new Set(profuctslist)];
+      // var stateslist= data["Data"].map(a => a.State);
+      // this.statelist = [...new Set(stateslist)];
+      // var citlist= data["Data"].map(a => a.City);
+      // this.citylist = [...new Set(citlist)];
       var revenuegraphdata:any=[];
       var avgspendgraphdata:any=[];
       var unitsgraphdata:any=[];
@@ -280,7 +291,7 @@ getfilterData(){
       'to':this.endDate,
       'state':this.state,
       'city':this.city,
-      'product':this.product
+      'product': this.product
     };
   this.apiservice.getPosReportData(params).then((data:any) => {
       this.totalAvgCustomerSpend= this.curdata(data.totalAvgCustomerSpend);

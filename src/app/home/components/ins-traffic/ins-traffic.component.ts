@@ -96,7 +96,7 @@ export class InsTrafficComponent implements OnInit {
         b = data["Frozen Food"][tsInd];
         c = data["Personal Health Care"][tsInd];
         d = data["Checkout"][tsInd];
-        t = `${i}s`;
+        t = `${seconds}s`;
         let sortdata=[]
         sortdata.push(a);
         sortdata.push(b);
