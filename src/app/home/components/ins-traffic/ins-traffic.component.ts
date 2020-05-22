@@ -13,6 +13,8 @@ import { ApiService } from '../../../shared';
   styleUrls: ['./ins-traffic.component.scss']
 })
 export class InsTrafficComponent implements OnInit {
+
+  showConfig: boolean = false;
   highcharts = Highcharts;
   tableData = [
     // {Time:"T1",Grooming :"0",Frozen:"0",Health:"0",Home:"0",All: "0"}
@@ -62,10 +64,12 @@ export class InsTrafficComponent implements OnInit {
     private apiService: ApiService,
     private router: Router
   ) {
+    this.showConfig = false;
   }
 
   ngOnInit(): void {
 
+    this.showConfig = false;
     this.videoData.push(this.tableData);
     Highcharts.chart('treemap1', this.treeMapOptions);
     this.renderData();
@@ -145,6 +149,10 @@ export class InsTrafficComponent implements OnInit {
         clearInterval(intId);
       }
     }, 1000);
+  }
+
+  toggleConfig(){
+    this.showConfig = !this.showConfig;
   }
 
 }
