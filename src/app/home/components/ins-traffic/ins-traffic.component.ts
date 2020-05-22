@@ -68,10 +68,10 @@ export class InsTrafficComponent implements OnInit {
 
     // this.videoData.push(this.tableData);
     // Highcharts.chart('treemap1', this.treeMapOptions);
-    this.renderData();
+    // this.renderData();
 
   }
-  data(){
+  playvideodata(){
     var name=<HTMLVideoElement>document.getElementById('audio')
     name.play();
     var name1=<HTMLVideoElement>document.getElementById('audio2');

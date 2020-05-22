@@ -37,91 +37,91 @@ export class InsCounterfeitComponent implements OnInit, AfterViewInit {
       "id":1,
       "path":"./assets/Tide/Tide_1.png",
       "name":"Tide",
-      "state": ""
+      "state": "Fake"
     },
     {
       "id":2,
       "path":"./assets/Tide/Tide_2.jpg",
       "name":"Tide",
-      "state": ""
+      "state": "Fake"
     },
     {
       "id":3,
       "path":"./assets/Tide/Tide_3.jpg",
       "name":"Tide",
-      "state": ""
+      "state": "Fake"
     },
     {
       "id":4,
       "path":"./assets/Tide/Tide_4.png",
       "name":"Tide",
-      "state": ""
+      "state": "Original"
     },
     {
       "id":5,
       "path":"./assets/Tide/Tide_5.png",
       "name":"Tide",
-      "state": ""
+      "state": "Original"
     },
     {
       "id":6,
       "path":"./assets/Tide/Tide_6.jpg",
       "name":"Tide",
-      "state": ""
+      "state": "Fake"
     },
     {
       "id":7,
       "path":"./assets/Tide/Tide_7.PNG",
       "name":"Tide",
-      "state": ""
+      "state": "Fake"
     },
     {
       "id":8,
       "path":"./assets/Head_N_Sholder/HS_1.jpg",
       "name":"Head & Shoulders",
-      "state": ""
+      "state": "Original"
     },
     {
       "id":9,
       "path":"./assets/Head_N_Sholder/HS_2.jpg",
       "name":"Head & Shoulders",
-      "state": ""
+      "state": "Original"
     },
     {
       "id":10,
       "path":"./assets/Head_N_Sholder/HS_3.jpg",
       "name":"Head & Shoulders",
-      "state": ""
+      "state": "Fake"
     },
     {
       "id":11,
       "path":"./assets/Head_N_Sholder/HS_4.jpg",
       "name":"Head & Shoulders",
-      "state": ""
+      "state": "Fake"
     },
     {
       "id":12,
       "path":"./assets/Head_N_Sholder/HS_5.jpg",
       "name":"Head & Shoulders",
-      "state": ""
+      "state": "Fake"
     },
     {
       "id":13,
       "path":"./assets/Head_N_Sholder/HS_6.jpeg",
       "name":"Head & Shoulders",
-      "state": ""
+      "state": "Original"
     },
     {
       "id":14,
       "path":"./assets/Head_N_Sholder/HS_7.jpeg",
       "name":"Head & Shoulders",
-      "state": ""
+      "state": "Original"
     },
     {
       "id":15,
       "path":"./assets/Head_N_Sholder/HS_8.jpg",
       "name":"Head & Shoulders",
-      "state": ""
+      "state": "Original"
     },
     {
       "id":16,
@@ -192,7 +192,7 @@ export class InsCounterfeitComponent implements OnInit, AfterViewInit {
     this.apiService.checkCounterfeit({filename: filename}).then(result => {
       if( result && result["Category"] && result["Probability"] ) {
         let prob = result["Category"] == 'Fake' ? result["Probability"] : (1 - result["Probability"]);
-        this.imagesList[this.selImgInd].state = result["Category"];
+        // this.imagesList[this.selImgInd].state = result["Category"];
         this.responseText = (prob * 100).toFixed(2) + "%";
         this.responseYN = ((prob * 100)>80)?"Yes": "No";
         this.response = {
