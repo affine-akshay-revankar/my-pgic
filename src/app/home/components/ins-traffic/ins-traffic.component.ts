@@ -66,13 +66,25 @@ export class InsTrafficComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.videoData.push(this.tableData);
-    Highcharts.chart('treemap1', this.treeMapOptions);
+    // this.videoData.push(this.tableData);
+    // Highcharts.chart('treemap1', this.treeMapOptions);
     this.renderData();
 
   }
-
+  data(){
+    var name=<HTMLVideoElement>document.getElementById('audio')
+    name.play();
+    var name1=<HTMLVideoElement>document.getElementById('audio2');
+    name1.play();
+    var name2=<HTMLVideoElement>document.getElementById('audio3');
+    name2.play();
+    var name3=<HTMLVideoElement>document.getElementById('audio4');
+    name3.play();
+    this.renderData();
+  }
   renderData(){
+    this.videoData.push(this.tableData);
+    Highcharts.chart('treemap1', this.treeMapOptions);
     this.apiService.getStoreTrafficData().then(result => {
       this.renderUpdatedData(result);
     });
