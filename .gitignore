@@ -11,10 +11,14 @@
 /node_modules
 package-lock.json
 
+app-pgic-api/server.log
 app-pgic-api/results/pos_reports/__pycache__
 app-pgic-api/results/pos_reports/__pycache__/*
+app-pgic-api/results/pos_reports/__pycache__/WarehouseStorage.cpython-36.pyc
 app-pgic-api/results/traffic/__pycache__
 app-pgic-api/results/traffic/__pycache__/*
+app-pgic-api/results/traffic/__pycache__/Convert_CSV_to_Dictionary.cpython-36.pyc
+
 
 # profiling files
 chrome-profiler-events*.json
