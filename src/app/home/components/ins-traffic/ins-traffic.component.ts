@@ -81,6 +81,8 @@ export class InsTrafficComponent implements OnInit {
     var name3=<HTMLVideoElement>document.getElementById('audio4');
     name3.play();
     this.videoData=[];
+    this.tableData=[];
+    this.treeMapOptions["series"][0].data=[];
     this.renderData();
   }
   renderData(){
