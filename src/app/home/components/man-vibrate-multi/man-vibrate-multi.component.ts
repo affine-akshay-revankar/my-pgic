@@ -26,6 +26,7 @@ export class ManVibrateMultiComponent implements OnInit {
   processing:boolean = false;
   path:boolean = false;
   success:boolean = false;
+  stop:boolean = false;
   chooseFile:boolean = true;
   myaudio:any;
   selImgInd: number = -1;
@@ -74,13 +75,19 @@ export class ManVibrateMultiComponent implements OnInit {
           categories: [],
           title: {
               text: 'Time'
-          }
+          },
+          gridLineColor: '#197F07',
+          gridLineWidth: 0,
+          lineWidth:1,
 
         },
         yAxis: {
            title: {
                text: 'Amplitude'
-           }
+           },
+
+           gridLineWidth: 1,
+           lineWidth:1,
        },
        plotOptions: {
           line: {
@@ -108,6 +115,10 @@ export class ManVibrateMultiComponent implements OnInit {
     this.revenueoptions.xAxis.categories = this.LabelResult;
     this.revenueoptions.title.text=this.chartid;
     Highcharts.chart(this.chartid, this.revenueoptions);
+
+  }
+  stoped(i){
+    this.stop= true;
 
   }
   selectimage(i){
@@ -156,8 +167,9 @@ export class ManVibrateMultiComponent implements OnInit {
     }
   }
     j +=1;
-    if (j>= 5) {
+    if (j>= 5|| this.stop == true) {
       clearInterval(interval1);
+      // this.stop= false;
     }}, 5000 );
 
     // var soundfile = document.getElementById("myaudio");
@@ -190,10 +202,15 @@ export class ManVibrateMultiComponent implements OnInit {
           this.drawchart();
             loop++;
           }
-        }, 900);
+          if (loop >= 20 || this.stop== true) {
+            clearInterval(clearint9);
+            // this.stop= false;
+          }
+        }  , 900);
 
         });
 
+        this.stop= false;
 
   }
 

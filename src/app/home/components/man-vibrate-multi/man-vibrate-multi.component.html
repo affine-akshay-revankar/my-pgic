@@ -23,7 +23,8 @@
             controls
             class="col-md-3 audio"
             src="http://182.156.213.183:8080/qc/combined_changed_final.wav"
-            (play)="selectimage(0)">
+            (play)="selectimage(0)"
+            (pause)="stoped(0)">
           </audio>
           <label
             style="padding-top: 60px;padding-left: 20px;"
@@ -83,7 +84,8 @@
                         controls
                         class="col-md-3 audio"
                         src="http://182.156.213.183:8080/qc/overlaid_final.wav"
-                        (play)="selectimage(1)">
+                        (play)="selectimage(1)"
+                        (pause)="stoped(1)">
                       </audio>
                       <label
                         style="padding-top: 60px;padding-left: 20px;"
@@ -132,7 +134,7 @@
                 <div class="col-md-3 " *ngIf="DataResult">
                   <div  id="Multiple Issues in Parallel" class="chart">
                   <!-- <canvas id="chart" width="261" height="200"></canvas> -->
-                </div>\</div>
+                </div></div>
 
 </div>
 

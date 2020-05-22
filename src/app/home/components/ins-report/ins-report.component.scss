@@ -148,8 +148,8 @@ table {
 }
 
 .disp_vals{
-    font-size: 25px;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 750;
 }
 .golden{
   color: #D4AF37
@@ -236,7 +236,7 @@ text-align: center;
   }
 }
 .ip{
-    margin: 0px 0px 0px -12px;
+    height:50px;
 }
 .lp{
     margin: 0px -12px 0px 0px;
@@ -292,4 +292,15 @@ text-align: center;
 
 .link--source2 {
   stroke: #E18700;
+}
+.title{
+  font-size: 12px
+}
+.cardmar{
+      margin: 0px -5px 0px 1px;
+}
+.setcard{
+width: 1111px !important;
+/* left: -33px; */
+margin: 1px !important;
 }

@@ -27,9 +27,9 @@ export class InsReportComponent implements OnInit {
   private chartContainer: ElementRef;
 
   countrylist:any=["India","USA"];
-  statelist: any=["Karnataka","Maharashtra","kerala"];
+  statelist: any=[];
   productList: any=[];
-  citylist:any=["Bangalore","Mangalore"];
+  citylist:any=[];
   country: any= "";
   product: any ="";
   state:any="";
@@ -37,9 +37,9 @@ export class InsReportComponent implements OnInit {
   startDate: any="";
   endDate:any="";
   totalAvgCustomerSpend: any;
-  totalRevenue: number;
-  totalTransaction: number;
-  totalUnitsSold: number;
+  totalRevenue: any;
+  totalTransaction: any;
+  totalUnitsSold: any;
   bottomFour_ByRevenue:any;
   bottomFour_ByUnitsSold:any;
   topFour_ByRevenue:any;
@@ -72,8 +72,16 @@ export class InsReportComponent implements OnInit {
       },
       yAxis: {
          title: {
-             text: 'Revenue'
-         }
+             text: 'Revenue' },
+             gridLineColor: '#197F07',
+    gridLineWidth: 0,
+    lineWidth:1,
+    //  plotLines: [{
+    //     color: '#FF0000',
+    //     width: 1,
+    //     value: 0
+    // }]
+
      },
      plotOptions: {
         line: {
@@ -113,7 +121,10 @@ export class InsReportComponent implements OnInit {
           yAxis: {
            title: {
                text: 'Quantity Sold'
-           }
+           },
+           gridLineColor: '#197F07',
+           gridLineWidth: 0,
+           lineWidth:1,
        },
        plotOptions: {
           line: {
@@ -154,7 +165,10 @@ export class InsReportComponent implements OnInit {
             yAxis: {
              title: {
                  text: 'Quantity Sold'
-             }
+             },
+             gridLineColor: '#197F07',
+    gridLineWidth: 0,
+    lineWidth:1,
          },
          plotOptions: {
             line: {
@@ -191,16 +205,20 @@ export class InsReportComponent implements OnInit {
     'product':''
     };
     this.apiservice.getPosReportData(params).then((data:any) => {
-      this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
-      this.totalRevenue=data.totalRevenue;
-      this.totalTransaction=data.totalTransaction;
-      this.totalUnitsSold=data.totalUnitsSold;
+      this.totalAvgCustomerSpend= this.curdata(data.totalAvgCustomerSpend);
+      this.totalRevenue=this.curdata(data.totalRevenue);
+      this.totalTransaction=this.curdata(data.totalTransaction);
+      this.totalUnitsSold=this.curdata(data.totalUnitsSold);
       this.bottomFour_ByRevenue = data.bottomFour_ByRevenue;
       this.bottomFour_ByUnitsSold= data.bottomFour_ByUnitsSold;
       this.topFour_ByRevenue= data.topFour_ByRevenue;
       this.topFour_ByUnitsSold= data.topFour_ByUnitsSold;
       var profuctslist= data["Data"].map(a => a.Product);
       this.productList = [...new Set(profuctslist)];
+      var stateslist= data["Data"].map(a => a.State);
+      this.statelist = [...new Set(stateslist)];
+      var citlist= data["Data"].map(a => a.City);
+      this.citylist = [...new Set(citlist)];
       var revenuegraphdata:any=[];
       var avgspendgraphdata:any=[];
       var unitsgraphdata:any=[];
@@ -229,6 +247,22 @@ export class InsReportComponent implements OnInit {
 
       }
 
+      curdata(value){
+        var val1 = Math.abs(value);
+        var val:any;
+        if (val1 >= 10000000) {
+          val = (val1/10000000).toFixed(2) + ' Cr';
+        } else if (val1 >= 100000) {
+          val = (val1/100000).toFixed(2) + ' L';
+        } else if (val1 >= 1000) {
+          val = (val1/1000).toFixed(2) + ' K';
+        }else if(val1 < 1000){
+          val = (val1).toFixed(2)
+        }
+  return val;
+}
+
+
       onResize(data) {
         this.createChart();
       }
@@ -249,10 +283,10 @@ getfilterData(){
       'product':this.product
     };
   this.apiservice.getPosReportData(params).then((data:any) => {
-      this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);
-      this.totalRevenue=data.totalRevenue;
-      this.totalTransaction=data.totalTransaction;
-      this.totalUnitsSold=data.totalUnitsSold;
+      this.totalAvgCustomerSpend= this.curdata(data.totalAvgCustomerSpend);
+      this.totalRevenue=this.curdata(data.totalRevenue);
+      this.totalTransaction=this.curdata(data.totalTransaction);
+      this.totalUnitsSold=this.curdata(data.totalUnitsSold);
       this.bottomFour_ByRevenue = data.bottomFour_ByRevenue;
       this.bottomFour_ByUnitsSold= data.bottomFour_ByUnitsSold;
       this.topFour_ByRevenue= data.topFour_ByRevenue;

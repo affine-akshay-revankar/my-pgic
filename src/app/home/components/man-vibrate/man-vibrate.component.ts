@@ -26,6 +26,7 @@ export class ManVibrateComponent implements OnInit {
   imagedatas:any;
   uploadedimage:any;
   processing:boolean = false;
+  stop:boolean = false;
   path:boolean = false;
   success:boolean = false;
   chooseFile:boolean = true;
@@ -91,13 +92,19 @@ export class ManVibrateComponent implements OnInit {
         categories: [],
         title: {
             text: 'Time'
-        }
+        },
+        gridLineColor: '#197F07',
+        gridLineWidth: 0,
+        lineWidth:1,
 
       },
       yAxis: {
          title: {
              text: 'Amplitude'
-         }
+         },
+
+         gridLineWidth: 1,
+         lineWidth:1,
      },
      plotOptions: {
         line: {
@@ -127,6 +134,10 @@ export class ManVibrateComponent implements OnInit {
       this.revenueoptions.title.text=this.chartid;
       this.revenueoptions.xAxis.categories = this.LabelResult;
     Highcharts.chart(this.chartid, this.revenueoptions);
+
+    }
+    stoped(i){
+      this.stop= true;
 
     }
 
@@ -185,9 +196,14 @@ export class ManVibrateComponent implements OnInit {
             this.drawchart();
               loop++;
             }
+            if (loop >= 20 || this.stop== true) {
+              clearInterval(clearint9);
+              // this.stop= false;
+            }
           }, 900);
 
           });
+          this.stop= false;
 
 }
 
