@@ -1,8 +1,8 @@
 <div class="container section">
     <h5 class="text">SHELF INVENTORY MONITORING<i class="fa fa-cogs config-icon"></i></h5>
     <hr>
-    <!-- <div class="row">
-        <div class="col-md-4">
+    <div class="row">
+        <!-- <div class="col-md-4">
             <div class="card">
                 <p class="header">SHELF1</p>
                 <hr class="horizon">
@@ -66,133 +66,39 @@
 
                 </div>
             </div>
+        </div> -->
+
+
+        <div class="col">
+            <div class="card">
+                <p class="header">SHELF 1</p>
+                <hr class="horizon">
+                <video class="video1" controls id="myVideo1" autoplay>
+                    <source src="../../../../assets/Video/output.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
-    </div> -->
 
-    <div class="row">
-      <div class="col-md-6">
-                  <video class="video1" controls="allowControls" id="myVideo1" autoplay playsinline>
-                <source src="../../../../assets/Video/output.mp4" type="video/mp4">
-            </video>
-          </div>
-      <div class="col-md-6 ">
-        <div class="row tablemargin card ">
-            <table class=" table-sm table-bordered ">
-                <thead class="thead-inverse" *ngIf="productlist">
-                    <!-- <tr>
-                        <th class="tableheader">Product</th>
-                        <th class="tableheader">2s</th>
-                        <th class="tableheader">4s</th>
-                        <th class="tableheader">6s</th>
-                        <th class="tableheader">8s</th>
-                        <th class="tableheader">10s</th>
-                        <th class="tableheader">12s</th>
-                        <th class="tableheader">14s</th>
-                        <th class="tableheader">16s</th>
-                        <th class="tableheader">18s</th>
-                        <th class="tableheader">20s</th>
-                        <th class="tableheader">22s</th>
-                        <th class="tableheader">24s</th>
-                        <th class="tableheader">26s</th>
-                        <th class="tableheader">28s</th>
-                    </tr> -->
-                    <tr >
-                      <th class="tableheader">Time</th>
-                      <th class="tableheader" *ngFor="let prof of productlist">{{prof}}</th>
-                    </tr>
-                </thead>
-                <tbody >
-
-
-
-                  <tr *ngFor="let data of videoData[0]">
-                      <td class="tabledata">{{data.Time}}</td>
-                      <td class="tabledata">{{data.a}}</td>
-                      <td class="tabledata">{{data.b}}</td>
-                      <td class="tabledata">{{data.c}}</td>
-                      <td class="tabledata">{{data.d}}</td>
-                      <td class="tabledata">{{data.e}}</td>
-                      <td class="tabledata">{{data.f}}</td>
-                      <td class="tabledata">{{data.g}}</td>
-                      <td class="tabledata">{{data.h}}</td>
-                      <td class="tabledata">{{data.i}}</td>
-                  </tr>
-                  <!-- <tr>
-                      <td class="tabledata">Dixan Liquid Det.</td>
-                      <td class="tabledata">{{array2.T1[0]}}</td>
-                      <td class="tabledata">{{array2.T2[0]}}</td>
-                      <td class="tabledata">{{array2.T3[0]}}</td>
-                      <td class="tabledata">{{array2.T4[0]}}</td>
-                      <td class="tabledata">{{array2.T5[0]}}</td>
-                    </tr>
-                    <tr>
-                      <td class="tabledata">Dash Liquid Det.</td>
-                      <td class="tabledata">{{array2.T1[1]}}</td>
-                      <td class="tabledata">{{array2.T2[1]}}</td>
-                      <td class="tabledata">{{array2.T3[1]}}</td>
-                      <td class="tabledata">{{array2.T4[1]}}</td>
-                      <td class="tabledata">{{array2.T5[1]}}</td>
-                    </tr>
-                    <tr>
-                      <td class="tabledata">Dixan Powder Det.</td>
-                      <td class="tabledata">{{array2.T1[2]}}</td>
-                      <td class="tabledata">{{array2.T2[2]}}</td>
-                      <td class="tabledata">{{array2.T3[2]}}</td>
-                      <td class="tabledata">{{array2.T4[2]}}</td>
-                      <td class="tabledata">{{array2.T5[2]}}</td>
-                    </tr>
-                    <tr>
-                      <td class="tabledata">Ace Powder Det.</td>
-                      <td class="tabledata">{{array2.T1[3]}}</td>
-                      <td class="tabledata">{{array2.T2[3]}}</td>
-                      <td class="tabledata">{{array2.T3[3]}}</td>
-                      <td class="tabledata">{{array2.T4[3]}}</td>
-                      <td class="tabledata">{{array2.T5[3]}}</td>
-                    </tr>
-                    <tr>
-                      <td class="tabledata">Perlana Powder Det.(1)</td>
-                      <td class="tabledata">{{array2.T1[4]}}</td>
-                      <td class="tabledata">{{array2.T2[4]}}</td>
-                      <td class="tabledata">{{array2.T3[4]}}</td>
-                      <td class="tabledata">{{array2.T4[4]}}</td>
-                      <td class="tabledata">{{array2.T5[4]}}</td>
-                    </tr>
-                    <tr>
-                      <td class="tabledata">Perlana Powder Det.(2)</td>
-                      <td class="tabledata">{{array2.T1[5]}}</td>
-                      <td class="tabledata">{{array2.T2[5]}}</td>
-                      <td class="tabledata">{{array2.T3[5]}}</td>
-                      <td class="tabledata">{{array2.T4[5]}}</td>
-                      <td class="tabledata">{{array2.T5[5]}}</td>
-                    </tr>
-                    <tr>
-                      <td class="tabledata">Perlana Liquid Det.</td>
-                      <td class="tabledata">{{array2.T1[6]}}</td>
-                      <td class="tabledata">{{array2.T2[6]}}</td>
-                      <td class="tabledata">{{array2.T3[6]}}</td>
-                      <td class="tabledata">{{array2.T4[6]}}</td>
-                      <td class="tabledata">{{array2.T5[6]}}</td>
-                    </tr>
-                    <tr>
-                      <td class="tabledata">Vernel Softner (Purple)</td>
-                      <td class="tabledata">{{array2.T1[7]}}</td>
-                      <td class="tabledata">{{array2.T2[7]}}</td>
-                      <td class="tabledata">{{array2.T3[7]}}</td>
-                      <td class="tabledata">{{array2.T4[7]}}</td>
-                      <td class="tabledata">{{array2.T5[7]}}</td>
-                    </tr>
-                    <tr>
-                      <td class="tabledata">Vernel Softner (Blue)</td>
-                      <td class="tabledata">{{array2.T1[8]}}</td>
-                      <td class="tabledata">{{array2.T2[8]}}</td>
-                      <td class="tabledata">{{array2.T3[8]}}</td>
-                      <td class="tabledata">{{array2.T4[8]}}</td>
-                      <td class="tabledata">{{array2.T5[8]}}</td>
-                    </tr> -->
-
-                </tbody>
-            </table>
+        <div class="col">
+            <div class="card">
+                <p class="header">SHELF INVENTORY</p>
+                <hr class="horizon">
+                <div class="table-container">
+                  <table class="table table-sm table-bordered">
+                      <tbody >
+                          <tr>
+                            <th *ngFor="let th of tableHeaderTh">{{th}}</th>
+                          </tr>
+                          <tr *ngFor="let tr of tableBodyTr; let i = index;">
+                              <td >{{tr}}</td>
+                              <td *ngFor="let td of tableBodyTd[i]">{{td}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
         </div>
-      </div>
+
     </div>
+
 </div>
