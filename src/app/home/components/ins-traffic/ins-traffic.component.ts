@@ -13,7 +13,10 @@ import { ApiService } from '../../../shared';
   styleUrls: ['./ins-traffic.component.scss']
 })
 export class InsTrafficComponent implements OnInit {
+
+  showConfig: boolean = false;
   highcharts = Highcharts;
+  actIndId: any;
   tableData = [
     // {Time:"T1",Grooming :"0",Frozen:"0",Health:"0",Home:"0",All: "0"}
   ]
@@ -68,10 +71,13 @@ export class InsTrafficComponent implements OnInit {
 
     // this.videoData.push(this.tableData);
     // Highcharts.chart('treemap1', this.treeMapOptions);
-    // this.renderData();
-
+    this.renderData();
   }
+
   playvideodata(){
+    if( this.actIndId ) {
+      clearInterval(this.actIndId)
+    }
     var name=<HTMLVideoElement>document.getElementById('audio')
     name.play();
     var name1=<HTMLVideoElement>document.getElementById('audio2');
@@ -85,6 +91,7 @@ export class InsTrafficComponent implements OnInit {
     this.treeMapOptions["series"][0].data=[];
     this.renderData();
   }
+
   renderData(){
     this.videoData.push(this.tableData);
     Highcharts.chart('treemap1', this.treeMapOptions);
@@ -100,7 +107,7 @@ export class InsTrafficComponent implements OnInit {
     tsLen = tsData.length;
     lts = tsData[tsLen - 1];
     var i=2;
-    intId = setInterval(() => {
+    this.actIndId = setInterval(() => {
 
       tsInd = tsData.indexOf(++seconds);
 
@@ -157,10 +164,14 @@ export class InsTrafficComponent implements OnInit {
         i=i+2;
       }
       if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
-        clearInterval(intId);
+        clearInterval(this.actIndId);
 
       }
     }, 1000);
+  }
+
+  toggleConfig(){
+    this.showConfig = !this.showConfig;
   }
 
 }
