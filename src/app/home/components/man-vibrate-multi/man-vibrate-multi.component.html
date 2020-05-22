@@ -32,37 +32,41 @@
         </figure>
         <div class="row">
 <div class="col-md-6">
-                  <table id="myTable"  *ngIf="show == 'single'"style="width:60%;float:left;display:inline">
+                  <table id="myTable"  *ngIf="shows == true"style="width:60%;float:left;display:inline">
                     <tr>
                       <td class="defect"></td>
+                      <td>0-5 sec</td>
+                      <td>5-10 sec</td>
+                      <td>10-15 sec</td>
+                      <td>15-20 sec</td>
                     </tr>
                     <tr id="normal">
                       <td class="defect">Normal</td>
-                      <td [ngClass]="normal == 00 ? 'greybg' : null"></td>
-                      <td [ngClass]="normal == 01 ? 'greybg' : null"></td>
-                      <td [ngClass]="normal == 02 ? 'greybg' : null"></td>
-                      <td [ngClass]="normal == 03 ? 'greybg' : null"></td>
+                      <td class= "tdborder" [ngClass]="normal == 00 ? 'greybg' : null"></td>
+                      <td class= "tdborder" [ngClass]="normal == 01 ? 'greybg' : null"></td>
+                      <td class= "tdborder" [ngClass]="normal == 02 ? 'greybg' : null"></td>
+                      <td class= "tdborder" [ngClass]="normal == 03 ? 'greybg' : null"></td>
                     </tr>
                     <tr id="pitting">
                       <td class="defect">Pitting</td>
-                      <td [ngClass]="pitting == 00 ? 'greybg1' : null"></td>
-                      <td [ngClass]="pitting == 01 ? 'greybg1' : null"></td>
-                      <td [ngClass]="pitting == 02 ? 'greybg1' : null"></td>
-                      <td [ngClass]="pitting == 03 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="pitting == 00 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="pitting == 01 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="pitting == 02 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="pitting == 03 ? 'greybg1' : null"></td>
                     </tr>
                     <tr id="tooth">
                       <td class="defect">Tooth Fracture</td>
-                      <td [ngClass]="tooth == 00 ? 'greybg1' : null"></td>
-                      <td [ngClass]="tooth == 01 ? 'greybg1' : null"></td>
-                      <td [ngClass]="tooth == 02 ? 'greybg1' : null"></td>
-                      <td [ngClass]="tooth == 03 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="tooth == 00 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="tooth == 01 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="tooth == 02 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="tooth == 03 ? 'greybg1' : null"></td>
                     </tr>
                     <tr id="wear">
                       <td class="defect">Wear</td>
-                      <td [ngClass]="wear == 00 ? 'greybg1' : null"></td>
-                      <td [ngClass]="wear == 01 ? 'greybg1' : null"></td>
-                      <td [ngClass]="wear == 02 ? 'greybg1' : null"></td>
-                      <td [ngClass]="wear == 03 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="wear == 00 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="wear == 01 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="wear == 02 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="wear == 03 ? 'greybg1' : null"></td>
                     </tr>
                   </table></div>
                   <div class="col-md-3 ">
@@ -88,40 +92,44 @@
                     </figure>
                     <div class="row">
                     <div class="col-md-6">
-                  <table id="myTable" *ngIf="show == 'multi'"style="width:60%;float:left;display:inline">
+                  <table id="myTable" *ngIf="showp == true"style="width:60%;float:left;display:inline">
                     <tr>
                       <td class="defect"></td>
+                      <td>0-5 sec</td>
+                      <td>5-10 sec</td>
+                      <td>10-15 sec</td>
+                      <td>15-20 sec</td>
                     </tr>
                     <tr id="normal">
                       <td class="defect">Normal</td>
-                      <td [ngClass]="normal == 10 ? 'greybg' : null"></td>
-                      <td [ngClass]="normal == 11 ? 'greybg' : null"></td>
-                      <td [ngClass]="normal == 12 ? 'greybg' : null"></td>
-                      <td [ngClass]="normal == 13 ? 'greybg' : null"></td>
+                      <td class= "tdborder" [ngClass]="normal == 10 ? 'greybg' : null"></td>
+                      <td class= "tdborder" [ngClass]="normal == 11 ? 'greybg' : null"></td>
+                      <td class= "tdborder" [ngClass]="normal == 12 ? 'greybg' : null"></td>
+                      <td class= "tdborder" [ngClass]="normal == 13 ? 'greybg' : null"></td>
                     </tr>
                     <tr id="pitting">
                       <td class="defect">Pitting</td>
-                      <td [ngClass]="pitting == 10 ? 'greybg1' : null"></td>
-                      <td [ngClass]="pitting == 11 ? 'greybg1' : null"></td>
-                      <td [ngClass]="pitting == 12 ? 'greybg1' : null"></td>
-                      <td [ngClass]="pitting == 13 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="pitting == 10 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="pitting == 11 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="pitting == 12 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="pitting == 13 ? 'greybg1' : null"></td>
                     </tr>
                     <tr id="tooth">
                       <td class="defect">Tooth Fracture</td>
-                      <td [ngClass]="tooth == 10 ? 'greybg1' : null"></td>
-                      <td [ngClass]="tooth == 11 ? 'greybg1' : null"></td>
-                      <td [ngClass]="tooth == 12 ? 'greybg1' : null"></td>
-                      <td [ngClass]="tooth == 13 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="tooth == 10 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="tooth == 11 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="tooth == 12 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="tooth == 13 ? 'greybg1' : null"></td>
                     </tr>
                     <tr id="wear">
                       <td class="defect">Wear</td>
-                      <td [ngClass]="wear == 10 ? 'greybg1' : null"></td>
-                      <td [ngClass]="wear == 11 ? 'greybg1' : null"></td>
-                      <td [ngClass]="wear == 12 ? 'greybg1' : null"></td>
-                      <td [ngClass]="wear == 13 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="wear == 10 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="wear == 11 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="wear == 12 ? 'greybg1' : null"></td>
+                      <td class= "tdborder" [ngClass]="wear == 13 ? 'greybg1' : null"></td>
                     </tr>
                   </table></div>
-                <div class="col-md-3 ">
+                <div class="col-md-3 " *ngIf="DataResult">
                   <div  id="Multiple Issues in Parallel" class="chart">
                   <!-- <canvas id="chart" width="261" height="200"></canvas> -->
                 </div>\</div>

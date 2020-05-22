@@ -50,7 +50,8 @@ export class ManVibrateMultiComponent implements OnInit {
     pitting:any;
     tooth:any;
     wear:any;
-    show:any;
+    shows:boolean = false;
+    showp:boolean = false;
     public revenueoptions: any = {
         chart: {
           type: 'line',
@@ -122,7 +123,7 @@ export class ManVibrateMultiComponent implements OnInit {
 
   var interval1 = setInterval(() => {
     if(i == 0){
-      this.show='single';
+      this.shows=true;
       if (resp[j] == "Normal") {
       this.normal="0"+j;
     }
@@ -137,7 +138,7 @@ export class ManVibrateMultiComponent implements OnInit {
     }
   }
   else if (i == 1){
-    this.show='multi';
+      this.showp=true;
     if (resp[j] == "Normal") {
       this.normal="1"+j;
     }

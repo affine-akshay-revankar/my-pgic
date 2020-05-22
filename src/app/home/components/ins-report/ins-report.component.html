@@ -80,7 +80,7 @@
             <span class = "disp_vals golden"> {{totalTransaction}}</span>
           </div>
           <div class="col-md-3">
-            <i class="fa fa-money-check-alt fa-3x golden ip"></i>
+            <i class="fa fa-chart-bar fa-3x golden "></i>
           </div>
           </div>
         </div>
@@ -94,7 +94,7 @@
             <span class = "disp_vals purple">  {{totalRevenue}}</span>
           </div>
           <div class="col-md-3">
-            <i class="fa fa-chart-bar fa-3x purple"></i>
+            <i class="fa fa-money-check-alt fa-3x purple ip"></i>
           </div>
         </div>
         </div>
@@ -156,9 +156,10 @@
       </div>
 
       <div class="row">
-        <div class="col-md-7">
-          <div class="card">
-          <div class="col-md-12 margin">
+        <!-- <div class="col-md-6"> -->
+          <div class="card col-md-12  ">
+            <div class="row">
+          <div class="col-md-6 margin">
             <label class="aa-field-label1">Top 4 Performing Products</label>
             <br>
             <div class="products row">
@@ -208,7 +209,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-12 margin">
+          <div class="col-md-6 margin">
             <label class="aa-field-label3">Bottom 4 Performing Products</label>
             <br>
             <div class="products row">
@@ -258,10 +259,10 @@
           </div>
         </div>
     </div>
-        <div class="col-md-5">
-          <div class="card graph">
-            PRODUCT AFFINITY DIAGRAM
-          </div>
+        <div class="col-md-12 card">
+          <p class="header1">PRODUCT AFFINITY DIAGRAM</p>
+          <hr>
+          <div id="affinity"  (window:resize)="onResize($event)"></div>
         </div>
       </div>
   </div>

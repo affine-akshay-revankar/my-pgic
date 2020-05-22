@@ -37,7 +37,7 @@
                 <div class="col-md-3" *ngIf="item.diff">
                   <img id="imgg" class="chart "  src="{{item.diff}}">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" *ngIf="DataResult">
                   <div id="{{item.name}}" class="chart"></div>
                   </div>
                 <div class="col-md-3" *ngIf="item.amp">
