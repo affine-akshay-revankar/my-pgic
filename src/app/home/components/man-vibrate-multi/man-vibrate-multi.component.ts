@@ -26,6 +26,7 @@ export class ManVibrateMultiComponent implements OnInit {
   processing:boolean = false;
   path:boolean = false;
   success:boolean = false;
+  stop:boolean = false;
   chooseFile:boolean = true;
   myaudio:any;
   selImgInd: number = -1;
@@ -50,7 +51,8 @@ export class ManVibrateMultiComponent implements OnInit {
     pitting:any;
     tooth:any;
     wear:any;
-    show:any;
+    shows:boolean = false;
+    showp:boolean = false;
     public revenueoptions: any = {
         chart: {
           type: 'line',
@@ -73,13 +75,19 @@ export class ManVibrateMultiComponent implements OnInit {
           categories: [],
           title: {
               text: 'Time'
-          }
+          },
+          gridLineColor: '#197F07',
+          gridLineWidth: 0,
+          lineWidth:1,
 
         },
         yAxis: {
            title: {
                text: 'Amplitude'
-           }
+           },
+
+           gridLineWidth: 1,
+           lineWidth:1,
        },
        plotOptions: {
           line: {
@@ -109,6 +117,10 @@ export class ManVibrateMultiComponent implements OnInit {
     Highcharts.chart(this.chartid, this.revenueoptions);
 
   }
+  stoped(i){
+    this.stop= true;
+
+  }
   selectimage(i){
 
     var x = document.images.length;
@@ -122,7 +134,7 @@ export class ManVibrateMultiComponent implements OnInit {
 
   var interval1 = setInterval(() => {
     if(i == 0){
-      this.show='single';
+      this.shows=true;
       if (resp[j] == "Normal") {
       this.normal="0"+j;
     }
@@ -137,7 +149,7 @@ export class ManVibrateMultiComponent implements OnInit {
     }
   }
   else if (i == 1){
-    this.show='multi';
+      this.showp=true;
     if (resp[j] == "Normal") {
       this.normal="1"+j;
     }
@@ -155,8 +167,9 @@ export class ManVibrateMultiComponent implements OnInit {
     }
   }
     j +=1;
-    if (j>= 5) {
+    if (j>= 5|| this.stop == true) {
       clearInterval(interval1);
+      // this.stop= false;
     }}, 5000 );
 
     // var soundfile = document.getElementById("myaudio");
@@ -189,10 +202,15 @@ export class ManVibrateMultiComponent implements OnInit {
           this.drawchart();
             loop++;
           }
-        }, 900);
+          if (loop >= 20 || this.stop== true) {
+            clearInterval(clearint9);
+            // this.stop= false;
+          }
+        }  , 900);
 
         });
 
+        this.stop= false;
 
   }
 

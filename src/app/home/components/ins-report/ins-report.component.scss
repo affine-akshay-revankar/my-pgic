@@ -148,8 +148,8 @@ table {
 }
 
 .disp_vals{
-    font-size: 25px;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 750;
 }
 .golden{
   color: #D4AF37
@@ -166,7 +166,13 @@ table {
 .bighorizon{
   margin-top:0px;
 }
-
+.header1 {
+  font-weight: bold;
+  font-weight: bold;
+  padding-top: 10px;
+  margin-bottom: -2px;
+  padding-left: 435px;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -230,11 +236,71 @@ text-align: center;
   }
 }
 .ip{
-    margin: 0px 0px 0px -12px;
+    height:50px;
 }
 .lp{
     margin: 0px -12px 0px 0px;
   }
 .jumbotron{
   background-color:#D3D3D3
+}
+
+.node {
+  font: 100 12px "Arial", Helvetica, Arial, sans-serif;
+  fill: #7C7C53 ;
+}
+
+.node:hover {
+  fill: #0000FF;
+  font-size:90%;
+}
+
+.link {
+  stroke: steelblue;
+  stroke-opacity: .05;
+  fill: none;
+  pointer-events: none;
+}
+
+.node:hover,
+.node--source,
+.node--target {
+  font-weight: 700;
+}
+
+.node--source {
+  fill: #000;
+   font-size:70%;
+ }
+
+.node--target {
+  fill: #000;
+  font-size:70%;
+}
+
+
+.link--source,
+.link--source2,
+.link--target {
+  stroke-opacity: 0.5;
+  stroke-width: 2px;
+}
+
+.link--source {
+  stroke: #2ca02c;
+}
+
+.link--source2 {
+  stroke: #E18700;
+}
+.title{
+  font-size: 12px
+}
+.cardmar{
+      margin: 0px -5px 0px 1px;
+}
+.setcard{
+width: 1111px !important;
+/* left: -33px; */
+margin: 1px !important;
 }

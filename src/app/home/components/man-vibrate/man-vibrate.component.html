@@ -22,7 +22,8 @@
                   controls
                   class="col-md-3 audio"
                   src="{{item.path}}"
-                  (play)="selectimage(i)">
+                  (play)="selectimage(i)"
+                  (pause)="stoped(i)">
                 </audio>
                 <label
                   style="padding-top: 60px;padding-left: 20px;"
@@ -37,7 +38,7 @@
                 <div class="col-md-3" *ngIf="item.diff">
                   <img id="imgg" class="chart "  src="{{item.diff}}">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" *ngIf="DataResult">
                   <div id="{{item.name}}" class="chart"></div>
                   </div>
                 <div class="col-md-3" *ngIf="item.amp">
