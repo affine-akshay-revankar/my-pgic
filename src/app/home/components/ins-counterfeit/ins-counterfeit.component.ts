@@ -25,7 +25,7 @@ export class InsCounterfeitComponent implements OnInit, AfterViewInit {
   responseText: any;
   responseYN:any;
   selStore: any;
-  counterfeit:boolean = true;
+  showConfig: boolean = false;
 
   product = [
     {id:1,name:"Tide"},
@@ -199,6 +199,10 @@ export class InsCounterfeitComponent implements OnInit, AfterViewInit {
 
   selectstore(storeId){
     this.selStore = storeId;
+  }
+
+  toggleConfig(){
+    this.showConfig = !this.showConfig;
   }
 
 }
