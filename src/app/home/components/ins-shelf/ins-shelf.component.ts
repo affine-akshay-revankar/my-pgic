@@ -16,10 +16,14 @@ array2={T1:null,T2:null,T3:null,T4:null,T5:null}
   ) { }
 
   ngOnInit(): void {
-    var vid1 = <HTMLVideoElement>document.getElementById("myVideo1");
-    var vid2 = <HTMLVideoElement>document.getElementById("myVideo2");
-    vid1.autoplay = true;
-    vid2.autoplay = true;
+    // var vid1 = <HTMLVideoElement>document.getElementById("myVideo1");
+    // var vid2 = <HTMLVideoElement>document.getElementById("myVideo2");
+    // vid1.autoplay = true;
+    // vid2.autoplay = true;
+    var name=<HTMLVideoElement>document.getElementById('myVideo1')
+    name.play();
+    var name1=<HTMLVideoElement>document.getElementById('myVideo2');
+    name1.play();
     this.apiService.getShelfInventoryData().then(result => {
       var data=[{"product": "cola", "counts": [4, 3, 3, 2, 2], "timestamps": [2, 4, 6, 8, 10]}, {"product": "maggi", "counts": [4, 3, 3, 2, 2], "timestamps": [2, 4, 6, 8, 10]}]
       var res2=[];

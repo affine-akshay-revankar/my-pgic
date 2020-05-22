@@ -38,6 +38,7 @@
           <div *ngFor="let item of imagesList; let i = index;" class="col-md-4">
             <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
           </div>
+          <p class="load">Loading images may take some time</p>
           <div class="col-md-12" width="100%">
             <button class="btn btn-primary col-md-12 detect" (click)="process()"
               [disabled]="(processing == false) ? 'disabled': null">CLICK TO PROCESS</button>
