@@ -419,3 +419,45 @@ Traceback (most recent call last):
   File "C:\Python27\lib\site-packages\pandas\io\excel.py", line 393, in __init__
     raise ImportError(err_msg)
 ImportError: Install xlrd >= 1.0.0 for Excel support
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 99, in getPosReportData
+    resp = show_details(fromdate, todate, state, city, product, filepath)
+  File "results/pos_reports\WarehouseStorage.py", line 34, in show_details
+    if(len(value) == 0 and index == 'input_start_date'):
+TypeError: object of type 'NoneType' has no len()
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 99, in getPosReportData
+    resp = show_details(fromdate, todate, state, city, product, filepath)
+  File "results/pos_reports\WarehouseStorage.py", line 27, in show_details
+    if(len(value) == 0):
+TypeError: object of type 'NoneType' has no len()
