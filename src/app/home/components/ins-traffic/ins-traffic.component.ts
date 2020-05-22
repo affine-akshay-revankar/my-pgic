@@ -68,10 +68,10 @@ export class InsTrafficComponent implements OnInit {
 
     // this.videoData.push(this.tableData);
     // Highcharts.chart('treemap1', this.treeMapOptions);
-    this.renderData();
+    // this.renderData();
 
   }
-  data(){
+  playvideodata(){
     var name=<HTMLVideoElement>document.getElementById('audio')
     name.play();
     var name1=<HTMLVideoElement>document.getElementById('audio2');
@@ -80,6 +80,9 @@ export class InsTrafficComponent implements OnInit {
     name2.play();
     var name3=<HTMLVideoElement>document.getElementById('audio4');
     name3.play();
+    this.videoData=[];
+    this.tableData=[];
+    this.treeMapOptions["series"][0].data=[];
     this.renderData();
   }
   renderData(){
@@ -155,6 +158,7 @@ export class InsTrafficComponent implements OnInit {
       }
       if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
         clearInterval(intId);
+
       }
     }, 1000);
   }
