@@ -94,8 +94,19 @@ def getPosReportData():
   todate = request.args.get('to')
   state = request.args.get('state')
   city = request.args.get('city')
-  product = request.args.get('product')
+  product = request.args.get('product').replace("_", " ")
+  """
+  products = ['Ambi Pur','Ariel','Head & Shoulders','Pantene','Purex','Tide','whisper']
+  pid = request.args.get('product')
+  if pid != '':
+    pInd = int(pid) - 1
+    product = products[pInd]
+  else:
+    product = ''
+  product = 'Ariel'
+  """
   filepath = r'results/pos_reports/PG_Global_Hackathon_Mockup_v5_1.xlsx'
+  print(fromdate + ', ' + todate + ', ' + state + ', ' + city + ', ' + product + ', ' + filepath)
   resp = show_details(fromdate, todate, state, city, product, filepath)
   # resp = {'fromdatetime': fromdatetime, 'todatetime':todatetime, 'level':level, 'geography':geography, 'product':product}
   return jsonify(resp)

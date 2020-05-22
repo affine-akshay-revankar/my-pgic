@@ -461,3 +461,296 @@ Traceback (most recent call last):
   File "results/pos_reports\WarehouseStorage.py", line 27, in show_details
     if(len(value) == 0):
 TypeError: object of type 'NoneType' has no len()
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = next((x for x in products if x.value == request.args.get('product')), None)
+  File "api.py", line 98, in <genexpr>
+    product = next((x for x in products if x.value == request.args.get('product')), None)
+AttributeError: 'dict' object has no attribute 'value'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = next((x for x in products if x.value == request.args.get('product')), None)
+  File "api.py", line 98, in <genexpr>
+    product = next((x for x in products if x.value == request.args.get('product')), None)
+AttributeError: 'dict' object has no attribute 'value'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = next((x for x in products if x.value == request.args.get('product')), None)
+  File "api.py", line 98, in <genexpr>
+    product = next((x for x in products if x.value == request.args.get('product')), None)
+AttributeError: 'dict' object has no attribute 'value'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = next((x for x in products if x.name == request.args.get('product')), None)
+  File "api.py", line 98, in <genexpr>
+    product = next((x for x in products if x.name == request.args.get('product')), None)
+AttributeError: 'dict' object has no attribute 'name'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = products[request.args.get('city') - 1]
+TypeError: unsupported operand type(s) for -: 'str' and 'int'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = products[request.args.get('city') - 1]
+TypeError: unsupported operand type(s) for -: 'str' and 'int'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = products[request.args.get('city') - 1]
+TypeError: unsupported operand type(s) for -: 'str' and 'int'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = products[request.args.get('city') - 1]
+TypeError: unsupported operand type(s) for -: 'str' and 'int'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = products[int(request.args.get('city')) - 1]
+ValueError: invalid literal for int() with base 10: ''
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = products[int(request.args.get('city'), 10) - 1]
+ValueError: invalid literal for int() with base 10: ''
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 98, in getPosReportData
+    product = products[int(request.args.get('product')) - 1]
+ValueError: invalid literal for int() with base 10: ''
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 100, in getPosReportData
+    pInd = int(pid) - 1
+ValueError: invalid literal for int() with base 10: 'Tide'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 100, in getPosReportData
+    pInd = int(pid) - 1
+ValueError: invalid literal for int() with base 10: 'Head '
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 100, in getPosReportData
+    pInd = int(pid) - 1
+ValueError: invalid literal for int() with base 10: 'Head_'
+Exception on /api/getPosReportData [GET]
+Traceback (most recent call last):
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Kotresh\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "api.py", line 100, in getPosReportData
+    pInd = int(pid) - 1
+ValueError: invalid literal for int() with base 10: 'Head_'
