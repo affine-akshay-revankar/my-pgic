@@ -51,11 +51,11 @@
 
         <div class="row">
           <div class="col-12 result-labels">
-            <label class="label col-4">Type 1: {{ response.Chaffing }}</label>
-            <label class="label col-4">Type 2: {{ response.Edge }}</label>
-            <label class="label col-4">Type 3: {{ response.Fastener }}</label>
-            <label class="label col-4">Type 4: {{ response.Filiform }}</label>
-            <label class="label col-4">Type 5: {{ response.Surface }}</label>
+            <label class="label col-4">Type 1: {{ response.Chaffing }} {{ response.Chaffing === '' ? "":"%"}}</label>
+            <label class="label col-4">Type 2: {{ response.Edge }} {{ response.Edge === '' ? "":"%"}}</label>
+            <label class="label col-4">Type 3: {{ response.Fastener }} {{ response.Fastener === '' ? "":"%"}}</label>
+            <label class="label col-4">Type 4: {{ response.Filiform }} {{ response.Filiform === '' ? "":"%"}}</label>
+            <label class="label col-4">Type 5: {{ response.Surface }} {{ response.Surface === '' ? "":"%"}}</label>
           </div>
           <!-- <div class="col-3">
             <label class="label col-6">Chaffing: {{}}</label>

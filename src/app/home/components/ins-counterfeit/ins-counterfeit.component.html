@@ -54,7 +54,11 @@
           <div *ngFor="let item of filterdata; let i = index;">
             <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
           </div>
+        
           <div class="col-md-12" width="100%" style="margin: 0;padding: 0 11px 0 7px;">
+            <div>
+              <p class="load">Loading images may take some time</p>
+              </div>
             <button class="btn btn-primary col-md-12 detect" (click)="process()"
               [disabled]="(processing == false) ? 'disabled': null">DETECT COUNTERFEITS</button>
           </div>
