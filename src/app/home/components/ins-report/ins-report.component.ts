@@ -20,9 +20,20 @@ noData(Highcharts);
 })
 export class InsReportComponent implements OnInit {
   countrylist:any=["India","USA"];
-  statelist: any=["Karnataka","Maharashtra","kerala"];
-  productList: any=[];
-  citylist:any=["Bangalore","Mangalore"];
+  statelist: any=["Karnataka"];
+  productList: any=[
+    { id:'Ambi_Pur', name: 'Ambi Pur'},
+    { id:'Ariel', name: 'Ariel'},
+    { id:'Head_&_Shoulders', name: 'Head & Shoulders'},
+    { id:'Olay', name: 'Olay'},
+    { id:'Old_Spice', name: 'Old Spice'},
+    { id:'Oral_B', name: 'Oral B'},
+    { id:'Pantene', name: 'Pantene'},
+    { id:'Purex', name: 'Purex'},
+    { id:'Tide', name: 'Tide'},
+    { id:'whisper', name: 'whisper'}
+  ];
+  citylist:any=["Bangalore"];
   country: any= "";
   product: any ="";
   state:any="";
@@ -191,7 +202,7 @@ export class InsReportComponent implements OnInit {
       this.topFour_ByRevenue= data.topFour_ByRevenue;
       this.topFour_ByUnitsSold= data.topFour_ByUnitsSold;
       var profuctslist= data["Data"].map(a => a.Product);
-      this.productList = [...new Set(profuctslist)];
+      // this.productList = [...new Set(profuctslist)];
       var revenuegraphdata:any=[];
       var avgspendgraphdata:any=[];
       var unitsgraphdata:any=[];
@@ -231,7 +242,7 @@ getfilterData(){
       'to':this.endDate,
       'state':this.state,
       'city':this.city,
-      'product':this.product
+      'product': this.product
     };
   this.apiservice.getPosReportData(params).then((data:any) => {
       this.totalAvgCustomerSpend= data.totalAvgCustomerSpend.toFixed(2);

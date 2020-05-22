@@ -5,7 +5,7 @@ import { HomeComponent }   from './home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/intro', pathMatch: 'full' },
+  { path: '', redirectTo: '/ins-counterfeit', pathMatch: 'full' },
   { path: '', component: HomeComponent,
     children: [
       { path: 'intro', loadChildren: () => import('./components/intro/intro.module').then(m => m.IntroModule) },

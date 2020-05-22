@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ApiService } from '../../../shared';
 import { Router } from '@angular/router';
 
@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
   templateUrl: './ins-counterfeit.component.html',
   styleUrls: ['./ins-counterfeit.component.scss']
 })
-export class InsCounterfeitComponent implements OnInit {
+export class InsCounterfeitComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('landingButton') landingButton : ElementRef;
   uploads:boolean = false;
   images:any;
   image:any;
@@ -25,6 +26,7 @@ export class InsCounterfeitComponent implements OnInit {
   responseYN:any;
   selStore: any;
   counterfeit:boolean = true;
+
   product = [
     {id:1,name:"Tide"},
     {id:1,name:"Head & Shoulders"},
@@ -122,10 +124,20 @@ export class InsCounterfeitComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     public router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
+
   }
+  ngAfterViewInit(): void {
+    let isftl = sessionStorage.getItem('isFirstTimeLogin');
+    if ( isftl == 'true' ) {
+      this.landingButton.nativeElement.click();
+      sessionStorage.setItem('isFirstTimeLogin', 'false');
+    }
+  }
+
   navigateTo(path) {
     this.router.navigate([path]);
   }
@@ -182,9 +194,6 @@ export class InsCounterfeitComponent implements OnInit {
     this.uploadedimage = this.selImgObj.path;
     this.estimate1 = false;
     this.estimate2 = true;
-    // this.apiService.getPosReportData({}).then(result => {
-    //   debugger;
-    // });
 
   }
 

@@ -61,8 +61,8 @@
         <label class="header"> Product:  </label>
         <select class="form-control" id="product" [(ngModel)]="product" >
           <option value="">Select Product</option>
-          <option *ngFor='let lev of productList' value="{{lev}}">
-            {{ lev }}
+          <option *ngFor='let lev of productList' value="{{lev.id}}">
+            {{ lev.name }}
           </option>
         </select>
       </div>

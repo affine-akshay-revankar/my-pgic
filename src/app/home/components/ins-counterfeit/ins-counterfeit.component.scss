@@ -170,9 +170,9 @@ margin-bottom: 10px;
 .modal-title{
   color:#172d87;
   font-weight: bold;
-  font-size: 23px;
+  font-size: 20px;
   margin-top: -9px;
-  margin-bottom: -8px;
+  margin-bottom: -16px;
   margin-left: -16px;
 }
 .modal-header{
@@ -182,12 +182,14 @@ margin-bottom: 10px;
 .instore{
   opacity:0.1;
   margin-left: 2px;
-  font-size: 24px;
+  font-size: 20px;
   margin-top: -3px;
 }
+.align-center{
+  margin: 0 auto;
+}
 .cardhorizon{
-  margin-left:10px;
-  margin-right: 10px;
+  margin:5px 0px 20px 0px
 }
 .heading{
   font-weight: bold;
@@ -203,11 +205,14 @@ margin-bottom: 10px;
     padding-right: 13px;
 }
 .test {
-  width: 112px;
+  width: 100px;
   height: 100px;
-  margin-left: 24px;
-  margin-top: 10px;
+  margin-top: 5px;
   background-color: #ededf7;
+}
+.rounded-circle > img {
+  width: 100px;
+  height: 100px;
 }
 .cardcolor{
   background-color: #F0FFF0;
