@@ -131,7 +131,11 @@ export class InsCounterfeitComponent implements OnInit, AfterViewInit {
 
   }
   ngAfterViewInit(): void {
-    this.landingButton.nativeElement.click();
+    let isftl = sessionStorage.getItem('isFirstTimeLogin');
+    if ( isftl == 'true' ) {
+      this.landingButton.nativeElement.click();
+      sessionStorage.setItem('isFirstTimeLogin', 'false');
+    }
   }
 
   navigateTo(path) {
