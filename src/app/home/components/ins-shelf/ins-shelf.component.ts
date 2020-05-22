@@ -7,44 +7,43 @@ import { ApiService } from '../../../shared';
   styleUrls: ['./ins-shelf.component.scss']
 })
 export class InsShelfComponent implements OnInit {
+
   allowControls = false;
-array1={T1:null,T2:null,T3:null,T4:null,T5:null}
-array2={T1:null,T2:null,T3:null,T4:null,T5:null}
+  // tableHeaderTh = ['', 'T1', 'T2'];
+  // tableBodyTr = ['P1', 'P2', 'P3'];
+  // tableBodyTd = [[0, 1], [2, 3], [4, 5]];
+  tableHeaderTh = [''];
+  tableBodyTr = [];
+  tableBodyTd = [];
 
   constructor(
     private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
-    var vid1 = <HTMLVideoElement>document.getElementById("myVideo1");
-    var vid2 = <HTMLVideoElement>document.getElementById("myVideo2");
-    vid1.autoplay = true;
-    vid2.autoplay = true;
     this.apiService.getShelfInventoryData().then(result => {
-      var data=[{"product": "cola", "counts": [4, 3, 3, 2, 2], "timestamps": [2, 4, 6, 8, 10]}, {"product": "maggi", "counts": [4, 3, 3, 2, 2], "timestamps": [2, 4, 6, 8, 10]}]
-      var res2=[];
-      var res1=[];
-      var i=0;
-      var j=0;
-      res1 = data[0]["counts"];
-      res2 = data[1]["counts"];
 
-      var interval = setInterval(() => {
-       this.array1["T"+(i+1)]= res1[i];
-        i +=1;
-        if (i>= res1.length) {
-          clearInterval(interval);
-        }}, 2000 );
+      let vdata = result[0]['data'][0];
+      this.tableHeaderTh.push('0s');
+      this.tableBodyTr = vdata.map(o => o.product);
+      this.tableBodyTd = vdata.map(o => [o.count]);
 
-      var interval1 = setInterval(() => {
-      this.array2["T"+(j+1)]= res2[j]
-        j +=1;
-        if (j>= res2.length) {
-          clearInterval(interval1);
-        }}, 2000 );
+      let i = 0, intId;
+      intId = setInterval(() => {
+        ++i;
+        vdata = result[0]['data'][i];
+        if ( vdata ) {
+          this.tableHeaderTh.push((i * 2) + 's');
+          vdata.forEach((o, i) => {
+            this.tableBodyTd[i].push(o.count);
+          });
+        } else {
+          clearInterval(intId);
+        }
 
-});
+      }, 2000)
 
+    });
   }
 
 }

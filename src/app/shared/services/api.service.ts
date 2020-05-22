@@ -2,18 +2,25 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../../environments/environment';
+
 
 @Injectable()
 export class ApiService {
 
-  baseURL: string = 'http://127.0.0.1:5000';
+  baseURL: string = '';
+  // baseURL: string = 'http://127.0.0.1:5000';
+  // baseURL: string = 'http://3.80.213.87:5000';
+
   private httpOptions: any = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(
     private httpClient: HttpClient
-  ) { }
+  ) {
+    this.baseURL = environment.apiURL;
+  }
 
   checkCounterfeit(data){
     let params = new HttpParams();

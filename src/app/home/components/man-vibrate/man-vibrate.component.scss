@@ -168,8 +168,7 @@ th {
 /* The expanding image container */
  .container1 {
   position: relative;
-    margin-top: 50px;
-
+background-color: white;
 }
 
 /* .chart{
@@ -433,3 +432,9 @@ html, body {height: 100%; min-height: 100%}
     }
 /* center line ends */
 /*search html ends*/
+.audio{
+  border-top: 2px solid #ddd;
+border-left: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-bottom: 2px solid #ddd;
+}

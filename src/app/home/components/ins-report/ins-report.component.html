@@ -42,7 +42,7 @@
     <div class="col-md-3">
       <label class="header"> State:  </label>
         <select class="form-control" id="state" [(ngModel)]="state" >
-          <option value="">Select State</option>
+          <option value="">--Select--</option>
           <option *ngFor='let lev of statelist' value="{{lev}}">
             {{ lev }}
           </option>
@@ -51,7 +51,7 @@
     <div class="col-md-3">
       <label class="header"> City:  </label>
           <select class="form-control" id="city" [(ngModel)]="city" >
-            <option value="">Select City</option>
+            <option value="">--Select--</option>
             <option *ngFor='let lev of citylist' value="{{lev}}">
               {{ lev }}
             </option>
@@ -60,7 +60,7 @@
       <div class="col-md-3">
         <label class="header"> Product:  </label>
         <select class="form-control" id="product" [(ngModel)]="product" >
-          <option value="">Select Product</option>
+          <option value="">--Select--</option>
           <option *ngFor='let lev of productList' value="{{lev}}">
             {{ lev }}
           </option>
@@ -80,7 +80,8 @@
             <span class = "disp_vals golden"> {{totalTransaction}}</span>
           </div>
           <div class="col-md-3">
-            <i class="fa fa-money-check-alt fa-3x golden ip"></i>
+            <img  class="ip"src="./assets/icn_transaction.png">
+            <!-- <i class="fa fa-chart-bar fa-3x golden "></i> -->
           </div>
           </div>
         </div>
@@ -91,10 +92,11 @@
         <div class="row card-body">
           <div class="col-md-9">
             <div class= "title">Total Revenue</div>
-            <span class = "disp_vals purple">  {{totalRevenue}}</span>
+            <span class = "disp_vals purple"> ₹ {{totalRevenue}}</span>
           </div>
           <div class="col-md-3">
-            <i class="fa fa-chart-bar fa-3x purple"></i>
+            <img  class="ip"src="./assets/icn_revenue.png">
+            <!-- <i class="fa fa-money-check-alt fa-3x purple ip"></i> -->
           </div>
         </div>
         </div>
@@ -108,7 +110,8 @@
             <span class = "disp_vals green">  {{totalUnitsSold}}</span>
           </div>
           <div class="col-md-3">
-            <i class="fas fa-industry fa-3x green"></i>
+            <img  class="ip"src="./assets/icn_sold.png">
+            <!-- <i class="fas fa-industry fa-3x green"></i> -->
           </div>
         </div>
         </div>
@@ -120,10 +123,11 @@
         <div class="row card-body">
           <div class="col-md-9">
             <div class= "title">Avg. Customer Spend</div>
-            <span class = "disp_vals blue">  {{totalAvgCustomerSpend}}</span>
+            <span class = "disp_vals blue"> ₹ {{totalAvgCustomerSpend}}</span>
           </div>
           <div class="col-md-3">
-            <i class="fas fa-wallet fa-3x blue"></i>
+            <img  class="ip"src="./assets/icn_spend.png">
+            <!-- <i class="fas fa-wallet fa-3x blue"></i> -->
           </div>
         </div>
         </div>
@@ -155,15 +159,15 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-7">
-          <div class="card">
-          <div class="col-md-12 margin">
+      <div class="setcard row">
+        <!-- <div class="col-md-6"> -->
+
+          <div class="col-md-6  card">
             <label class="aa-field-label1">Top 4 Performing Products</label>
             <br>
             <div class="products row">
 
-              <div class="col-md-6">
+              <div class="col-md-6 cardmar">
                 <div class="pull-right lp"><span>By Quantity Sold </span></div>
                 <table class="table table-bordered cus-table aa-table table1" >
                   <thead class="thead-inverse">
@@ -185,7 +189,7 @@
                 </table>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-6 cardmar">
                 <div class="pull-right"><span>By Revenue </span></div>
                 <table class="table table-bordered cus-table aa-table" >
                   <thead class="thead-inverse">
@@ -208,11 +212,11 @@
               </div>
             </div>
           </div>
-          <div class="col-md-12 margin">
+          <div class="col-md-6 card ">
             <label class="aa-field-label3">Bottom 4 Performing Products</label>
             <br>
             <div class="products row">
-              <div class="col-md-6">
+              <div class="col-md-6 cardmar">
                 <div class="pull-right lp"> <span>By Quantity Sold</span> </div>
                 <table class="table table-bordered cus-table aa-table table1" >
                   <thead class="thead-inverse">
@@ -233,7 +237,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6 cardmar">
                 <div class="pull-right"><span>By Revenue </span></div>
                 <table class="table table-bordered cus-table aa-table" >
                   <thead class="thead-inverse">
@@ -255,13 +259,15 @@
                 </table>
               </div>
             </div>
-          </div>
-        </div>
+
     </div>
-        <div class="col-md-5">
-          <div class="card graph">
-            PRODUCT AFFINITY DIAGRAM
+      </div>
+        <div class="col-md-12 card">
+          <p class="header1">PRODUCT AFFINITY DIAGRAM</p>
+          <hr>
+          <div id="affinity"  (window:resize)="onResize($event)">
+
           </div>
         </div>
-      </div>
+
   </div>

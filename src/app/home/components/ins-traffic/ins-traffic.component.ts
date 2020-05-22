@@ -13,7 +13,10 @@ import { ApiService } from '../../../shared';
   styleUrls: ['./ins-traffic.component.scss']
 })
 export class InsTrafficComponent implements OnInit {
+
+  showConfig: boolean = false;
   highcharts = Highcharts;
+  actIndId: any;
   tableData = [
     // {Time:"T1",Grooming :"0",Frozen:"0",Health:"0",Home:"0",All: "0"}
   ]
@@ -66,13 +69,32 @@ export class InsTrafficComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.videoData.push(this.tableData);
-    Highcharts.chart('treemap1', this.treeMapOptions);
+    // this.videoData.push(this.tableData);
+    // Highcharts.chart('treemap1', this.treeMapOptions);
     this.renderData();
+  }
 
+  playvideodata(){
+    if( this.actIndId ) {
+      clearInterval(this.actIndId)
+    }
+    var name=<HTMLVideoElement>document.getElementById('audio')
+    name.play();
+    var name1=<HTMLVideoElement>document.getElementById('audio2');
+    name1.play();
+    var name2=<HTMLVideoElement>document.getElementById('audio3');
+    name2.play();
+    var name3=<HTMLVideoElement>document.getElementById('audio4');
+    name3.play();
+    this.videoData=[];
+    this.tableData=[];
+    this.treeMapOptions["series"][0].data=[];
+    this.renderData();
   }
 
   renderData(){
+    this.videoData.push(this.tableData);
+    Highcharts.chart('treemap1', this.treeMapOptions);
     this.apiService.getStoreTrafficData().then(result => {
       this.renderUpdatedData(result);
     });
@@ -85,7 +107,7 @@ export class InsTrafficComponent implements OnInit {
     tsLen = tsData.length;
     lts = tsData[tsLen - 1];
     var i=2;
-    intId = setInterval(() => {
+    this.actIndId = setInterval(() => {
 
       tsInd = tsData.indexOf(++seconds);
 
@@ -96,7 +118,7 @@ export class InsTrafficComponent implements OnInit {
         b = data["Frozen Food"][tsInd];
         c = data["Personal Health Care"][tsInd];
         d = data["Checkout"][tsInd];
-        t = `${i}s`;
+        t = `${seconds}s`;
         let sortdata=[]
         sortdata.push(a);
         sortdata.push(b);
@@ -142,9 +164,14 @@ export class InsTrafficComponent implements OnInit {
         i=i+2;
       }
       if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
-        clearInterval(intId);
+        clearInterval(this.actIndId);
+
       }
     }, 1000);
+  }
+
+  toggleConfig(){
+    this.showConfig = !this.showConfig;
   }
 
 }

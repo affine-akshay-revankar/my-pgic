@@ -28,7 +28,7 @@ def show_details(input_start_date,input_end_date,input_state,input_city,input_pr
                 input_dict[index] = list(data[index].unique())
                 continue
             else:
-                input_dict[index] = value.split()
+                input_dict[index] = value.split(',')
                 continue
         else:
             if(len(value) == 0 and index == 'input_start_date'):
@@ -95,4 +95,4 @@ def show_details(input_start_date,input_end_date,input_state,input_city,input_pr
 
     return master_dict
 
-# print(show_details('2020-05-01','2020-05-10','Karnataka','Bangalore','Tide', r'PG_Global_Hackathon_Mockup_v5_1.xlsx'))
+# print(show_details('2020-05-01','2020-05-10','Karnataka','Bangalore','Ambi Pur', r'PG_Global_Hackathon_Mockup_v5_1.xlsx'))
