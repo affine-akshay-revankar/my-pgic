@@ -64,26 +64,31 @@ export class InsTrafficComponent implements OnInit {
     private apiService: ApiService,
     private router: Router
   ) {
-    this.showConfig = false;
   }
 
   ngOnInit(): void {
 
-    this.showConfig = false;
-    this.renderData();
-
+    // this.videoData.push(this.tableData);
+    // Highcharts.chart('treemap1', this.treeMapOptions);
+    // this.renderData();
+    this.playvideodata();
   }
-  // playData(){
-  //   var name=<HTMLVideoElement>document.getElementById('audio')
-  //   name.play();
-  //   var name1=<HTMLVideoElement>document.getElementById('audio2');
-  //   name1.play();
-  //   var name2=<HTMLVideoElement>document.getElementById('audio3');
-  //   name2.play();
-  //   var name3=<HTMLVideoElement>document.getElementById('audio4');
-  //   name3.play();
-  //   this.renderData();
-  // }
+
+  playvideodata(){
+    var name=<HTMLVideoElement>document.getElementById('audio')
+    name.play();
+    var name1=<HTMLVideoElement>document.getElementById('audio2');
+    name1.play();
+    var name2=<HTMLVideoElement>document.getElementById('audio3');
+    name2.play();
+    var name3=<HTMLVideoElement>document.getElementById('audio4');
+    name3.play();
+    this.videoData=[];
+    this.tableData=[];
+    this.treeMapOptions["series"][0].data=[];
+    this.renderData();
+  }
+
   renderData(){
     this.videoData.push(this.tableData);
     Highcharts.chart('treemap1', this.treeMapOptions);
@@ -157,6 +162,7 @@ export class InsTrafficComponent implements OnInit {
       }
       if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
         clearInterval(intId);
+
       }
     }, 1000);
   }

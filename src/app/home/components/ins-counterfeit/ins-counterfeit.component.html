@@ -52,9 +52,9 @@
         <p class="choosegallery font-weight-bold">or Choose from Gallery</p>
         <div class="row images">
           <div *ngFor="let item of filterdata; let i = index;">
-            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? 'active' : null" (click)="selectimage(i)">
+            <img src="{{item.path}}" class="img-thumbnail" id="myImg" alt="{{item.name}}" [ngClass]="i == selImgInd ? (item.state == 'Fake'? 'fake': 'active') : null" (click)="selectimage(i)">
           </div>
-        
+
           <div class="col-md-12" width="100%" style="margin: 0;padding: 0 11px 0 7px;">
             <div>
               <p class="load">Loading images may take some time</p>
