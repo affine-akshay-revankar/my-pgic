@@ -80,6 +80,7 @@ export class InsTrafficComponent implements OnInit {
     name2.play();
     var name3=<HTMLVideoElement>document.getElementById('audio4');
     name3.play();
+    this.videoData=[];
     this.renderData();
   }
   renderData(){
@@ -155,6 +156,7 @@ export class InsTrafficComponent implements OnInit {
       }
       if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
         clearInterval(intId);
+
       }
     }, 1000);
   }
