@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../shared';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ins-counterfeit',
@@ -23,7 +24,7 @@ export class InsCounterfeitComponent implements OnInit {
   responseText: any;
   responseYN:any;
   selStore: any;
-
+  counterfeit:boolean = true;
   product = [
     {id:1,name:"Tide"},
     {id:1,name:"Head & Shoulders"},
@@ -119,10 +120,14 @@ export class InsCounterfeitComponent implements OnInit {
 }
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
+  }
+  navigateTo(path) {
+    this.router.navigate([path]);
   }
 
   selectproduct(product){
