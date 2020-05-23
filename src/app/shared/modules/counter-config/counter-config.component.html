@@ -42,17 +42,17 @@
     <div class="col-md-4">
       <div class="card">
         <div class="names" [hidden]="hideSlider">
-          <p class="real {{labelQ1Top}}">{{labelQ1Top}}</p>
-          <p class="fake {{labelQ2Top}}">{{labelQ2Top}}</p>
-          <p class="secondreal {{labelQ2Right}}">{{labelQ2Right}}</p>
+          <p class="real {{customClass}}">{{labelQ1Top}}</p>
+          <p class="fake {{customClass}}">{{labelQ2Top}}</p>
+          <p class="secondreal {{customClass}}">{{labelQ2Right}}</p>
         </div>
-        <div class="row bigbox" [hidden]="hideSlider">
+        <div class="row bigbox {{customClass}}" [hidden]="hideSlider">
           <div class="boxes"></div>
           <div class="boxes"></div>
           <div class="boxes"></div>
           <div class="boxes"></div>
         </div>
-        <p class="secondfake {{labelQ3Right}}" [hidden]="hideSlider">{{labelQ3Right}}</p>
+        <p class="secondfake {{customClass}}" [hidden]="hideSlider">{{labelQ3Right}}</p>
         <p class="predicted" [hidden]="hideSlider">Predicted</p>
         <p class="actual" [hidden]="hideSlider">Actual</p>
         <hr class="secondhorizon" [hidden]="hideSlider">

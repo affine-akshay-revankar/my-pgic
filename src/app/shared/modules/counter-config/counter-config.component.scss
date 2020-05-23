@@ -130,12 +130,46 @@
       font-size: 12px;
         font-weight: 500;
     }
+    .anomalies.real {
+        margin-top: 39px;
+        margin-left: 63px;
+        margin-bottom: 0;
+        display: inline;
+        float: left;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .defective.real {
+        margin-top: 39px;
+        margin-left: 63px;
+        margin-bottom: 0;
+        display: inline;
+        float: left;
+        font-size: 12px;
+        font-weight: 500;
+    }
     .fake{
       margin-left: 122px;
       margin-top:39px;
       float:left;
       font-size: 12px;
       font-weight: 500;
+    }
+    .anomalies.fake {
+        margin-left: 88px;
+        margin-top: 39px;
+        margin-bottom: 0;
+        float: left;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .defective.fake {
+        margin-left: 88px;
+        margin-top: 39px;
+        margin-bottom: 0;
+        float: left;
+        font-size: 12px;
+        font-weight: 500;
     }
     @media screen and (min-width: 768px) {
       .secondreal{
@@ -145,6 +179,26 @@
         font-size: 12px;
         font-weight: 500;
       }
+      .anomalies.secondreal {
+        margin-top: 83px;
+        margin-left: 270px;
+        margin-bottom: 0;
+        transform: rotate(90deg);
+        font-size: 12px;
+        font-weight: 500;
+        height: 44px;
+        width: 79px;
+      }
+      .defective.secondreal {
+        margin-top: 83px;
+        margin-left: 270px;
+        margin-bottom: 0;
+        transform: rotate(90deg);
+        font-size: 12px;
+        font-weight: 500;
+        height: 44px;
+        width: 79px;
+      }
       .bigbox{
         width: 85%;
         margin-left: 24px;
@@ -152,12 +206,42 @@
         font-size: 12px;
         font-weight: 500;
       }
+      .anomalies.bigbox {
+          width: 85%;
+          margin-left: 24px;
+          margin-top: -77px;
+          font-size: 12px;
+          font-weight: 500;
+      }
+      .defective.bigbox {
+          width: 85%;
+          margin-left: 24px;
+          margin-top: -77px;
+          font-size: 12px;
+          font-weight: 500;
+      }
       .secondfake{
         margin-left: 295px;
         margin-top: -46px;
         transform: rotate(90deg);
         font-size: 12px;
         font-weight: 500;
+      }
+      .anomalies.secondfake {
+          margin-left: 293px;
+          margin-top: -51px;
+          transform: rotate(90deg);
+          font-size: 12px;
+          font-weight: 500;
+          width: 60px;
+      }
+      .defective.secondfake {
+          margin-left: 293px;
+          margin-top: -51px;
+          transform: rotate(90deg);
+          font-size: 12px;
+          font-weight: 500;
+          width: 60px;
       }
       .actual{
         transform: rotate(90deg);
@@ -184,7 +268,7 @@
     .experiment{
       padding-left: 12px;
       color: white;
-      background-color: #7476c1;
+      background-color: #8a8a8a;
       font-size: 14px;
       padding-top: 2px;
     }

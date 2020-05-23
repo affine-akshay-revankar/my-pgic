@@ -91,6 +91,8 @@ export class CounterConfigComponent implements OnInit {
   hideDeployForm: boolean = true;
   hideQuadBoxes: boolean = false;
 
+  customClass: string = "";
+
   constructor(
     private router: Router
   ) { }
@@ -138,6 +140,8 @@ export class CounterConfigComponent implements OnInit {
       this.labelQ2Right = "No Anomalies";
       this.labelQ3Right = "Anomalies";
 
+      this.customClass = "anomalies";
+
     } else if ( this.router.url == '/man-vibrate' || this.router.url == '/man-vibrate-multi' ) {
       this.label3 = 'Upload Images of Products in Ideal State';
       this.label4 = 'Upload Images of Defective Products';
@@ -146,6 +150,8 @@ export class CounterConfigComponent implements OnInit {
       this.labelQ2Top = "Defective";
       this.labelQ2Right = "No Defective";
       this.labelQ3Right = "Defective";
+
+      this.customClass = "defective";
 
     }
 
