@@ -15,6 +15,8 @@ export class InsShelfComponent implements OnInit {
   tableHeaderTh = ['Product'];
   tableBodyTr = [];
   tableBodyTd = [];
+  showConfig: boolean = false;
+
 
   constructor(
     private apiService: ApiService
@@ -44,6 +46,9 @@ export class InsShelfComponent implements OnInit {
       }, 2000)
 
     });
+  }
+  toggleConfig(){
+    this.showConfig = !this.showConfig;
   }
 
 }
