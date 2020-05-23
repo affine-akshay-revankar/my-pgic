@@ -302,6 +302,11 @@
     #data .secondtd{
       text-align: right;
     }
+    #data .secondtd.view {
+      text-decoration: underline;
+      color: #172d86;
+      text-align: center;
+    }
     #data .firstth{
       padding-right: 30px;
     }
