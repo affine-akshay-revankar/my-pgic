@@ -7,10 +7,14 @@
 .table {
   margin: 0;
   width: 90%;
+  td {
+    font-size: 12px;
+  }
 }
 .video1 {
   padding: 0px 10px 10px 10px;
   height: 302px;
+  margin: 0 0 5px 0;
 }
 .text {
   color: darkblue;
