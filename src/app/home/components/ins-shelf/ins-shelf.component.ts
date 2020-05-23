@@ -16,6 +16,7 @@ export class InsShelfComponent implements OnInit {
   tableBodyTr = [];
   tableBodyTd = [];
   showConfig: boolean = false;
+  stopvideo:boolean= false;
 
 
   constructor(
@@ -23,30 +24,64 @@ export class InsShelfComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.apiService.getShelfInventoryData().then(result => {
+    var playId = setInterval(() => {
+  var name=<HTMLVideoElement>document.getElementById('myVideo1')
+  if(name.currentTime>0){
+  clearInterval(playId);
+    this.renderdata();
 
-      let vdata = result[0]['data'][0];
-      this.tableHeaderTh.push('0s');
-      this.tableBodyTr = vdata.map(o => o.product);
-      this.tableBodyTd = vdata.map(o => [o.count]);
+} }, 1000);
 
-      let i = 0, intId;
-      intId = setInterval(() => {
-        ++i;
-        vdata = result[0]['data'][i];
-        if ( vdata ) {
-          this.tableHeaderTh.push((i * 2) + 's');
-          vdata.forEach((o, i) => {
-            this.tableBodyTd[i].push(o.count);
-          });
-        } else {
-          clearInterval(intId);
-        }
 
-      }, 2000)
 
-    });
   }
+  renderdata(){
+
+        this.apiService.getShelfInventoryData().then(result => {
+
+          let vdata = result[0]['data'][0];
+          this.tableHeaderTh.push('0s');
+          this.tableBodyTr = vdata.map(o => o.product);
+          this.tableBodyTd = vdata.map(o => [o.count]);
+
+          let i = 0, intId;
+          intId = setInterval(() => {
+            ++i;
+            vdata = result[0]['data'][i];
+            if ( vdata  && this.stopvideo == false) {
+              this.tableHeaderTh.push((i * 2) + 's');
+              vdata.forEach((o, i) => {
+                this.tableBodyTd[i].push(o.count);
+              });
+            } else {
+
+              clearInterval(intId);
+
+          }
+
+          }, 2000)
+
+        });
+  }
+  videoEnded(){
+    console.log("ended");
+  }
+  playPause(){
+  var name=<HTMLVideoElement>document.getElementById('myVideo1')
+  if (name.paused) {
+    name.currentTime = 0;
+    name.play();
+    this.stopvideo = false;
+    this.tableHeaderTh=[];
+this.tableHeaderTh = ['Product'];
+    this.renderdata();
+  }
+else {
+name.pause();
+    this.stopvideo = true;
+
+}
+}
   toggleConfig(){
     this.showConfig = !this.showConfig;
   }
