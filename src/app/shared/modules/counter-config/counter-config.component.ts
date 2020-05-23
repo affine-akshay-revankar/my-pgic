@@ -11,66 +11,66 @@ export class CounterConfigComponent implements OnInit {
   modeldata = [
     {
       "modelname":"Test1",
-      "metdata":"SeeJson",
+      "metdata": "view",
       "source":"0.971"
     },
     {
       "modelname":"Test2",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.97"
     },
     {
       "modelname":"Test3",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.972"
     },
     {
       "modelname":"Test4",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.1"
     },
     {
       "modelname":"Test5",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.9"
     },
     {
       "modelname":"Test6",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.9"
     },
     {
       "modelname":"Test7",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.971"
     },
     {
       "modelname":"Test8",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.971"
     },
     {
       "modelname":"Test9",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.971"
     },
     {
       "modelname":"Test10",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.971"
     },
     {
       "modelname":"Test11",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.971"
     },
     {
       "modelname":"Test12",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.971"
     },{
       "modelname":"Test13",
-      "metdata":"SeeJson",
+      "metdata":"view",
       "source":"0.971"
     }
   ]
@@ -155,6 +155,10 @@ export class CounterConfigComponent implements OnInit {
 
     }
 
+  }
+
+  get3Decimals(val) {
+    return parseFloat(val).toFixed(3);
   }
 
 }
