@@ -68,14 +68,15 @@ hr{
 .img-thumbnail {
   cursor: pointer;
   width: 100%;
-  height: 128px;
+  height: 101px;
   margin: 0 0 12px 0;
 }
 .secondcard {
   margin-bottom: 20px;
 }
 .label{
-    padding-left: 10px;;
+  margin-top: 2px;
+  padding-left: 10px;
 }
 .text{
 // margin-left: 10px;
@@ -88,9 +89,9 @@ margin-right:10px;
 margin-bottom: 10px;
 }
 .detect{
-    background-color:darkblue;
-    color:white;
-    margin: 5px 0 20px 0;
+  background-color: darkblue;
+  color: white;
+  margin: 1px 0 12px 0;
 }
 .path{
     margin:14px;

@@ -1,7 +1,7 @@
 <div class="container section traffic-container">
     <h5 class="text">
       IN-STORE TRAFFIC MONITORING
-      <i class="fa fa-info-circle info-icon"></i>
+      <i class="fa fa-info-circle info-icon" title="Summary of traffic across different store section using CCTV feeds"></i>
       <i class="fa config-icon" [ngClass]="showConfig ? 'active' : null" (click)="toggleConfig()">Config</i>
     </h5>
     <hr>
@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <div class="card video">
                 <h6 class="textheader">In Store Video Feed</h6>
-                <button class="btn btn-primary btn-sm offset-md-10 pull-right" [hidden]="!allowPlay" (click)="playvideodata()">Play</button>
+                <button class="btn btn-primary btn-sm offset-md-10 pull-right" (click)="playvideodata()">Play</button>
                 <hr>
                 <div class="row videos">
                     <div class="col-md-6">
@@ -52,7 +52,7 @@
             </div>
             <div class="row padding">
                 <div class="card trafficgraph col-12">
-                    <h6 class="textheader">Traffic Intensity By Time</h6>
+                    <h6 class="textheader">Traffic Intensity Across Store By Time</h6>
                     <hr>
                     <div class="">
                         <div class="table-container table-responsive-sm">
@@ -64,7 +64,7 @@
                                         <th class="header">Frozen Food</th>
                                         <th class="header">Health Care</th>
                                         <th class="header">Home care</th>
-                                        <th class="header">All</th>
+                                        <th class="header">Total Traffic</th>
                                     </tr>
                                 </thead>
                                 <tbody>
