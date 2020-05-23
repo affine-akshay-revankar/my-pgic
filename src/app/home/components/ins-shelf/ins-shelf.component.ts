@@ -24,8 +24,16 @@ export class InsShelfComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    var playId = setInterval(() => {
+  var name=<HTMLVideoElement>document.getElementById('myVideo1')
+  if(name.currentTime>0){
+  clearInterval(playId);
+    this.renderdata();
 
-  this.renderdata();
+} }, 1000);
+
+
+
   }
   renderdata(){
 
