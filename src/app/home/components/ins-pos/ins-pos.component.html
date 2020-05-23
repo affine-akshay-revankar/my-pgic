@@ -3,7 +3,7 @@
     <div class="col-auto mr-auto sub-header">
       <h5 class="text1">
         ESTIMATING POS THROUGHPUT
-        <i class="fa fa-info-circle info-icon"></i>
+        <i class="fa fa-info-circle info-icon" title="Estimation of PoS throughput by digitizing PoS receipts to gain insights into product affinity & fast & slow-moving products"></i>
       </h5>
     </div>
     <div class="col-auto sub-header buttons align-self-end">
@@ -21,7 +21,7 @@
 
     <div class="col-md-4">
       <div class="card secondcard">
-        <p class="header">Select Source Image</p>
+        <p class="header">Select an Image</p>
         <hr>
         <p class="uploadtext font-weight-bold">Upload an Image</p>
         <div class="card uploadcard">
@@ -94,7 +94,7 @@
             </div>
               </div>
             <div class="col-md-3">
-              <div class="form-group">  <label class="label-text">Cost</label>  </div>
+              <div class="form-group">  <label class="label-text">Price</label>  </div>
               <div class="form-group" *ngFor="let cost of response.ItemCost">
                 <input type="text" class="form-control" value="{{cost}}" required readonly>
               </div>

@@ -52,10 +52,10 @@ hr{
 }
 .img-thumbnail {
   cursor: pointer;
-  width: 140px;
-  height: 112px;
-  margin-bottom: 10px;
-  margin-left: 6px;
+    width: 101px;
+    height: 87px;
+    margin-bottom: 10px;
+    margin-left: 6px;
 }
 .secondcard {
   margin-bottom: 20px;
@@ -73,7 +73,7 @@ margin-bottom: 10px;
   background-color: darkblue;
   color: white;
   width: 100%;
-  margin: 5px 0px 15px 0px;
+  margin: -6px 0px 9px 0px;
 }
 .path{
   margin: 14px 0 0;
@@ -163,6 +163,9 @@ margin-bottom: 10px;
     font-size: 14px;
     font-weight: bold;
 }
+.thirdcard{
+  height: 437px;
+}
 
 
 
@@ -244,6 +247,7 @@ margin-bottom: 10px;
 
 .load{
   padding-left: 5px;
-  padding-top:10px;
+  padding-top: 10px;
   font-size: 10px;
+  margin-top: -8px;
 }
