@@ -1,19 +1,24 @@
-<div class="container section">
+<div class="container section ins-rep">
   <div class="row">
     <div class="col-auto mr-auto sub-header">
-      <h5 class="text1">ESTIMATING POS THROUGHPUT</h5>
+      <h5 class="text1">
+        ESTIMATING POS THROUGHPUT
+        <i class="fa fa-info-circle info-icon" title="Estimation of PoS throughput by digitizing PoS receipts to gain insights into product affinity & fast & slow-moving products"></i>
+      </h5>
     </div>
     <div class="col-auto sub-header buttons align-self-end">
       <button class="btn btn-sm upload" routerLink="/ins-pos">UPLOAD</button>
-      <button class="btn btn-sm reports">REPORTS</button>
-      <i class="fa fa-cogs config-icon"></i>
+      <button class="btn btn-sm reports" routerLink="/ins-report">REPORTS</button>
+      <!-- <i class="fa fa-cogs config-icon"></i> -->
+      <i class="fa config-icon" [ngClass]="showConfig ? 'active' : null" (click)="toggleConfig()">Config</i>
+
     </div>
   </div>
   <hr class="bighorizon">
 </div>
 
 
-<div class="container">
+<div class="container" *ngIf="!showConfig">
   <div class="selectmenu jumbotron">
     <div class="row dropdowns">
     <div class="col-md-3">
@@ -61,13 +66,13 @@
         <label class="header"> Product:  </label>
         <select class="form-control" id="product" [(ngModel)]="product" >
           <option value="">--Select--</option>
-          <option *ngFor='let lev of productList' value="{{lev}}">
-            {{ lev }}
+          <option *ngFor='let lev of productList' value="{{lev.id}}">
+            {{ lev.name }}
           </option>
         </select>
       </div>
-      <div class="col-md-2 offset-md-10">
-        <button class="btn btn-default affineblue"  (click)="getfilterData()">Apply</button>
+      <div class="col-12 ">
+        <button class="btn btn-default affineblue" style="float: right;" (click)="getfilterData()">Apply</button>
       </div>
       </div>
     </div>
@@ -76,7 +81,7 @@
         <div class="card">
         <div class="row card-body">
           <div class="col-md-9">
-            <div class= "title">Total Transaction</div>
+            <div class= "title">Total Transactions</div>
             <span class = "disp_vals golden"> {{totalTransaction}}</span>
           </div>
           <div class="col-md-3">
@@ -262,7 +267,7 @@
 
     </div>
       </div>
-        <div class="col-md-12 card">
+        <div class="col-md-12 card chartsection">
           <p class="header1">PRODUCT AFFINITY DIAGRAM</p>
           <hr>
           <div id="affinity"  (window:resize)="onResize($event)">
@@ -271,3 +276,5 @@
         </div>
 
   </div>
+
+  <app-counter-config *ngIf="showConfig"></app-counter-config>

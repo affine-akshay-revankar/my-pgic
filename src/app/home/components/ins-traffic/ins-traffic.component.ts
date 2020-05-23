@@ -17,6 +17,8 @@ export class InsTrafficComponent implements OnInit {
   showConfig: boolean = false;
   highcharts = Highcharts;
   actIndId: any;
+  allowPlay: boolean = false;
+  stopvideo:boolean= false;
   tableData = [
     // {Time:"T1",Grooming :"0",Frozen:"0",Health:"0",Home:"0",All: "0"}
   ]
@@ -71,13 +73,39 @@ export class InsTrafficComponent implements OnInit {
 
     // this.videoData.push(this.tableData);
     // Highcharts.chart('treemap1', this.treeMapOptions);
-    this.renderData();
-  }
+    // this.renderData();
+    var playId = setInterval(() => {
+    var name=<HTMLVideoElement>document.getElementById('audio')
 
+    var name1=<HTMLVideoElement>document.getElementById('audio2');
+    var name2=<HTMLVideoElement>document.getElementById('audio3');
+    var name3=<HTMLVideoElement>document.getElementById('audio4');
+  if(name.currentTime>0 && name1.currentTime>0 && name2.currentTime>0 && name3.currentTime>0){
+    clearInterval(playId);
+    this.renderData();
+
+} }, 1000);
+}
+
+  // playvideodata(){
+  //   if( this.actIndId ) {
+  //     clearInterval(this.actIndId);
+  //     this.allowPlay = faplayvideodatalse;
+  //   }
+  //   var name=<HTMLVideoElement>document.getElementById('audio')
+  //   name.play();
+  //   var name1=<HTMLVideoElement>document.getElementById('audio2');
+  //   name1.play();
+  //   var name2=<HTMLVideoElement>document.getElementById('audio3');
+  //   name2.play();
+  //   var name3=<HTMLVideoElement>document.getElementById('audio4');
+  //   name3.play();
+  //   this.videoData=[];
+  //   this.tableData=[];
+  //   this.treeMapOptions["series"][0].data=[];
+  //   this.renderData();
+  // }
   playvideodata(){
-    if( this.actIndId ) {
-      clearInterval(this.actIndId)
-    }
     var name=<HTMLVideoElement>document.getElementById('audio')
     name.play();
     var name1=<HTMLVideoElement>document.getElementById('audio2');
@@ -85,12 +113,32 @@ export class InsTrafficComponent implements OnInit {
     var name2=<HTMLVideoElement>document.getElementById('audio3');
     name2.play();
     var name3=<HTMLVideoElement>document.getElementById('audio4');
+  if (name.paused ||name1.paused || name2.paused || name3.paused) {
+    name.currentTime = 0;
+    name.play();
+    name1.currentTime = 0;
+    name1.play();
+    name2.currentTime = 0;
+    name2.play();
+    name3.currentTime = 0;
     name3.play();
+    this.stopvideo = false;
     this.videoData=[];
     this.tableData=[];
     this.treeMapOptions["series"][0].data=[];
+    clearInterval(this.actIndId);
     this.renderData();
   }
+else {
+name.pause();
+name1.pause();
+name2.pause();
+name3.pause();
+    this.stopvideo = true;
+      this.tableData=[];
+
+}
+}
 
   renderData(){
     this.videoData.push(this.tableData);
@@ -108,6 +156,8 @@ export class InsTrafficComponent implements OnInit {
     lts = tsData[tsLen - 1];
     var i=2;
     this.actIndId = setInterval(() => {
+if (data && this.stopvideo == false){
+      // this.allowPlay = false;
 
       tsInd = tsData.indexOf(++seconds);
 
@@ -164,9 +214,12 @@ export class InsTrafficComponent implements OnInit {
         i=i+2;
       }
       if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
+        seconds = 0;
+        tsInd=0;
         clearInterval(this.actIndId);
-
+        // this.allowPlay = true;
       }
+    }
     }, 1000);
   }
 

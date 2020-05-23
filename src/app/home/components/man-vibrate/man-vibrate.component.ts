@@ -30,6 +30,7 @@ export class ManVibrateComponent implements OnInit {
   path:boolean = false;
   success:boolean = false;
   chooseFile:boolean = true;
+  showConfig: boolean = false;
   myaudio:any;
   selImgInd: number = -1;
   selImgObj: any;
@@ -205,6 +206,9 @@ export class ManVibrateComponent implements OnInit {
           });
           this.stop= false;
 
+}
+toggleConfig(){
+  this.showConfig = !this.showConfig;
 }
 
 

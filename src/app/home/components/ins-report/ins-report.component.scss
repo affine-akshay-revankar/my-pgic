@@ -1,6 +1,9 @@
-.container {
+.container.ins-rep {
   .sub-header {
     color: #172d87;
+    .config-icon {
+      margin: 8px 10px 0 0;
+    }
   }
   .text1 {
     margin: 10px 0 0 !important;
@@ -31,10 +34,10 @@
   hr {
     margin: 6px 0 10px 0;
   }
-  .config-icon {
-    margin: 10px 10px 0px 0;
-    padding: 0;
-  }
+  // .config-icon {
+  //   margin: 8px 10px 0px 0 !important;
+  //   // padding: 0;
+  // }
   .card.source img {
     min-height: 297px;
     padding: 0 10px 10px;
@@ -46,7 +49,7 @@
 $sky-blue : #24AEE4;
 
 .text1 {
-  color: darkblue;
+  color: #172d86;
   font-weight:bold;
   margin-top:30px;
 }
@@ -86,7 +89,7 @@ $sky-blue : #24AEE4;
     border: none !important;
 }
 .affineblue{
-  background-color: darkblue;
+  background-color: #172d86;
   color: white;
   padding-left: 36px;
   padding-right: 36px;
@@ -245,6 +248,7 @@ text-align: center;
   background-color:#D3D3D3
 }
 
+.chartsection {
 .node {
   font: 100 12px "Arial", Helvetica, Arial, sans-serif;
   fill: #7C7C53 ;
@@ -293,6 +297,8 @@ text-align: center;
 .link--source2 {
   stroke: #E18700;
 }
+}
+
 .title{
   font-size: 12px
 }

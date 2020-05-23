@@ -28,6 +28,7 @@ export class ManVibrateMultiComponent implements OnInit {
   success:boolean = false;
   stop:boolean = false;
   chooseFile:boolean = true;
+  showConfig: boolean = false;
   myaudio:any;
   selImgInd: number = -1;
   selImgObj: any;
@@ -213,6 +214,8 @@ export class ManVibrateMultiComponent implements OnInit {
         this.stop= false;
 
   }
-
+  toggleConfig(){
+    this.showConfig = !this.showConfig;
+  }
 
   }

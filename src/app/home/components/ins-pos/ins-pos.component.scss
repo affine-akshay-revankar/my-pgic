@@ -1,7 +1,11 @@
-.container {
+.container.ins-pos {
   .sub-header {
     color: #172d87;
+    .config-icon {
+      margin: 8px 10px 0 0;
+    }
   }
+
   .text1 {
     margin: 10px 0 0 !important;
     font-size: 16px;
@@ -31,12 +35,13 @@
   hr {
     margin: 6px 0 10px 0;
   }
-  .config-icon {
-    margin: 10px 10px 0px 0;
-    padding: 0;
-  }
+  // .config-icon {
+  //   margin: 8px 10px 0px 0 !important;
+  //   // padding: 0;
+  //   // width: 16%;
+  // }
   .card.source img {
-    min-height: 297px;
+    min-height: 337px;
     padding: 0 10px 10px;
   }
   .card.result {
@@ -44,6 +49,9 @@
   }
 }
 
+.card.source {
+  min-height: 404px;
+}
 .reports {
   margin-left: 10px;
 }
@@ -88,7 +96,7 @@
     margin-top: 20px;
   }
   .text {
-    color: darkblue;
+    color: #172d86;
     font-weight: bold;
   }
   .horizontal {
@@ -222,7 +230,7 @@
     margin-left: -8px;
     margin-bottom: 35px;
     width: 100%;
-    background-color: darkblue;
+    background-color: #172d87;
   }
   .bighorizon {
     margin-top:0px;
@@ -313,7 +321,7 @@
   margin-left: -8px;
   margin-bottom: 10px;
   width: 100%;
-  background-color: darkblue;
+  background-color: #172d87;
 }
 .bighorizon {
   margin-top: 0px;

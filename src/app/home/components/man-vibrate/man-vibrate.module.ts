@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ManVibrateRoutingModule } from './man-vibrate-routing.module';
 import { ManVibrateComponent } from './man-vibrate.component';
+import { CounterConfigModule } from '../../../shared';
+
 
 
 @NgModule({
@@ -11,7 +13,8 @@ import { ManVibrateComponent } from './man-vibrate.component';
   ],
   imports: [
     CommonModule,
-    ManVibrateRoutingModule
+    ManVibrateRoutingModule,
+    CounterConfigModule
   ]
 })
 export class ManVibrateModule { }

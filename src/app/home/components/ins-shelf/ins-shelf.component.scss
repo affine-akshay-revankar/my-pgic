@@ -1,17 +1,27 @@
-.table-container {
-  overflow: auto;
-    margin: 0 10px 10px 10px;
+.card {
+  min-height: 365px;
 }
+
+.container{
+  .table-container {
+  overflow: auto;
+    margin: 0 10px 30px 10px;
+}
+
 .table {
   margin: 0;
   width: 90%;
+  td {
+    font-size: 12px;
+  }
 }
 .video1 {
   padding: 0px 10px 10px 10px;
   height: 302px;
+  margin: 0 0 5px 0;
 }
 .text {
-  color: darkblue;
+  color: #172d86;
   font-weight: bold;
   margin-top:30px;
 }
@@ -58,4 +68,11 @@ th {
 .horizon {
   margin-left: 10px;
   margin-right: 10px;
+}
+.pull-right{
+  margin-top: -25px;
+  margin-right: 10px;
+  background: darkblue;
+  text-align: center;
+}
 }

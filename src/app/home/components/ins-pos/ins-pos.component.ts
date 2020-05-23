@@ -16,6 +16,8 @@ export class InsPosComponent implements OnInit {
   path:boolean = false;
   success:boolean = false;
   chooseFile:boolean = true;
+  showConfig: boolean = false;
+
   imagesList = [
     {
       "id":1,
@@ -103,4 +105,7 @@ export class InsPosComponent implements OnInit {
     this.uploadedimage = uploadpath+"_OCR"+uploadformat;
   }
 
+  toggleConfig(){
+    this.showConfig = !this.showConfig;
+  }
 }

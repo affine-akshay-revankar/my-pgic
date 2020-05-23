@@ -2,6 +2,9 @@
 .container {
   .sub-header {
     color: #172d87;
+    .config-icon {
+      margin: 8px 10px 0 0;
+    }
   }
   .text1 {
     margin: 10px 0 0 !important;
@@ -32,10 +35,10 @@
   hr {
     margin: 6px 0 10px 0;
   }
-  .config-icon {
-    margin: 10px 10px 0px 0;
-    padding: 0;
-  }
+  // .config-icon {
+  //   margin: 8px 10px 0px 0 !important;
+  //   // padding: 0;
+  // }
   .card.source img {
     min-height: 297px;
     padding: 0 10px 10px;
@@ -45,7 +48,7 @@
   }
 }
 .text1 {
-  color: darkblue;
+  color: #172d86;
   font-weight: bold;
   margin-top:30px;
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ManCorrosionRoutingModule } from './man-corrosion-routing.module';
 import { ManCorrosionComponent } from './man-corrosion.component';
+import { CounterConfigModule } from '../../../shared';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { ManCorrosionComponent } from './man-corrosion.component';
   ],
   imports: [
     CommonModule,
-    ManCorrosionRoutingModule
+    ManCorrosionRoutingModule,
+    CounterConfigModule
   ]
 })
 export class ManCorrosionModule { }

@@ -21,6 +21,7 @@ noData(Highcharts);
   selector: 'app-ins-report',
   templateUrl: './ins-report.component.html',
   styleUrls: ['./ins-report.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class InsReportComponent implements OnInit {
 
@@ -55,6 +56,8 @@ export class InsReportComponent implements OnInit {
   bottomFour_ByUnitsSold:any;
   topFour_ByRevenue:any;
   topFour_ByUnitsSold:any;
+  showConfig: boolean = false;
+
 
   public revenueoptions: any = {
       chart: {
@@ -410,21 +413,39 @@ var link = svg.append("g").selectAll(".link"),
 
 function mouseovered(d) {
  node
-      .each(function(n) { n.target = n.source = false; });
 
-      // nodes.style('fill', "#B8B8B8")
+      .each(function(n) { n.target = n.source = false; })
+
+      // node.style('font-weight','700')
        d3.select(this).style('fill', '#0000FF')
+
   link
-	  .classed("link--source2", function(l) { if (l.source === d  && l.value==1 ) return l.target.target = true; })
-	  .classed("link--source", function(l) { if (l.source === d  && l.value==0 ) return l.target.target = true; })
+	  // .classed("link--source2", function(l) { if (l.source === d  && l.value==1 ) return l.target.target = true; })
+    .style("stroke-width", function(l) { if (l.source === d  && l.value==1 ) return l.target.target = true?"2px":"1px" })
+    .style("stroke-opacity", function(l) { if (l.source === d  && l.value==1 ) return l.target.target = true?"0.5":".05" })
+    .style("stroke-width", function(l) { if (l.source === d  && l.value==0 ) return l.target.target = true?"2px":"1px" })
+    .style("stroke-opacity", function(l) { if (l.source === d  && l.value==0 ) return l.target.target = true?"0.5":".05" })
+    .style("stroke", function(l) { if (l.source === d  && l.value==1 ) return l.target.target = true?"#E18700":"#4682b4" })
+    .style("stroke", function(l) { if (l.source === d  && l.value==0 ) return l.target.target = true?"#2ca02c":"#4682b4" })
+
+	  // .classed("link--source", function(l) { if (l.source === d  && l.value==0 ) return l.target.target = true; })
 	  .each(function() { this.parentNode.appendChild(this); });
     // d3.select(this).style('stroke', '#2ca02c')
 
 
 
   node
-      .classed("node--source", function(n) { return n.source; })
-      .classed("node--target", function(n) { return n.target; });
+
+  .style('font-weight',function(n) { return  n.source  ?'700':'100'})
+
+  .style("fill", function(n) { return n.source? "#0000FF": '#7C7C53'})
+  .style("font-size", function(n) { return n.source? "15px": "12px"})
+  .style("fill", function(n) { return n.target? "#000": '#7C7C53'})
+  .style("font-size", function(n) { return n.target? "15px": "12px"})
+
+      // .classed("node--source", function(n) { return n.source; })
+      // .classed("node--target", function(n) { return n.target; });
+
 
 
 }
@@ -433,16 +454,22 @@ function mouseouted(d) {
   d3.select(this).style('fill', '#7C7C53')
 
   link
-      .classed("link--target", false)
-      .classed("link--source", false)
-	  .classed("link--source2", false)
-	  .classed("link--source3", false);
+    //   .classed("link--target", false)
+    //   .classed("link--source", false)
+	  // .classed("link--source2", false)
+	  // .classed("link--source3", false)
+    .style("stroke-width", "1px" )
+    .style("stroke","#4682b4" )
+    .style("stroke-opacity", ".05")
+    .style("fill", "none")
 
   node
-      .classed("node--target", false)
-	  .classed("node--source", false)
-	  .classed("node--target2", false)
-      .classed("node--target3", false);
+    //   .classed("node--target", false)
+	  // .classed("node--source", false)
+	  // .classed("node--target2", false)
+    //   .classed("node--target3", false)
+      .style("fill", "#7C7C53")
+      .style("font-size", "12px")
       // d3.select(this).style('stroke', "#4682b4")
 }
 
@@ -492,6 +519,9 @@ function packageImports(nodes) {
   return imports;
 
 }
+}
+toggleConfig(){
+  this.showConfig = !this.showConfig;
 }
 
 }

@@ -1,6 +1,6 @@
 .traffic-container {
   .text {
-    color: darkblue;
+    color: #172d86;
     font-weight: bold;
     margin-top: 30px;
   }
@@ -34,6 +34,11 @@
     }
   }
 
+  // .config-icon {
+  //   margin: -4px 10px 0px 0 !important;
+  //   // padding: 0;
+  //   // width: 16%;
+  // }
   table {
     margin: 0 auto;
     width: 96%;
@@ -51,9 +56,9 @@
     margin-bottom: 11px;
   }
   .trafficgraph {
-      min-height: 206px;
-  }
-  
+    min-height: 229px;
+    }
+
 }
 .load{
   padding-left: 7px;
@@ -62,9 +67,9 @@
 }
 .pull-right{
   margin-top: -25px;
-  background: darkblue;
+  background: #172d86;
+  text-align: center;
 }
 button{
   width: 16%;
 }
-
