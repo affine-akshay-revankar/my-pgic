@@ -4,6 +4,8 @@ import { FormsModule  } from '@angular/forms';
 import { InsReportRoutingModule } from './ins-report-routing.module';
 import { InsReportComponent } from './ins-report.component';
 
+import { CounterConfigModule } from '../../../shared';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { InsReportComponent } from './ins-report.component';
   imports: [
     CommonModule,
     InsReportRoutingModule,
-    FormsModule
+    FormsModule,
+    CounterConfigModule
   ],
 
 })

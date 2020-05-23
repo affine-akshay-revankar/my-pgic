@@ -10,13 +10,14 @@
       <button class="btn btn-sm upload">UPLOAD</button>
       <button class="btn btn-sm reports" routerLink="/ins-report">REPORTS</button>
       <!-- <i class="fa fa-cogs config-icon"></i> -->
-      <i class="fa config-icon">Config</i>
+      <i class="fa config-icon" [ngClass]="showConfig ? 'active' : null" (click)="toggleConfig()">Config</i>
+      <!-- <i class="fa config-icon">Config</i> -->
     </div>
   </div>
   <hr class="bighorizon">
 </div>
 
-<div class="container">
+<div class="container"*ngIf="!showConfig">
   <div class="row">
 
     <div class="col-md-4">
@@ -109,3 +110,6 @@
     </div>
   </div>
 </div>
+
+
+<app-counter-config *ngIf="showConfig"></app-counter-config>

@@ -1,7 +1,15 @@
-.table-container {
+.container{
+  .table-container {
   overflow: auto;
     margin: 0 10px 10px 10px;
 }
+
+  .config-icon {
+    margin: -25px 10px 0px 0 !important;
+    // padding: 0;
+    // width: 16%;
+  }
+
 .table {
   margin: 0;
   width: 90%;
@@ -58,4 +66,5 @@ th {
 .horizon {
   margin-left: 10px;
   margin-right: 10px;
+}
 }

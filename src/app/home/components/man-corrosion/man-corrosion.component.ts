@@ -16,6 +16,8 @@ export class ManCorrosionComponent implements OnInit {
   path:boolean = false;
   success:boolean = false;
   chooseFile:boolean = true;
+  showConfig: boolean = false;
+
 
   selImgInd: number = -1;
   selImgObj: any;
@@ -128,6 +130,9 @@ export class ManCorrosionComponent implements OnInit {
 
     }
 
+  }
+  toggleConfig(){
+    this.showConfig = !this.showConfig;
   }
 
 }

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { ManVibrateMultiRoutingModule } from './man-vibrate-multi-routing.module';
 import { ManVibrateMultiComponent } from './man-vibrate-multi.component';
+import { CounterConfigModule } from '../../../shared';
 
 
 @NgModule({
   declarations: [ManVibrateMultiComponent],
   imports: [
     CommonModule,
-    ManVibrateMultiRoutingModule
+    ManVibrateMultiRoutingModule,
+    CounterConfigModule
   ]
 })
 export class ManVibrateMultiModule { }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InsPosRoutingModule } from './ins-pos-routing.module';
 import { InsPosComponent } from './ins-pos.component';
+import { CounterConfigModule } from '../../../shared';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { InsPosComponent } from './ins-pos.component';
   ],
   imports: [
     CommonModule,
-    InsPosRoutingModule
+    InsPosRoutingModule,
+    CounterConfigModule
   ]
 })
 export class InsPosModule { }
