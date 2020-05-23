@@ -1,6 +1,5 @@
-
 .text {
-    color:darkblue;
+    color:#172d86;
     font-weight: bold;
 }
 .header {
@@ -10,11 +9,6 @@
   margin-left: 10px;
   padding-left: 5px;
 }
-// .config-icon {
-//   margin: -5px 10px 0px 0 !important;
-//   // padding: 0;
-//   // width: 16%;
-// }
 .uploadtext{
   padding-left: 15px;
   margin-bottom: 5px;
@@ -28,7 +22,7 @@
   background-color: #f1f1f1;
 }
 hr{
-    color:darkblue;
+    color:#172d86;
 }
 .select {
     height: 114px;
@@ -89,14 +83,14 @@ margin-right:10px;
 margin-bottom: 10px;
 }
 .detect{
-  background-color: "#172d87";
+  background-color: #172d87;
   color: white;
   margin: 1px 0 12px 0;
 }
 button:disabled,
 button[disabled]{
   .detect{
-    background-color: "#172d87";
+    background-color: #172d87;
     color: white;
     margin: 1px 0 12px 0;
   }

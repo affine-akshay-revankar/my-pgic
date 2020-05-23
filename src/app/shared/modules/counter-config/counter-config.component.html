@@ -13,49 +13,66 @@
             <input type="text" class="form-control textname" required readonly>
           </div>
           <div class="form-group group buttonwrapper">
-            <label class="labelname">Upload Images of Real Product</label>
+            <label class="labelname">{{label3}}</label>
             <input type="text" class="form-control textname" required readonly>
             <button class=" btn btn-primary go pull-right btn-sm">Upload</button>
           </div>
-          <div class="form-group group">
-            <label class="labelname">Upload Images of Fake Product</label>
+          <div class="form-group group" [hidden]="hideField4">
+            <label class="labelname">{{label4}}</label>
             <input type="text" class="form-control textname" required readonly>
             <button class=" btn btn-primary go pull-right btn-sm">Upload</button>
           </div>
-          <div class="form-group group">
-            <label class="labelname1">Select Product</label>
+          <div class="form-group group" [hidden]="hideField5">
+            <label class="labelname1">{{label5}}</label>
             <input type="text" class="form-control textname" required readonly>
           </div>
           <div class="form-group group">
-            <label class="labelname">Select Model Type</label>
+            <label class="labelname">{{label6}}</label>
             <input type="text" class="form-control textname" required readonly>
           </div>
-          <div class="form-group">
+          <div class="form-group" [hidden]="hideSlider">
             <label class="labelname2">Adjust Test Statergy</label>
             <br>
             <input type="range" min="1" max="100" value="50" class="slider" id="myinput">
           </div>
-          <button class="btn btn-primary col-md-12 train">TRAIN</button>
+          <button class="btn btn-primary col-md-12 train">{{label8}}</button>
         </form>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card">
-        <div class="names">
-          <p class="real">Real</p>
-          <p class="fake">Fake</p>
-          <p class="secondreal">Real</p>
+        <div class="names" [hidden]="hideSlider">
+          <p class="real {{customClass}}">{{labelQ1Top}}</p>
+          <p class="fake {{customClass}}">{{labelQ2Top}}</p>
+          <p class="secondreal {{customClass}}">{{labelQ2Right}}</p>
         </div>
-        <div class="row bigbox">
+        <div class="row bigbox {{customClass}}" [hidden]="hideSlider">
           <div class="boxes"></div>
           <div class="boxes"></div>
           <div class="boxes"></div>
           <div class="boxes"></div>
         </div>
-        <p class="secondfake">Fake</p>
-        <p class="predicted">Predicted</p>
-        <p class="actual">Actual</p>
-        <hr class="secondhorizon">
+        <p class="secondfake {{customClass}}" [hidden]="hideSlider">{{labelQ3Right}}</p>
+        <p class="predicted" [hidden]="hideSlider">Predicted</p>
+        <p class="actual" [hidden]="hideSlider">Actual</p>
+        <hr class="secondhorizon" [hidden]="hideSlider">
+
+        <form [hidden]="hideDeployForm">
+          <label class="header">Deployment</label>
+          <hr class="horizon">
+          <div class="form-group">
+            <label class="labelname2">Enter Model Name</label>
+            <input type="text" class="form-control textnameend" required readonly>
+          </div>
+          <div class="form-group">
+            <label class="labelname2">Enter Video Path</label>
+            <input type="text" class="form-control textnameend" required readonly>
+          </div>
+          <button class="btn btn-primary col-md-12 deploy">EXTRACT INFO</button>
+          <br>
+          <hr class="horizon">
+        </form>
+
         <form>
           <div class="form-group">
             <label class="labelname2">Enter End Points</label>
