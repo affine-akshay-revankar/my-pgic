@@ -12,7 +12,7 @@ export class InsShelfComponent implements OnInit {
   // tableHeaderTh = ['', 'T1', 'T2'];
   // tableBodyTr = ['P1', 'P2', 'P3'];
   // tableBodyTd = [[0, 1], [2, 3], [4, 5]];
-  tableHeaderTh = [''];
+  tableHeaderTh = ['Product'];
   tableBodyTr = [];
   tableBodyTd = [];
 
