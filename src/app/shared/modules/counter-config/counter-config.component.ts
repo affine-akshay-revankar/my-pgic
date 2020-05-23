@@ -88,6 +88,7 @@ export class CounterConfigComponent implements OnInit {
   hideField4: boolean = false;
   hideField5: boolean = true;
   hideSlider: boolean = false;
+  hideDeployForm: boolean = true;
   hideQuadBoxes: boolean = false;
 
   constructor(
@@ -126,6 +127,7 @@ export class CounterConfigComponent implements OnInit {
 
       this.hideSlider = true;
       this.hideField5 = false;
+      this.hideDeployForm = false;
 
     } else if ( this.router.url == '/man-corrosion' ) {
       this.label3 = 'Upload Audio Files From Machines in Ideal State';

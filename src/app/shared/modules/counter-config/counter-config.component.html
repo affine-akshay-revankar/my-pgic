@@ -56,6 +56,23 @@
         <p class="predicted" [hidden]="hideSlider">Predicted</p>
         <p class="actual" [hidden]="hideSlider">Actual</p>
         <hr class="secondhorizon" [hidden]="hideSlider">
+
+        <form [hidden]="hideDeployForm">
+          <label class="header">Deployment</label>
+          <hr class="horizon">
+          <div class="form-group">
+            <label class="labelname2">Enter Model Name</label>
+            <input type="text" class="form-control textnameend" required readonly>
+          </div>
+          <div class="form-group">
+            <label class="labelname2">Enter Video Path</label>
+            <input type="text" class="form-control textnameend" required readonly>
+          </div>
+          <button class="btn btn-primary col-md-12 deploy">EXTRACT INFO</button>
+          <br>
+          <hr class="horizon">
+        </form>
+
         <form>
           <div class="form-group">
             <label class="labelname2">Enter End Points</label>
