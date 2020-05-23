@@ -17,6 +17,7 @@ export class InsTrafficComponent implements OnInit {
   showConfig: boolean = false;
   highcharts = Highcharts;
   actIndId: any;
+  allowPlay: boolean = false;
   tableData = [
     // {Time:"T1",Grooming :"0",Frozen:"0",Health:"0",Home:"0",All: "0"}
   ]
@@ -76,7 +77,8 @@ export class InsTrafficComponent implements OnInit {
 
   playvideodata(){
     if( this.actIndId ) {
-      clearInterval(this.actIndId)
+      clearInterval(this.actIndId);
+      this.allowPlay = false;
     }
     var name=<HTMLVideoElement>document.getElementById('audio')
     name.play();
@@ -108,6 +110,8 @@ export class InsTrafficComponent implements OnInit {
     lts = tsData[tsLen - 1];
     var i=2;
     this.actIndId = setInterval(() => {
+
+      this.allowPlay = false;
 
       tsInd = tsData.indexOf(++seconds);
 
@@ -165,7 +169,7 @@ export class InsTrafficComponent implements OnInit {
       }
       if ( seconds >= lts || this.router.url !== '/ins-traffic' ) {
         clearInterval(this.actIndId);
-
+        this.allowPlay = true;
       }
     }, 1000);
   }
