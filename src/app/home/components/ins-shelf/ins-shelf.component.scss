@@ -1,3 +1,7 @@
+.card {
+  min-height: 365px;
+}
+
 .container{
   .table-container {
   overflow: auto;
@@ -67,6 +71,7 @@ th {
 }
 .pull-right{
   margin-top: -25px;
+  margin-right: 10px;
   background: darkblue;
   text-align: center;
 }
