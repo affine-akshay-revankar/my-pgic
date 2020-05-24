@@ -21,7 +21,11 @@ export class LoginComponent implements OnInit {
 
   onLoggedin(model){
 
-    if( model?.username && model?.password && model.username == 'admin' && model.password == 'admin@affine' ) {
+    if(
+      model?.username && model?.password &&
+      model.username == 'admin' && model.password == 'admin@affine' &&
+      model.username == 'guest' && model.password == 'welcome2guest'
+    ) {
       sessionStorage.setItem('isLoggedin', 'true');
       sessionStorage.setItem('isFirstTimeLogin', 'true');
       this.router.navigate(['/ins-counterfeit']);
