@@ -118,8 +118,8 @@
   <tbody>
     <tr *ngFor="let item of modeldata">
       <td>{{item.modelname}}</td>
-      <td class="secondtd">{{item.metdata}}</td>
-      <td class="secondtd">{{item.source}}</td>
+      <td class="secondtd view">{{item.metdata}}</td>
+      <td class="secondtd">{{get3Decimals(item.source)}}</td>
     </tr>
   </tbody>
 </table>
